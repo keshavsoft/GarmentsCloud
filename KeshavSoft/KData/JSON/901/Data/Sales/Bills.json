@@ -1,1 +1,4 @@
-{"POS":{"1":{"pk":"","BillNumber":"16","Date":"2023-03-15"},"2":{"pk":"","BillNumber":"17","Date":"2023-03-01","InvGrid":{}}}}
+{
+    "POS":{},
+    "BillsQrCode": {}
+}

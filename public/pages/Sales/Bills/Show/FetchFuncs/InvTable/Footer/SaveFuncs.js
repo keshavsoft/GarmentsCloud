@@ -1,12 +1,15 @@
 import { ReturnRowPK } from "../../../urlSearchParams.js";
 
 let PreparePostData = () => {
-    let jVarLocalItemNameId = document.getElementById("ItemsDataListId");
+    let jVarLocalItemNameId = document.getElementById("ItemsDataList");
     let jVarLocalRateId = document.getElementById("RateId1");
-    let jVarLocalQty = document.getElementById("QtyId1");
+    // let jVarLocalQty = document.getElementById("QtyId1");
     let jVarLocalSno = document.getElementById("Snoid");
     let jVarLocalQrCode = document.getElementById("QrCode");
 
+    let jVarLocalRowPK = ReturnRowPK().RowPK;
+
+    console.log("jVarLocalRowPK-------:", jVarLocalRowPK);
     let jVarLocalReturnData = {};
     jVarLocalReturnData.ItemName = jVarLocalItemNameId.value;
 
@@ -14,9 +17,9 @@ let PreparePostData = () => {
         jVarLocalReturnData.UnitRate = parseInt(jVarLocalRateId.value);
     };
 
-    if (!(jVarLocalQty === null)) {
-        jVarLocalReturnData.Qty = parseInt(jVarLocalQty.value);
-    };
+    // if (!(jVarLocalQty === null)) {
+    //     jVarLocalReturnData.Qty = parseInt(jVarLocalQty.value);
+    // };
 
     if (!(jVarLocalSno === null)) {
         jVarLocalReturnData.sno = parseInt(jVarLocalSno.value);
@@ -26,12 +29,13 @@ let PreparePostData = () => {
         jVarLocalReturnData.Barcode = jVarLocalQrCode.value;
     };
 
-    //jVarLocalReturnData.GST = jVarLocalGSTId.value;
+
+    jVarLocalReturnData.BillPk = jVarLocalRowPK;
 
     return jVarLocalReturnData;
 };
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+let StartFunc1 = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
         let jVarLocalRowPK = ReturnRowPK().RowPK;
@@ -40,7 +44,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
         let inFetchPostData = {
             FileNameOnly: inFileName,
             FolderName: inFolderName,
-            ItemName: inItemName,
+            ItemName: "BillsQrCode",
             JsonPk: jVarLocalRowPK,
             ScreenName: "Create",
             SubTableKey: "InvGrid"
@@ -61,6 +65,82 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
         LocalReturnObject.KTF = data.KTF;
+
+        LocalReturnObject.KTF = true;
+        return await LocalReturnObject;
+
+    } catch (error) {
+        console.log("error:", error);
+    }
+
+};
+let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+    try {
+        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+        //  jVarLocalRowPK = 2;
+
+        let inFetchPostData = {
+            FileNameOnly: inFileName,
+            FolderName: inFolderName,
+            ItemName: "BillsQrCode",
+            ScreenName: "Create"
+        };
+
+        inFetchPostData.inPostData = PreparePostData();
+        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/Insert`;
+
+        // let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert`;
+
+        let jVarLocalFetchHeaders = {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(inFetchPostData)
+        };
+
+        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const data = await response.json();
+        LocalReturnObject.KTF = data.KTF;
+
+        LocalReturnObject.KTF = true;
+        return await LocalReturnObject;
+
+    } catch (error) {
+        console.log("error:", error);
+    }
+
+};
+
+let StartFunc2 = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+    try {
+        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+
+        let inFetchPostData = {
+            FolderName: inFolderName,
+            FileNameOnly: inFileName,
+            ItemName: inItemName,
+            ScreenName: "Create"
+        };
+
+        inFetchPostData.inPostData = PreparePostDataStartFunc();
+
+        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/Insert`;
+
+        let jVarLocalFetchHeaders = {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(inFetchPostData)
+        };
+
+        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const data = await response.json();
+
+        //   LocalAfterSaveFunc({ inFetchPostData: data });
 
         LocalReturnObject.KTF = true;
         return await LocalReturnObject;
