@@ -17,9 +17,11 @@ let PreparePostData = () => {
         jVarLocalReturnData.UnitRate = parseInt(jVarLocalRateId.value);
     };
 
-    // if (!(jVarLocalQty === null)) {
-    //     jVarLocalReturnData.Qty = parseInt(jVarLocalQty.value);
-    // };
+    if (!(jVarLocalQrCode === null)) {
+        let localpk = parseInt((jVarLocalQrCode.value).substring(2));
+
+        jVarLocalReturnData.pk = localpk;
+    };
 
     if (!(jVarLocalSno === null)) {
         jVarLocalReturnData.sno = parseInt(jVarLocalSno.value);
@@ -87,7 +89,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
         };
 
         inFetchPostData.inPostData = PreparePostData();
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/Insert`;
+        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithPk`;
 
         // let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert`;
 
