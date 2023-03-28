@@ -1,14 +1,14 @@
-let CommonFromPushData = require("../../PushData/FromFolderFileItemNameWithpk");
-let CommonFromPullData = require("../../PullData/FromFolderFileItemName");
+let CommonFromPushData = require("./FromFolderFileItemNameWithpk");
+let CommonFromPullData = require("../PullData/FromFolderFileItemName");
 
-let StartFunc = async ({ inFolderName, inFileNameOnly, inItemName, inScreenName, inDataPK, inDataToInsert }) => {
+let StartFunc = async ({ inFolderName, inFileNameOnly, inItemName, inDataPK, inDataToInsert }) => {
 
     const LocalDataObject = (({ pk }) => ({ pk }))(inDataToInsert)
 
     let LocalinFolderName = inFolderName;
     let LocalinFileNameOnly = inFileNameOnly;
     let LocalinItemName = inItemName;
-    let LocalScreenName = inScreenName;
+
     let localpk = LocalDataObject.pk
 
     let LocalinDataPK = inDataPK;
@@ -25,9 +25,8 @@ let StartFunc = async ({ inFolderName, inFileNameOnly, inItemName, inScreenName,
         LocalReturnData.KReason = LocalFromCommonFromPullData.KReason;
         return await LocalReturnData;
     };
-    let LocalNewData = JSON.parse(JSON.stringify(LocalFromCommonFromPullData.JsonData));
 
-    // console.log("localData",LocalNewData);
+    let LocalNewData = JSON.parse(JSON.stringify(LocalFromCommonFromPullData.JsonData));
 
     if (localpk in LocalNewData) {
         LocalReturnData.KReason = `${localpk} Already Found !`;
@@ -41,11 +40,11 @@ let StartFunc = async ({ inFolderName, inFileNameOnly, inItemName, inScreenName,
             inFolderName: LocalinFolderName,
             inFileNameOnly: LocalinFileNameOnly,
             inItemName: LocalinItemName,
-            inpk:localpk,
+            inpk: localpk,
             inDataToInsert: inDataToInsert,
             inDataPK: LocalinDataPK
-        })
-
+        });
+        
         if (LocalFromCommonFromPushDataToFile.KTF === false) {
             LocalReturnData.KReason = LocalFromCommonFromPushDataToFile.KReason;
             return await LocalReturnData;
