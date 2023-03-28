@@ -1,18 +1,15 @@
-let CommonFromPushData = require("../../PushData/FromFolderFileItemName");
-
-let CommonFromServerSideChecks = require("../ServerSideChecks/CheckBeforeSave");
+let CommonFromPushData = require("../../PushData/FromFolderFileItemNameWithpk");
 let CommonFromPullData = require("../../PullData/FromFolderFileItemName");
-let CommonFromConfigFolder = require("../../../../../../ConfigFolder/UserFolder/UserFileAsFolder/DisplayJsonFile/ItemName/ScreenName/TableColumns/PullData/AsArray");
-let CommonObjectToSave = require("../../../../../../ConfigFolder/UserFolder/UserFileAsFolder/DisplayJsonFile/ItemName/ScreenName/TableColumns/PullData/ObjectToSave");
 
 let StartFunc = async ({ inFolderName, inFileNameOnly, inItemName, inScreenName, inDataPK, inDataToInsert }) => {
-    //console.log("kkkkkkkkkkkkkkkkkkkkk",inDataToInsert);
+
     const LocalDataObject = (({ pk }) => ({ pk }))(inDataToInsert)
 
     let LocalinFolderName = inFolderName;
     let LocalinFileNameOnly = inFileNameOnly;
     let LocalinItemName = inItemName;
     let LocalScreenName = inScreenName;
+    let localpk = LocalDataObject.pk
 
     let LocalinDataPK = inDataPK;
     let LocalReturnData = { KTF: false, DirPath: "", CreatedLog: {} };
@@ -28,62 +25,34 @@ let StartFunc = async ({ inFolderName, inFileNameOnly, inItemName, inScreenName,
         LocalReturnData.KReason = LocalFromCommonFromPullData.KReason;
         return await LocalReturnData;
     };
+    let LocalNewData = JSON.parse(JSON.stringify(LocalFromCommonFromPullData.JsonData));
 
-    let LocalFromCommonFromConfigFolder = await CommonFromConfigFolder.StartFunc({
-        inFolderName: LocalinFolderName,
-        inFileNameWithExtension: `${LocalinFileNameOnly}.json`,
-        inItemName: LocalinItemName,
-        inScreenName: LocalScreenName,
-        inDataPK: LocalinDataPK
-    });
+    // console.log("localData",LocalNewData);
 
-    if (LocalFromCommonFromConfigFolder.KTF === false) {
-        LocalReturnData.KReason = LocalFromCommonFromConfigFolder.KReason;
+    if (localpk in LocalNewData) {
+        LocalReturnData.KReason = `${localpk} Already Found !`;
+
         return await LocalReturnData;
     };
 
-    let LocalFromCheck = await CommonFromServerSideChecks.ServerSideCheckAsync({
-        inItemName: LocalinItemName,
-        inUserData: LocalFromCommonFromPullData.JsonData,
-        inConfigTableColumns: LocalFromCommonFromConfigFolder.JsonData,
-        inDataPK: LocalinDataPK,
-        inObjectToInsert: inDataToInsert
-    });
+    if ((localpk in LocalNewData) === false) {
 
-    if (LocalFromCheck.KTF === false) {
-        LocalReturnData.KReason = LocalFromCheck.KReason;
-        return await LocalReturnData;
+        let LocalFromCommonFromPushDataToFile = await CommonFromPushData.StartFunc({
+            inFolderName: LocalinFolderName,
+            inFileNameOnly: LocalinFileNameOnly,
+            inItemName: LocalinItemName,
+            inpk:localpk,
+            inDataToInsert: inDataToInsert,
+            inDataPK: LocalinDataPK
+        })
+
+        if (LocalFromCommonFromPushDataToFile.KTF === false) {
+            LocalReturnData.KReason = LocalFromCommonFromPushDataToFile.KReason;
+            return await LocalReturnData;
+        };
+
+        LocalReturnData.KTF = true;
     };
-
-    let LocalObjectToSaveFromConfig = await CommonObjectToSave.StartFunc({
-        inFolderName: LocalinFolderName,
-        inFileNameWithExtension: `${LocalinFileNameOnly}.json`,
-        inItemName: LocalinItemName,
-        inScreenName: LocalScreenName,
-        inDataPK: LocalinDataPK
-    });
-
-    if (LocalObjectToSaveFromConfig.KTF === false) {
-        LocalReturnData.KReason = LocalObjectToSaveFromConfig.KReason;
-        return await LocalReturnData;
-    };
-
-    let LocalObjectToSave = { ...LocalObjectToSaveFromConfig.JsonData, ...inDataToInsert };
-    //console.log("ssssssss : ", inDataToInsert, LocalObjectToSave);
-    let LocalFromCommonFromPushDataToFile = await CommonFromPushData.StartFunc({
-        inFolderName: LocalinFolderName,
-        inFileNameOnly: LocalinFileNameOnly,
-        inItemName: LocalinItemName,
-        inDataToInsert: LocalObjectToSave,
-        inDataPK: LocalinDataPK
-    })
-
-    if (LocalFromCommonFromPushDataToFile.KTF === false) {
-        LocalReturnData.KReason = LocalFromCommonFromPushDataToFile.KReason;
-        return await LocalReturnData;
-    };
-
-    LocalReturnData.KTF = true;
 
     return await LocalReturnData;
 };
