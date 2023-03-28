@@ -27,9 +27,9 @@ let StartFunc = ({ inFolderName, inFileNameOnly, inItemName, inDataPK, inJsonPk 
 
     LocalReturnData.JsonData = LocalFromCommonFromCheck.JsonData[inJsonPk];
     LocalReturnData.JsonData.pk = inJsonPk;
-
+    
     LocalReturnData.KTF = true;
-    console.log("LocalReturnData : ", LocalReturnData);
+
     return LocalReturnData;
 };
 

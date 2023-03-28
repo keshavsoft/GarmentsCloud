@@ -1,8 +1,11 @@
-let CommonFromUserFolder = require("../../UserFolder/getDirectories");
-let CommonFromgetDirectories = require("../../getDirectories");
+let CommonFromUserFolder = require("../../../UserFolder/getDirectories");
+
+let CommonFromgetDirectories = require("../../../getDirectories");
 let _ = require("lodash");
 
+
 let AsObject = async ({ inDataPK }) => {
+    console.log("inDataPK--",inDataPK);
     let LocalDataPK = inDataPK;
     let LocalReturnObject = {};
     LocalReturnObject.Folders = {};
@@ -35,27 +38,19 @@ let AsObject = async ({ inDataPK }) => {
 
                         Object.entries(ItemValue.Screens).forEach(
                             ([ScreenKey, ScreenValue]) => {
+
                                 LoopInsideFile.Files[FileKey].Items[ItemKey].Screens[ScreenKey] = JSON.parse(JSON.stringify(ScreenValue));
-                                LoopInsideFile.Files[FileKey].Items[ItemKey].Screens[ScreenKey].TableInfoObject = {
-                                    ColumnReOrder: ScreenValue.TableInfo.ColumnReOrder,
-                                    ShowFooter: ScreenValue.TableInfo.ShowFooter,
-                                    DataAttributesFromTableInfo: ScreenValue.TableInfo.DataAttributesFromTableInfo,
-                                    DataAttributesFromTableDataRow: ScreenValue.TableInfo.DataAttributesFromTableDataRow
-                                };
 
-                                delete LoopInsideFile.Files[FileKey].Items[ItemKey].Screens[ScreenKey].SubTableColumns;
-                                delete LoopInsideFile.Files[FileKey].Items[ItemKey].Screens[ScreenKey].TableColumnsObject;
-                                delete LoopInsideFile.Files[FileKey].Items[ItemKey].Screens[ScreenKey].TableInfo;
-
-                                // Object.entries(ScreenValue.TableColumnsObject).forEach(
-                                //     ([ColumnKey, ColumnValue]) => {
-                                //         LoopInsideFile.Files[FileKey].Items[ItemKey].Screens[ScreenKey].TableColumnsObject[ColumnKey] = {
-                                //             ColumnReOrder: ColumnValue.ColumnReOrder,
-                                //             DataAttributesFromTableInfo:ColumnValue.DataAttributesFromTableInfo,
-                                //             DataAttributesFromTableDataRow:ColumnValue.FilesDataAttributesFromTableDataRow
-                                //         };
-                                //     }
-                                // );
+                                Object.entries(ScreenValue.TableColumnsObject).forEach(
+                                    ([ColumnKey, ColumnValue]) => {
+                                        LoopInsideFile.Files[FileKey].Items[ItemKey].Screens[ScreenKey].TableColumnsObject[ColumnKey] = {
+                                            DataAttribute: ColumnValue.DataAttribute,
+                                            DisplayName: ColumnValue.DisplayName,
+                                            DefaultValue:ColumnValue.DefaultValue,
+                                            TextAlign:ColumnValue.TextAlign
+                                        };
+                                    }
+                                );
                             }
                         );
                     }
@@ -74,11 +69,11 @@ let AsObject = async ({ inDataPK }) => {
 
     return await LocalReturnObject;
 };
-
 let LocalMockFunc = async () => {
-    let LocalData = await AsObject({ inDataPK: 901 });
+    let LocalData = await AsObject({ inDataPK: 1024 });
+    //  console.log("LocalData : ", LocalData.Folders.Transactions.Files.Items);
 };
 
-//LocalMockFunc().then();
+// LocalMockFunc().then();
 
 module.exports = { AsObject };
