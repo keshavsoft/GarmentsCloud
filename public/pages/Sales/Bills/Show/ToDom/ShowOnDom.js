@@ -16,22 +16,24 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
     });
 
     if (jVarLocalData.KTF) {
+        let localpk = jVarLocalData.JsonData.pk
         jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
-        // await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
-    };
-    let jVarLocalDataToShow = await FetchFuncForBillsQrCode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: jVarLocalRowPk.RowPK,
-        inProjectName
-    });
-    if (jVarLocalDataToShow.KTF) {
-        let localBillpk = jVarLocalRowPk.RowPK
-        let localdata = jVarLocalDataToShow.JsonData
-        
-        const localArray = localdata.filter(localdata => { });
 
+        await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
+        let jVarLocalDataToShow = await FetchFuncForBillsQrCode({
+            inFolderName,
+            inFileName,
+            inItemName,
+            inRowPK: jVarLocalRowPk.RowPK,
+            inProjectName
+        });
+
+        if (jVarLocalDataToShow.KTF) {
+            let localdata = jVarLocalDataToShow.JsonData
+            let filteredArray = localdata.filter(item => item.pk === localpk);
+
+            await InvGridStartFunc({ inData: filteredArray });
+        };
     };
 };
 
@@ -41,7 +43,7 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
     let jVarLocalDateId = document.getElementById("DateId");
 
     if (jVarLocalVoucherNameId !== null) {
-        jVarLocalVoucherNameId.innerHTML = inData.VoucherName;
+        jVarLocalVoucherNameId.innerHTML = inData.Date;
     };
     if (jVarLocalBillNumberId !== null) {
         jVarLocalBillNumberId.innerHTML = inData.BillNumber;
@@ -51,7 +53,6 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
         jVarLocalDateId.innerHTML = inData.Date;
     };
 
-    await InvGridStartFunc({ inData });
     await ShowSuccessFunc({ inShowSuccess });
 };
 
