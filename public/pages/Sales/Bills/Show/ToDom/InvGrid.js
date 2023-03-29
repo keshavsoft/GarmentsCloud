@@ -12,7 +12,7 @@ let ShowOnDomTableBody = async ({ inData }) => {
         jVarLocalTableBodyId.innerHTML = "";
         var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
 
-        Object.entries(inData.InvGrid).forEach(
+        Object.entries(inData).forEach(
             ([key, value]) => {
                 value.pk = key;
                 value.FK = inData.pk;
