@@ -3,6 +3,7 @@ let StartFunc = () => {
     let jVarLocalHtmlSupplierNameSelectId = document.getElementById(jVarLocalSupplierNameSelectId);
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
+    let jVarLocalAliasName = document.getElementById("AliasNameId");
     let jVarLocalReturnData = {};
 
     if ((jVarLocalHtmlSupplierNameSelectId === null) === false) {
@@ -12,6 +13,7 @@ let StartFunc = () => {
 
     jVarLocalReturnData.BillNumber = jVarLocalBillNumberId.value;
     jVarLocalReturnData.Date = jVarLocalDateId.value;
+    jVarLocalReturnData.AliasName = jVarLocalAliasName.value;
 
     jVarLocalCommonPrepareObjectAsNumber({
         inData: jVarLocalReturnData,

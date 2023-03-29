@@ -3,6 +3,7 @@ let StartFunc = () => {
     let jVarLocalCityId = document.getElementById("CityId");
     let jVarLocalGSTId = document.getElementById("GSTId");
     let jVarLocalPhoneId= document.getElementById("PhoneId");
+    let jVarLocalAliasName= document.getElementById("AliasNameId");
     
 
     let jVarLocalReturnData = {};
@@ -10,6 +11,7 @@ let StartFunc = () => {
     jVarLocalReturnData.City = jVarLocalCityId.value;
     jVarLocalReturnData.GST = jVarLocalGSTId.value;
     jVarLocalReturnData.Phone = jVarLocalPhoneId.value;
+    jVarLocalReturnData.AliasName = jVarLocalAliasName.value;
 
     return jVarLocalReturnData;
 };

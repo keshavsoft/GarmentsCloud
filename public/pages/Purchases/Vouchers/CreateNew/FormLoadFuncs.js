@@ -1,14 +1,23 @@
 //import { StartFunc as VeticalStartFunc } from "./FetchFuncs/HtmlPull/Vetical.js";
 import { StartFunc as ForCreateNewStartFunc } from "./FetchFuncs/ForCreateNew.js";
 import { StartFunc as SuppliersShowOnDom } from "./Suppliers/ShowOnDom.js";
+import { StartFunc as StartFuncgetUrlQueryParams } from "./getUrlQueryParams.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     // await ShowOnDom();
     await SuppliersShowOnDom({ inProjectName });
-    
+
     if (document.getElementById('SupplierNameSelectId')) {
         var element = document.getElementById('SupplierNameSelectId');
         const example = new Choices(element);
+    };
+
+    let localStartFuncgetUrlQueryParams = await StartFuncgetUrlQueryParams();
+
+    let jVarLocalAliasName = document.getElementById('AliasNameId');
+
+    if ("inAliasName" in localStartFuncgetUrlQueryParams) {
+        jVarLocalAliasName.value = localStartFuncgetUrlQueryParams.inAliasName;
     };
 
 
@@ -39,6 +48,7 @@ let ShowOnDomDefaultValuesFromFetch = async ({ inFolderName, inFileName, inItemN
         if ("BillNumber" in LocalDataFromFetch.JsonData) {
             jVarLocalBillNumberId.value = LocalDataFromFetch.JsonData.BillNumber;
         };
+
     };
 };
 
