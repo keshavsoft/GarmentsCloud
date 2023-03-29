@@ -24,9 +24,11 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
+    let jVarLocalAliasName = document.getElementById("AliesNameId");
+    let jVarLocalTotalAmount = document.getElementById("TotalAmountId");
 
     if (jVarLocalVoucherNameId !== null) {
-        jVarLocalVoucherNameId.innerHTML = inData.VoucherName;
+        jVarLocalVoucherNameId.innerHTML = inData.SupplierName;
     };
     if (jVarLocalBillNumberId !== null) {
         jVarLocalBillNumberId.innerHTML = inData.BillNumber;
@@ -34,6 +36,14 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
 
     if (jVarLocalDateId !== null) {
         jVarLocalDateId.innerHTML = inData.Date;
+    };
+
+    if (jVarLocalAliasName !== null) {
+        jVarLocalAliasName.innerHTML = inData.AliasName;
+    };
+
+    if (jVarLocalTotalAmount !== null) {
+        jVarLocalTotalAmount.innerHTML = inData.TotalAmount;
     };
 
     await InvGridStartFunc({ inData });
