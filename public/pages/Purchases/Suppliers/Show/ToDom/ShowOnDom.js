@@ -20,12 +20,17 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 let ShowOnDom = ({ inData }) => {
     console.log("inData-----------",inData.SupplierName);
     let jVarLocalSupplierNameId = document.getElementById("ItemNameLabelId");
+    let jVarLocalAliasNameId = document.getElementById("AliasNameId");
     let jVarCityId = document.getElementById("City");
     let jVarGSTId = document.getElementById("GST");
     let jVarPhoneId = document.getElementById("Phone");
 
     if (jVarLocalSupplierNameId !== null) {
         jVarLocalSupplierNameId.innerHTML = inData.SupplierName;
+    };
+
+    if (jVarLocalAliasNameId !== null) {
+        jVarLocalAliasNameId.innerHTML = inData.AliasName;
     };
 
     if (jVarCityId !== null) {
