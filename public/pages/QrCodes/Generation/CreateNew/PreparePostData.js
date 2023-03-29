@@ -6,6 +6,9 @@ let StartFunc = () => {
     let jVarLocalPrice2Id = document.getElementById("Price2Id");
     let jVarLocalPecentagePrice = document.getElementById("PecentagePrice");
     let jVarLocaleditDeschiption = document.getElementById("edit-deschiption").querySelector("p");
+    let jVarLocalInventorySerial = document.getElementById("InventorySerialId");
+    let jVarLocalPurchasePk = document.getElementById("PurchasePkId");
+
 
     let jVarLocalReturnData = {};
 
@@ -34,6 +37,14 @@ let StartFunc = () => {
 
     if (jVarLocaleditDeschiption !== null) {
         jVarLocalReturnData.UserDescription = jVarLocaleditDeschiption.innerHTML;
+    };
+
+    if (jVarLocalInventorySerial !== null) {
+        jVarLocalReturnData.InventorySerial = jVarLocalInventorySerial.value;
+    };
+
+    if (jVarLocalPurchasePk !== null) {
+        jVarLocalReturnData.PurchasePk = jVarLocalPurchasePk.value;
     };
 
     jVarLocalSupplierNameFunc({ inData: jVarLocalReturnData });
