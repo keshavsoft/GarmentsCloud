@@ -1,4 +1,5 @@
 import { StartFunc as PreparePostDataStartFunc } from "../PreparePostData.js";
+import { StartFunc as getUrlQueryParamsStartFunc } from "../getUrlQueryParams.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     try {
@@ -37,9 +38,18 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 };
 
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
+    let jVarLocalFromgetUrlQueryParamsStartFunc = getUrlQueryParamsStartFunc();
+    
     if (inFetchPostData.KTF) {
+        if ("PurchasePk" in jVarLocalFromgetUrlQueryParamsStartFunc) {
+            window.location = `../../../Purchases/Vouchers/Show/Show.html?RowPK=${jVarLocalFromgetUrlQueryParamsStartFunc.PurchasePk}`;
+        } else {
+            window.location = "../ShowAll/ShowAll.html?FromSave=true";
+        };
+
         //argon.showSwal('success-message');
-        window.location = "../ShowAll/ShowAll.html?FromSave=true";
+
+        //http://localhost:4117/pages/
     } else {
         if ("KReason" in inFetchPostData) {
             Swal.fire({
