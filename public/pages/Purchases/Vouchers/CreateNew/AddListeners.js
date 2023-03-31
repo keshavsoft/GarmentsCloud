@@ -20,9 +20,9 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 };
 
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
-
+   // console.log("inFetchPostData : ", inFetchPostData);
     if (inFetchPostData.KTF) {
-        window.location = "../ShowAll/ShowAll.html?FromSave=true";
+      //  window.location = "../ShowAll/ShowAll.html?FromSave=true";
         // window.location = "../Show/Show.html?RowPK={{BillNumber}}";
     } else {
         if ("KReason" in inFetchPostData) {

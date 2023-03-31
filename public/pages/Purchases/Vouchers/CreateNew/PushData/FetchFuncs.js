@@ -30,7 +30,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
      //   LocalAfterSaveFunc({ inFetchPostData: data });
 
         LocalReturnObject.KTF = true;
-        return await LocalReturnObject;
+        return await data;
 
     } catch (error) {
         console.log("error:", error);
