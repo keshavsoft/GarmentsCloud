@@ -7,7 +7,8 @@ let StartFunc = ({ inQueryData }) => {
     localPriceFunc({ inQueryData });
     localInventorySerialFunc({ inQueryData });
     localPurchasePkFunc({ inQueryData });
-    localQtyFunc({ inQueryData });
+    localdeschiptionFunc({ inQueryData });
+    localPercentageValueAdditionFunc({ inQueryData });
 
 };
 
@@ -59,10 +60,16 @@ let localPurchasePkFunc = ({ inQueryData }) => {
     jvarlocalPurchasePk.value = localinQueryData.PurchasePk;
 };
 
-let localQtyFunc = ({ inQueryData }) => {
+let localdeschiptionFunc = ({ inQueryData }) => {
     let localinQueryData = inQueryData;
     let jvarlocalPurchasePk = document.getElementById("edit-deschiption");
     jvarlocalPurchasePk.querySelector("p").innerHTML = `${localinQueryData.Aliasname}-${localinQueryData.Sno}-${localinQueryData.Qty}`;
+};
+
+let localPercentageValueAdditionFunc = ({ inQueryData }) => {
+    let localinQueryData = inQueryData;
+    let jvarlocalPecentagePrice = document.getElementById("PecentagePrice");
+    jvarlocalPecentagePrice.value = localinQueryData.PercentageValueAddition;;
 };
 
 
