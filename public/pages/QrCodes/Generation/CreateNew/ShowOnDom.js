@@ -60,11 +60,9 @@ let localPurchasePkFunc = ({ inQueryData }) => {
 };
 
 let localQtyFunc = ({ inQueryData }) => {
-    console.log("inQueryData",inQueryData);
-
     let localinQueryData = inQueryData;
-    let jvarlocalPurchasePk = document.getElementById("deschiptionId");
-    jvarlocalPurchasePk.value = `${localinQueryData.Aliasname}-${localinQueryData.Sno}-${localinQueryData.Qty}`;
+    let jvarlocalPurchasePk = document.getElementById("edit-deschiption");
+    jvarlocalPurchasePk.querySelector("p").innerHTML = `${localinQueryData.Aliasname}-${localinQueryData.Sno}-${localinQueryData.Qty}`;
 };
 
 
