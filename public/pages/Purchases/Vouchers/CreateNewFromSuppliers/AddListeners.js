@@ -22,8 +22,6 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
 
     if (inFetchPostData.KTF) {
-        let RowPk = inFetchPostData.JsonData;
-        console.log("RowPk",RowPk);
         window.location = "../ShowAll/ShowAll.html?FromSave=true";
         // window.location = "../Show/Show.html?RowPK={{BillNumber}}";
     } else {
