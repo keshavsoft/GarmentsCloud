@@ -17,6 +17,7 @@ let ShowOnDomTableBody = async ({ inData }) => {
                 value.pk = key;
                 value.FK = inData.pk;
                 value.SupplierName = inData.SupplierName;
+                value.AliasName = inData.AliasName;
                 value.BillNumber = inData.BillNumber;
                 value.Date = inData.Date;
 
