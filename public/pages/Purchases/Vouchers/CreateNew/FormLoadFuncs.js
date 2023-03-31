@@ -5,19 +5,25 @@ import { StartFunc as StartFuncgetUrlQueryParams } from "./getUrlQueryParams.js"
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     // await ShowOnDom();
-    await SuppliersShowOnDom({ inProjectName });
+    // await SuppliersShowOnDom({ inProjectName });
 
-    if (document.getElementById('SupplierNameSelectId')) {
-        var element = document.getElementById('SupplierNameSelectId');
-        const example = new Choices(element);
-    };
+    // if (document.getElementById('SupplierNameSelectId')) {
+    //     var element = document.getElementById('SupplierNameSelectId');
+    //     const example = new Choices(element);
+    // };
 
     let localStartFuncgetUrlQueryParams = await StartFuncgetUrlQueryParams();
-
+    console.log("localStartFuncgetUrlQueryParams",localStartFuncgetUrlQueryParams);
+    
     let jVarLocalAliasName = document.getElementById('AliasNameId');
+    let jVarLocalSupplierNameSelect = document.getElementById('SupplierNameSelectId');
 
     if ("inAliasName" in localStartFuncgetUrlQueryParams) {
         jVarLocalAliasName.value = localStartFuncgetUrlQueryParams.inAliasName;
+    };
+
+    if ("inSupplierName" in localStartFuncgetUrlQueryParams) {
+        jVarLocalSupplierNameSelect.value = localStartFuncgetUrlQueryParams.inSupplierName;
     };
 
 
