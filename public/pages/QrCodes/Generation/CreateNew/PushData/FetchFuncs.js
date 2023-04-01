@@ -42,14 +42,10 @@ let LocalAfterSaveFunc = ({ inFetchPostData }) => {
     
     if (inFetchPostData.KTF) {
         if ("PurchasePk" in jVarLocalFromgetUrlQueryParamsStartFunc) {
-            window.location = `../../../Purchases/Vouchers/Show/Show.html?RowPK=${jVarLocalFromgetUrlQueryParamsStartFunc.PurchasePk}`;
+            window.location = `../../../Purchases/Vouchers/ShowProducts/ShowProducts.html?RowPK=${jVarLocalFromgetUrlQueryParamsStartFunc.PurchasePk}`;
         } else {
             window.location = "../ShowAll/ShowAll.html?FromSave=true";
         };
-
-        //argon.showSwal('success-message');
-
-        //http://localhost:4117/pages/
     } else {
         if ("KReason" in inFetchPostData) {
             Swal.fire({
