@@ -25,15 +25,15 @@ let ShowOnDomDefaultValuesFromFetch = async ({ inFolderName, inFileName, inItemN
 
     let LocalDataFromFetch = await ForCreateNewStartFunc({ inFolderName, inFileName, inItemName, inProjectName });
 
-    if (LocalDataFromFetch.KTF) {
-        let jVarLocalBarcodeId = document.getElementById('BarcodeId');
+    // if (LocalDataFromFetch.KTF) {
+    //     let jVarLocalBarcodeId = document.getElementById('BarcodeId');
 
-        if ("Barcode" in LocalDataFromFetch.JsonData) {
-            if (jVarLocalBarcodeId !== null) {
-                jVarLocalBarcodeId.value = LocalDataFromFetch.JsonData.Barcode;
+    //     if ("Barcode" in LocalDataFromFetch.JsonData) {
+    //         if (jVarLocalBarcodeId !== null) {
+    //             jVarLocalBarcodeId.value = LocalDataFromFetch.JsonData.Barcode;
 
-            }
-        };
-    };
+    //         }
+    //     };
+    // };
 };
 export { StartFunc };

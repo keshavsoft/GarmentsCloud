@@ -1,7 +1,7 @@
 let StartFunc = () => {
     let jVarLocalProductNameId = document.getElementById("ItemNameId");
     let jVarLocalProductAliasNameId = document.getElementById("ProductAliasNameId");
-    let jVarLocalBarcodeId = document.getElementById("BarcodeId");
+    // let jVarLocalBarcodeId = document.getElementById("BarcodeId");
     let jVarLocalPrice1Id = document.getElementById("Price1Id");
     let jVarLocalPrice2Id = document.getElementById("Price2Id");
     let jVarLocalPecentagePrice = document.getElementById("PecentagePrice");
@@ -20,9 +20,9 @@ let StartFunc = () => {
         jVarLocalReturnData.ProductAliasName = jVarLocalProductAliasNameId.value;
     };
 
-    if (jVarLocalBarcodeId !== null) {
-        jVarLocalReturnData.Barcode = jVarLocalBarcodeId.value;
-    };
+    // if (jVarLocalBarcodeId !== null) {
+    //     jVarLocalReturnData.Barcode = jVarLocalBarcodeId.value;
+    // };
 
     if (jVarLocalPrice1Id !== null) {
         jVarLocalReturnData.CostPrice = parseInt(jVarLocalPrice1Id.value);
