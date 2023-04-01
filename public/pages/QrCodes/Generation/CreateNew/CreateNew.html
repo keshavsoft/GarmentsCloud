@@ -488,11 +488,11 @@
                                         <h5 class="font-weight-bolder">QrCode Information</h5>
                                         <div class="multisteps-form__content">
                                             <div class="row mt-3">
-                                                <div class="col-12 col-sm-6">
+                                                <!-- <div class="col-12 col-sm-6">
                                                     <label>QrCode</label>
                                                     <input id="BarcodeId" class="multisteps-form__input form-control"
                                                         type="text" placeholder="eg. Off-White" />
-                                                </div>
+                                                </div> -->
                                                 <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                     <label>Item Name</label>
                                                     <!-- <select class="form-control" name="choices-questions"
@@ -502,6 +502,13 @@
 
                                                     </input>
                                                 </div>
+                                                <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                    <label>Product AliasName</label>
+                                                    <input class="form-control" name="ProductAliasNameId"
+                                                        id="ProductAliasNameId">
+                                                    </input>
+                                                </div>
+                                                
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -515,10 +522,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 mt-sm-0 mt-4">
-                                                    <label class="mt-4">Product AliasName</label>
-                                                    <input class="form-control" name="ProductAliasNameId"
-                                                        id="ProductAliasNameId">
-                                                    </input>
                                                     <label>Sizes</label>
                                                     <select class="form-control" name="choices-sizes"
                                                         id="choices-sizes">
@@ -529,6 +532,7 @@
                                                         <option value="Choice 5">Extra Small</option>
                                                     </select>
                                                 </div>
+                                               
                                             </div>
                                             <div class="button-row d-flex mt-4">
                                                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
