@@ -6,6 +6,10 @@ let PreparePostData = () => {
     let jVarLocalQty = document.getElementById("QtyId1");
     let jVarLocalSno = document.getElementById("Snoid");
     let jVarvalueAddition = document.getElementById("ValueAdditionId");
+    let jVarvalueCostValue = document.getElementById("CostValueId");
+    let jVarvalueMRP = document.getElementById("MRPId");
+    let jVarvalueSaleValue = document.getElementById("SaleValueId");
+
 
     let jVarLocalReturnData = {};
     jVarLocalReturnData.ItemName = jVarLocalItemNameId.value;
@@ -24,6 +28,19 @@ let PreparePostData = () => {
     if (!(jVarvalueAddition === null)) {
         jVarLocalReturnData.PercentageValueAddition = parseInt(jVarvalueAddition.value);
     };
+
+    if (!(jVarvalueCostValue === null)) {
+        jVarLocalReturnData.CostValue = parseInt(jVarvalueCostValue.value);
+    };
+
+    if (!(jVarvalueMRP === null)) {
+        jVarLocalReturnData.MRP = parseInt(jVarvalueMRP.value);
+    };
+
+    if (!(jVarvalueSaleValue === null)) {
+        jVarLocalReturnData.SaleValue = parseInt(jVarvalueSaleValue.value);
+    };
+
 
     //jVarLocalReturnData.GST = jVarLocalGSTId.value;
 
