@@ -6,6 +6,11 @@ let StartFunc = () => {
     let jVarLocalAliasName = document.getElementById("AliasNameId");
     let jVarLocalReturnData = {};
 
+    // if ((jVarLocalHtmlSupplierNameSelectId === null) === false) {
+    //     let jVarLocalSupplierName = jVarLocalHtmlSupplierNameSelectId.name;
+    //     jVarLocalReturnData[jVarLocalSupplierName] = jVarLocalHtmlSupplierNameSelectId.value;
+    // };
+
     if ((jVarLocalHtmlSupplierNameSelectId === null) === false) {
         let jVarLocalSupplierName = jVarLocalHtmlSupplierNameSelectId.name;
         jVarLocalReturnData[jVarLocalSupplierName] = jVarLocalHtmlSupplierNameSelectId.value;
