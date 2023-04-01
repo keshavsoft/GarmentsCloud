@@ -3,6 +3,8 @@ let CommonCheckDataPK = require("../../DataSupply/Fs/Config/CheckDataPK");
 let CommonSecret = "k";
 
 let LocalVerifyToken = (req, res, inKToken, next) => {
+    console.log("inKToken : ", inKToken);
+
     try {
         console.log("inKToken : ", inKToken);
         jwt.verify(inKToken, CommonSecret, (err, authData) => {
@@ -67,6 +69,7 @@ exports.VerifyTokenReturnData = async ({ inToken }) => {
 };
 
 let LocalFromCoookies = (req, res, next) => {
+    
     LocalVerifyToken(req, res, req.cookies.KToken, next);
 };
 
@@ -79,7 +82,10 @@ let LocalFromHeaders = (req, res, next) => {
 };
 
 exports.ForKeshavSoftRedirectToLogin = (req, res, next) => {
+    console.log("sssssssssssss : ", req.cookies);
     if ("KToken" in req.cookies) {
+        console.log("sssssssssssss : ", req.cookies);
+
         LocalFromCoookies(req, res, next);
     } else {
         if (typeof req.headers !== "undefined") {

@@ -13,6 +13,50 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
         });
     };
 
+    LocalPostQrCodeButtonFuncs({ inProjectName });
 };
+
+let LocalPostQrCodeButtonFuncs = ({ inProjectName }) => {
+    let jVarLocalDeleteButtons = document.getElementsByClassName("PostQrCodeButtonClass");
+
+    for (var i = 0; i < jVarLocalDeleteButtons.length; i++) {
+        jVarLocalDeleteButtons[i].addEventListener("click", async (event) => {
+            let jVarLocalCurrentTarget = event.currentTarget;
+            let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
+            console.log("jVarLocalRowPk : ", jVarLocalRowPk);
+            await GetFunc({
+                inRowPk: jVarLocalRowPk,
+                inProjectName
+            });
+        });
+    };
+
+};
+
+let GetFunc = async ({ inRowPk, inProjectName }) => {
+    try {
+        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+
+        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk/${inRowPk}`;
+
+        const response = await fetch(jVarLocalFetchUrl);
+        const data = await response.json();
+
+        if (data.KTF === false) {
+            LocalReturnObject.KReason = data.KReason;
+            return await LocalReturnObject;
+        };
+
+        LocalReturnObject.JsonData = data.JsonData;
+
+        LocalReturnObject.KTF = true;
+        return await LocalReturnObject;
+
+    } catch (error) {
+        console.log("error:", error);
+    }
+
+};
+
 
 export { StartFunc };
