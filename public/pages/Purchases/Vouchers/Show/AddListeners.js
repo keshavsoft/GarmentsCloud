@@ -1,7 +1,9 @@
 import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
+import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
@@ -19,6 +21,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
             };
         });
     };
+    StartFuncKeyPressFuncs();
 };
 
 export { StartFunc };
