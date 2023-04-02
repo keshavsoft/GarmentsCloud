@@ -23,14 +23,25 @@ let LocalPostQrCodeButtonFuncs = ({ inProjectName }) => {
         jVarLocalDeleteButtons[i].addEventListener("click", async (event) => {
             let jVarLocalCurrentTarget = event.currentTarget;
             let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
-            console.log("jVarLocalRowPk : ", jVarLocalRowPk);
-            await GetFunc({
+
+            let jVarLocalFromGet = await GetFunc({
                 inRowPk: jVarLocalRowPk,
                 inProjectName
             });
+
+            if (jVarLocalFromGet.KTF === false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: jVarLocalFromGet.KReason
+                });
+            };
+
+            if (jVarLocalFromGet.KTF) {
+                window.location.href = `../Show/Show.html?RowPK=${jVarLocalRowPk}`;
+            };
         });
     };
-
 };
 
 let GetFunc = async ({ inRowPk, inProjectName }) => {

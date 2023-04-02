@@ -35,7 +35,7 @@ let StartFunc = async ({ inPurchasePK }) => {
         LocalReturnObject.KReason = "";
         return await LocalReturnObject;
     };
-
+    console.log("LocalQrCodeData.JsonData : ", LocalQrCodeData.JsonData);
     if ((Object.values(LocalQrCodeData.JsonData).map(e => e.PurchasePk).find(e => e === inPurchasePK) === undefined) === false) {
         LocalReturnObject.KReason = "QrCodes already raised!";
         return await LocalReturnObject;
@@ -91,6 +91,8 @@ let StartFunc = async ({ inPurchasePK }) => {
 
 
     //    console.log("ssssssssssssssss : ", LocalReturnObject);
+    LocalReturnObject.KTF = true;
+
     return await LocalReturnObject;
 };
 
