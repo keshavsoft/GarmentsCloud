@@ -19,7 +19,6 @@ let PostFunc = async (req, res) => {
         inValueToCheck: LocalValueToCheck,
         inDataPK: LocalDataPk
     }).then(PromiseData => {
-        console.log("PromiseData",PromiseData.JsonData);
         res.json(PromiseData);
     });
 

@@ -6,7 +6,6 @@ import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPullQrCode/Ta
 
 let StartFunc = async ({ inProjectName }) => {
     let localurlSearchParams = ReturnRowPK().RowPK;
-    console.log("localurlSearchParamssssssssssss", localurlSearchParams);
 
     let jVarLocalData = await FromNode({
         inProjectName,

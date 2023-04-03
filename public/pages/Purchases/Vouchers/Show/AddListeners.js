@@ -11,6 +11,8 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
         jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
+            event.preventdefault()
+
             let LocalFromSave = await SaveFuncsStartFunc({
                 inFolderName, inFileName, inItemName, inProjectName,
                 inEvent: event

@@ -1,13 +1,12 @@
 let StartFunc = () => {
-    let jVarLocalCostValue = document.getElementById("ValueAdditionId");
+    let jVarLocalRateId = document.getElementById("RateId1");
+    let jVarLocalPecentagePrice = document.getElementById("ValueAdditionId");
+    let jVarLocalMRPId = document.getElementById("MRPId");
 
-    let jVarLocalRate = document.getElementById("RateId1");
-    let jVarLocalQty = document.getElementById("QtyId1");
-
-    jVarLocalCostValue.addEventListener("keypress", (event) => {
+    jVarLocalPecentagePrice.addEventListener("keypress", (event) => {
         if (event.keyCode === 13) {
-            let localCal = jVarLocalRate.value * jVarLocalQty.value;
-            jVarLocalCostValue.value = parseInt(localCal);
+            let localCalculation = jVarLocalPecentagePrice.value / 100 * jVarLocalRateId.value;
+            jVarLocalMRPId.value = parseInt(jVarLocalRateId.value) + parseInt(localCalculation);
 
         }
     });
