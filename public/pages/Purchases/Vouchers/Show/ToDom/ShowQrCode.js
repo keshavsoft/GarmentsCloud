@@ -1,13 +1,20 @@
-import { FromNode } from "../PullData/FetchFuncs.js";
-import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPull/TableRow.js";
-import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPull/TableHead.js";
+import { FromNode } from "../PullData/FetchFuncsQrCode.js";
+import { ReturnRowPK } from "../urlSearchParams.js";
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPullQrCode/TableRow.js";
+import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPullQrCode/TableHead.js";
+
+let StartFunc = async ({inProjectName}) => {
+    let localurlSearchParams = ReturnRowPK().RowPK;
+    console.log("localurlSearchParamssssssssssss",localurlSearchParams);
+
     let jVarLocalData = await FromNode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inProjectName
+        inProjectName,
+        inFolderName: "QrCodes",
+        inFileNameOnly: "Generate",
+        inItemName: "Barcodes",
+        inColumnName: "PurchasePk",
+        inValueToCheck: localurlSearchParams
     });
 
     if (jVarLocalData.KTF) {

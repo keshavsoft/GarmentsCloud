@@ -4,6 +4,7 @@ import { StartFunc as AddListenersStartFunc } from "../Show/AddListeners.js";
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
 import { StartFunc as FormLoadStartFunc } from "../Show/ToDom/FormLoad.js";
+import { StartFunc as StartFuncShowQrCode } from "../Show/ToDom/ShowQrCode.js";
 
 let jVarCommonKToken = ConfigObject.TokenName;
 let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName;
@@ -19,6 +20,7 @@ let jFStartFunc = async () => {
     await FormLoadStartFunc({ inProjectName: jVarCommonProjectName });
 
     await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+    await StartFuncShowQrCode({inProjectName: jVarCommonProjectName});
 };
 
 jFStartFunc().then(() => {
