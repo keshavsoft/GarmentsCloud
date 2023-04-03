@@ -4,9 +4,9 @@ import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPullQrCode/TableRow.js";
 import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPullQrCode/TableHead.js";
 
-let StartFunc = async ({inProjectName}) => {
+let StartFunc = async ({ inProjectName }) => {
     let localurlSearchParams = ReturnRowPK().RowPK;
-    console.log("localurlSearchParamssssssssssss",localurlSearchParams);
+    console.log("localurlSearchParamssssssssssss", localurlSearchParams);
 
     let jVarLocalData = await FromNode({
         inProjectName,
@@ -18,9 +18,11 @@ let StartFunc = async ({inProjectName}) => {
     });
 
     if (jVarLocalData.KTF) {
-        await ShowOnDom({ inData: jVarLocalData.JsonData });
+        jVarGlobalData = jVarLocalData.JsonData;
+        // await ShowOnDom({ localData: jVarLocalData.JsonData });
     };
 };
+
 
 let ShowOnDom = async ({ inData }) => {
     await ShowOnDomTableHeader();
@@ -53,4 +55,4 @@ let ShowOnDomTableHeader = async () => {
     };
 };
 
-export { StartFunc };
+export { StartFunc ,ShowOnDom};
