@@ -5,6 +5,8 @@ let StartFunc = () => {
 
     jVarLocalPecentagePrice.addEventListener("keypress", (event) => {
         if (event.keyCode === 13) {
+            event.preventDefault();
+            
             let localCalculation = jVarLocalPecentagePrice.value / 100 * jVarLocalRateId.value;
             jVarLocalMRPId.value = parseInt(jVarLocalRateId.value) + parseInt(localCalculation);
 

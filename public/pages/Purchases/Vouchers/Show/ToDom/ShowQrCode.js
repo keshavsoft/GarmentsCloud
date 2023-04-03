@@ -34,11 +34,14 @@ let ShowOnDomTableBody = async ({ inData }) => {
 
     if (jVarLocalTemplate.KTF) {
         var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
+        let jVarLocalLoopIndex = 1;
 
         inData.forEach(element => {
+            element.KSNo = jVarLocalLoopIndex;
             let jVarLocalToShowHtml = template(element);
 
             jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
+            jVarLocalLoopIndex += 1;
         });
 
     };
@@ -54,4 +57,4 @@ let ShowOnDomTableHeader = async () => {
     };
 };
 
-export { StartFunc ,ShowOnDom};
+export { StartFunc, ShowOnDom };

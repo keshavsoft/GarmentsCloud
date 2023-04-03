@@ -3,15 +3,13 @@ import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { ShowOnDom as ShowOnDomShowQrCode } from "../Show/ToDom/ShowQrCode.js";
 
-
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
     let jVarLocalSowDataID = document.getElementById("SowDataID");
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
         jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
-            event.preventdefault()
+            event.preventDefault();
 
             let LocalFromSave = await SaveFuncsStartFunc({
                 inFolderName, inFileName, inItemName, inProjectName,
@@ -32,7 +30,6 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
             let localDatd = jVarGlobalData;
 
             await ShowOnDomShowQrCode({ inData: localDatd });
-
         });
     };
     StartFuncKeyPressFuncs();

@@ -20,7 +20,7 @@ let jFStartFunc = async () => {
     await FormLoadStartFunc({ inProjectName: jVarCommonProjectName });
 
     await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
-    await StartFuncShowQrCode({inProjectName: jVarCommonProjectName});
+    await StartFuncShowQrCode({ inProjectName: jVarCommonProjectName });
 };
 
 jFStartFunc().then(() => {
