@@ -5,6 +5,7 @@ var path = require('path');
 //let DataSu = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/ItemName/Images/UsingMulter");
 //let DataSu = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/JsonFileAsFolder/ItemNameAsFolder/ImagesFolder/InsertToFolder/UsingMulter");
 let DataSu = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/JsonFileAsFolder/ItemNameAsFolder/ImagesFolder/RowPkAsFolder/InsertToRowPkAsFolder/UsingMulter");
+let DataSupplyCheckImage = require("../../../../../../../../../../DataSupply/Fs/Config/JSONFolder/DataPkAsFolder/DataFolder/UserFolder/UserJsonFile/JsonFileAsFolder/ItemNameAsFolder/ImagesFolder/RowPkAsFolder/CheckImage/InJsonDataFolder");
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -26,7 +27,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post('/', DataSu.upload.single("uploaded_file"), (req, res) => {
-    console.log("1111111111111 : ", req.KeshavSoft, req.body);
+    DataSupplyCheckImage.StartFunc({ req });
+    console.log("1111111111111 : ", req.KeshavSoft, req.file);
     res.end("success");
 });
 

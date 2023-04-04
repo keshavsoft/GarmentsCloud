@@ -57,6 +57,7 @@ let LocalModalButtonForImageClickFuncs = () => {
             method: 'POST',
             body: formData
         });
+        let data = await jVarFromFetch.json();
     });
 };
 
