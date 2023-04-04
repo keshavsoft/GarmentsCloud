@@ -38,8 +38,10 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 
 let LocalModalButtonForImageClickFuncs = () => {
     let jVarLocalModalButtonForImageId = document.getElementById("ModalButtonForImageId");
-
+    // let jVarLocalQrCodeModalImageId
     jVarLocalModalButtonForImageId.addEventListener("click", async (event) => {
+        event.preventDefault();
+
         let jVarLocalCurrentTarget = event.currentTarget;
         let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
         var formData = new FormData();
@@ -57,7 +59,24 @@ let LocalModalButtonForImageClickFuncs = () => {
             method: 'POST',
             body: formData
         });
+
         let data = await jVarFromFetch.json();
+
+        if (data.KTF) {
+            jVarLocalfileUpload.value = "";
+
+            Swal.fire('Uploaded successfully...');
+
+            let jVarLocalexampleModal = document.getElementById("exampleModal");
+            console.log("jVarLocalexampleModal : ", jVarLocalexampleModal);
+            // var myModal = new bootstrap.Modal(jVarLocalexampleModal, {
+            //     keyboard: false
+            // });
+            var myModal =  bootstrap.Modal.getInstance(jVarLocalexampleModal);
+
+            console.log("myModal : ", myModal);
+            myModal.hide();
+        };
     });
 };
 
