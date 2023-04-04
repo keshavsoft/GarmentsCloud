@@ -1,0 +1,27 @@
+{{log "sssss---ssssss" this}}
+<tr>
+    <td>{{sno}}</td>
+    <td>
+        <h6 class="ms-3 my-auto">{{ItemName}}</h6>
+    </td>
+    <td>{{Qty}}</td>
+    <td>{{UnitRate}}</td>
+    <td>{{PercentageValueAddition}}</td>
+    <td>{{CostValue}}</td>
+    <td>{{MRP}}</td>
+    <td>{{SaleValue}}</td>
+    <td class="text-sm">
+        <a href="../../../QrCodes/Generation/CreateNew/CreateNew.html?PurchasePk={{FK}}&InventorySerial={{pk}}&SupplierName={{SupplierName}}&BillNumber={{BillNumber}}&Date={{Date}}&ItemName={{ItemName}}&UnitRate={{UnitRate}}&Qty={{Qty}}&Sno={{sno}}&Aliasname={{AliasName}}&PercentageValueAddition={{PercentageValueAddition}}"
+            data-bs-toggle="tooltip" data-bs-original-title="Preview product">
+            <i class="fas fa-eye text-secondary"></i>
+        </a>
+        <a href="../ItemEdit/ItemEdit.html?RowPK={{pk}}" href="javascript:;" class="mx-3 " data-bs-toggle="tooltip"
+            data-bs-original-title="Edit product">
+            <i class="fas fa-user-edit text-secondary"></i>
+        </a>
+        <a href="javascript:;" class="DeleteButtonClass" data-rowpk="{{pk}}" data-bs-toggle="tooltip"
+            data-bs-original-title="Delete product">
+            <i class="fas fa-trash text-secondary"></i>
+        </a>
+    </td>
+</tr>

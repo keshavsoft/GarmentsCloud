@@ -11,10 +11,11 @@ let ShowOnDomTableHeader = async () => {
     let jVarLocalTableHeadId = document.getElementById("InvTableHeadId");
 
     let jVarLocalHeadHtml = await TableHeadStartFunc();
-    console.log("jVarLocalTableHeadId : ", jVarLocalTableHeadId);
+    
     if (jVarLocalHeadHtml.KTF) {
         if ((jVarLocalTableHeadId === null) === false) {
             jVarLocalTableHeadId.innerHTML = jVarLocalHeadHtml.HtmlString;
+
         };
     };
 };
