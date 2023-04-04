@@ -1,6 +1,9 @@
-let StartFunc = async (event) => {
+import { StartFunc as StartFuncShowOnDom } from "../ToDom/ShowOnDom.js";
+
+let StartFunc = async ({inData}) => {
     console.log("StartFuncToModal");
     jFShowQrCodeButtonClickFunc()
+    await StartFuncShowOnDom({inData});
 };
 
 let jFShowQrCodeButtonClickFunc = () => {
