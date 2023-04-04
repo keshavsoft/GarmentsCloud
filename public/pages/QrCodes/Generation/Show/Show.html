@@ -193,17 +193,17 @@
 
                             <li class="nav-item ">
                                 <a class="nav-link " href="/pages/QrCodes/WithPurchaseDetails/ShowAll/ShowAll.html">
-                                  <span class="sidenav-mini-icon"> O </span>
-                                  <span class="sidenav-normal"> With Purchase Details </span>
+                                    <span class="sidenav-mini-icon"> O </span>
+                                    <span class="sidenav-normal"> With Purchase Details </span>
                                 </a>
-                              </li>
+                            </li>
 
-                              <li class="nav-item ">
+                            <li class="nav-item ">
                                 <a class="nav-link " href="/pages/QrCodes/WithPriceDetails/ShowAll/ShowAll.html">
-                                  <span class="sidenav-mini-icon"> O </span>
-                                  <span class="sidenav-normal"> With Price Details </span>
+                                    <span class="sidenav-mini-icon"> O </span>
+                                    <span class="sidenav-normal"> With Price Details </span>
                                 </a>
-                              </li>
+                            </li>
 
                         </ul>
                     </div>
@@ -460,8 +460,7 @@
 
 
 
-                                    <button class="btn btn-success mb-0 mt-lg-auto w-100"
-                                        onclick="printJS('QrCodePrintDivId', 'html')">Print QrCode</button>
+                                    <button class="btn btn-success mb-0 mt-lg-auto w-100" id="ShowImageButtonId">Show Image</button>
                                 </div>
                                 <div class="col-lg-5 mx-auto">
                                     <h3 id="ItemNameLabelId" class="mt-lg-0 mt-4"></h3>
@@ -741,81 +740,82 @@
 
 
         <div class="modal fade" id="ModalForQrCodeOnly" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">QrCodesOnly</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="ModalBodyorQrCodeOnly">
-                    <div>
-                        <div style="width: 75%; float: left; height: 70px;">
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">QrCodesOnly</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="ModalBodyorQrCodeOnly">
+                        <div>
+                            <div style="width: 75%; float: left; height: 70px;">
 
-                            <div class="row">
+                                <div class="row">
 
-                                <div style="text-align: left;" class="col">
+                                    <div style="text-align: left;" class="col">
+                                        <b>
+                                            MAGUVA
+                                        </b>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
                                     <b>
-                                        MAGUVA
+                                        <div style="text-align: left; font-family: Arial, sans-serif;" class="col"
+                                            id="ProductNameModalId">Shirt
+                                        </div>
                                     </b>
                                 </div>
-
-                            </div>
-
-
-                            <div class="row">
-                                <b>
-                                    <div style="text-align: left; font-family: Arial, sans-serif;"  class="col" id="ProductNameModalId">Shirt
+                                <div class="row">
+                                    <div style="text-align: left;" class="col" id="ProductAliasNameModalId">
+                                        cotton
                                     </div>
-                                </b>
-                            </div>
-                            <div class="row">
-                                <div style="text-align: left;" class="col" id="ProductAliasNameModalId">
-                                 cotton
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div style="text-align: left;" class="col" id="UserDescriptionModalId">
-                                    new
-                                </div>
+                                <div class="row">
+                                    <div style="text-align: left;" class="col" id="UserDescriptionModalId">
+                                        new
+                                    </div>
 
-                            </div>
-                            <div class="row">
-                                <div style="text-align: left;" class="col">
-                                    <b>
-                                    MRP. </b><b id="SalePriceModalId">10000</b>
+                                </div>
+                                <div class="row">
+                                    <div style="text-align: left;" class="col">
+                                        <b>
+                                            MRP. </b><b id="SalePriceModalId">10000</b>
+
+                                    </div>
+
 
                                 </div>
 
-
                             </div>
-             
-                        </div>
-                        <div style="margin-left: 75%; height: 70px;">
+                            <div style="margin-left: 75%; height: 70px;">
 
-                            <div class="row">
-                                <div style="text-align: right;" class="col">
-                                    <canvas id="CanvasId" width=1 height=1
-                                        style="border:1px solid #fff;visibility:hidden"></canvas>
+                                <div class="row">
+                                    <div style="text-align: right;" class="col">
+                                        <canvas id="CanvasId" width=1 height=1
+                                            style="border:1px solid #fff;visibility:hidden"></canvas>
+                                    </div>
+
                                 </div>
+                                <div class="row">
+                                    <div style="text-align: center;" class="col" id="QrCodeOnModalId"> M-16
+                                    </div>
 
-                            </div>
-                            <div class="row">
-                                <div style="text-align: center;" class="col" id="QrCodeOnModalId"> M-16
                                 </div>
-
                             </div>
                         </div>
+
                     </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary"
-                        onclick="printJS('ModalBodyorQrCodeOnly', 'html')">Print</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary"
+                            onclick="printJS('ModalBodyorQrCodeOnly', 'html')">Print</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     </main>
 
