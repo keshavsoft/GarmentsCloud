@@ -53,7 +53,7 @@ let LocalModalButtonForImageClickFuncs = () => {
         formData.append("inRowPk", jVarLocalRowPk);
         formData.append('uploaded_file', jVarLocalfileUpload.files[0]);
 
-        fetch(jVarLocalFetchUrl, {
+        let jVarFromFetch = await fetch(jVarLocalFetchUrl, {
             method: 'POST',
             body: formData
         });
