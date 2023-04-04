@@ -10,7 +10,7 @@ let ShowOnDomTableBody = async ({ inData }) => {
 
     if (jVarLocalTemplate.KTF) {
         if ((jVarLocalTableBodyId === null) === false) {
-            jVarLocalTableBodyId.innerHTML = jVarLocalHeadHtml.HtmlString;
+          //  jVarLocalTableBodyId.innerHTML = jVarLocalHeadHtml.HtmlString;
 
             var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
             let jVarLocalLoopIndex = 1;
