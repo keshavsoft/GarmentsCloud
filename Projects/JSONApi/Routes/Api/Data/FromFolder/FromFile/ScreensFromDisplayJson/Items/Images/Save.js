@@ -27,9 +27,11 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post('/', DataSu.upload.single("uploaded_file"), (req, res) => {
-    DataSupplyCheckImage.StartFunc({ req });
-    console.log("1111111111111 : ", req.KeshavSoft, req.file);
-    res.end("success");
+    let LocalFromDataSupply = DataSupplyCheckImage.StartFunc({ req });
+
+    res.json(LocalFromDataSupply);
+    // console.log("1111111111111 : ", LocalFromDataSupply);
+    // res.end("success");
 });
 
 module.exports = router;
