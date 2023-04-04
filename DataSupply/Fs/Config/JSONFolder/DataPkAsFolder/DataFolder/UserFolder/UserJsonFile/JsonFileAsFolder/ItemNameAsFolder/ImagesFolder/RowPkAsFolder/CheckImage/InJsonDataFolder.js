@@ -1,7 +1,6 @@
 let fs = require("fs");
 
 let StartFunc = ({ req }) => {
-    console.log("ssssssssss : ", req.file.path);
     let LocalReturnData = { KTF: false, DirPath: "", CreatedLog: {} };
 
     try {

@@ -35,7 +35,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 
     StartFuncKeyPressFuncs();
     LocalModalButtonForImageClickFuncs();
-
+    LocalDeleteImageFuncs();
 };
 
 let LocalModalButtonForImageClickFuncs = () => {
@@ -83,7 +83,6 @@ let LocalModalButtonForImageClickFuncs = () => {
     });
 };
 
-
 let LocalModalButtonForImageDownloadFuncs = () => {
     let jVarLocalUpdateClassName = document.getElementsByClassName("ShowImageButtonClass");
 
@@ -91,7 +90,6 @@ let LocalModalButtonForImageDownloadFuncs = () => {
         jVarLocalUpdateClassName[i].addEventListener("click", LocalModalButtonForImageDownloadClick)
     };
 };
-
 
 let LocalModalButtonForImageDownloadClick = async (event) => {
     event.preventDefault();
@@ -128,6 +126,9 @@ let LocalModalButtonForImageDownloadClick = async (event) => {
         image.src = imageObjectURL;
         let jVarLocalShowImageModalLabel = document.getElementById("ShowImageModalLabel");
         jVarLocalShowImageModalLabel.innerHTML = jVarLocalRowPk;
+        let jVarLocalShowImageModalDeleteButtonId = document.getElementById("ShowImageModalDeleteButtonId");
+        jVarLocalShowImageModalDeleteButtonId.dataset.rowpk = jVarLocalRowPk;
+        //rowpk
 
         const myModalAlternative = new bootstrap.Modal('#ShowImageModal', {
             keyboard: false
@@ -135,4 +136,50 @@ let LocalModalButtonForImageDownloadClick = async (event) => {
         myModalAlternative.show();
     };
 };
+
+let LocalDeleteImageFuncs = () => {
+    let jVarLocalShowImageModalDeleteButtonId = document.getElementById("ShowImageModalDeleteButtonId");
+
+    if (jVarLocalShowImageModalDeleteButtonId !== null) {
+        jVarLocalShowImageModalDeleteButtonId.addEventListener("click", LocalDeleteImageButtonClick);
+    };
+};
+
+let LocalDeleteImageButtonClick = async (event) => {
+    event.preventDefault();
+
+    let jVarLocalCurrentTarget = event.currentTarget;
+    let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
+
+    // let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
+    let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Delete";
+    let jVarLocalBodyData = {};
+
+    jVarLocalBodyData.inFolderName = "QrCodes";
+    jVarLocalBodyData.inFileNameOnly = "Generate";
+    jVarLocalBodyData.inItemName = "Barcodes";
+    jVarLocalBodyData.inRowPk = jVarLocalRowPk;
+
+    let jVArLocalHeader = {
+        method: "delete",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jVarLocalBodyData)
+    };
+
+    let jVarFromFetch = await fetch(jVarLocalFetchUrl, jVArLocalHeader);
+
+    let jVarLocalResponse = await jVarFromFetch.json();
+
+    if (jVarLocalResponse.KTF) {
+        Swal.fire(`${jVarLocalRowPk} Image Deleted...`);
+
+        var myModal = bootstrap.Modal.getInstance(document.getElementById("ShowImageModal"));
+
+        console.log("myModal : ", myModal);
+        myModal.hide();
+    };
+};
+
 export { StartFunc };
