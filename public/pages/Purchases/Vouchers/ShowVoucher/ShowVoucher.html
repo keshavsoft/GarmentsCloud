@@ -770,7 +770,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script>
-
         let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
             var canvas = inCanvasId;
             canvas.height = 1;
@@ -803,55 +802,14 @@
             }
         };
 
-        let jFAddListeners = () => {
-            let jVarLocalShowQrCodeButtonId = document.getElementById("GenerateQrCodeButtonId");
-
-            jVarLocalShowQrCodeButtonId.addEventListener("click", jFShowQrCodeButtonClickFunc);
-        };
 
         let jFShowQrCodeButtonClickFunc = () => {
             let jVarLocalDivToShowQrCodeId = document.getElementById("DivToShowQrCodeId");
             GenerateQrCodeOnModal({ inQrData: "16", inCanvasId: jVarLocalDivToShowQrCodeId });
             console.log("ssssssss");
         };
-
-      //  jFAddListeners();
     </script>
 
-    <!-- <script>
-        const exampleModal = document.getElementById('exampleModal')
-        if (exampleModal) {
-            exampleModal.addEventListener('show.bs.modal', event => {
-                // Button that triggered the modal
-                const button = event.relatedTarget
-                // Extract info from data-bs-* attributes
-                const recipient = button.getAttribute('data-rowpk')
-                // If necessary, you could initiate an Ajax request here
-                // and then do the updating in a callback.
-
-                // Update the modal's content.
-                const modalTitle = exampleModal.querySelector('.modal-title')
-                const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-                modalTitle.textContent = `QrCode : ${recipient}`
-                //  modalBodyInput.value = recipient
-            })
-        };
-
-        document.querySelector('#fileUpload').addEventListener('change', (event) => {
-            jFShowImage(event);
-        });
-
-        let jFShowImage = (inEvent) => {
-            let jVarLocalInput = inEvent.currentTarget;
-            const image = document.getElementById('QrCodeModalImageId');
-            
-            image.src = (window.URL ? URL : webkitURL).createObjectURL(jVarLocalInput.files[0]);
-        };
-    </script> -->
-
-
-    <!-- <script src="/assets/js/Maguvaa/pages/masters/suppliers/ShowAll.js" type="module"></script> -->
     <script src="./ShowVoucher.js" type="module"></script>
 
 </body>
