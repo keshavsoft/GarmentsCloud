@@ -29,16 +29,18 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
         jVarLocalSowDataID.addEventListener("click", async (event) => {
             let localDatd = jVarGlobalData;
             await StartFuncShowQrCode({ inData: localDatd });
+            LocalModalButtonForImageDownloadFuncs();
         });
     };
 
     StartFuncKeyPressFuncs();
     LocalModalButtonForImageClickFuncs();
+
 };
 
 let LocalModalButtonForImageClickFuncs = () => {
     let jVarLocalModalButtonForImageId = document.getElementById("ModalButtonForImageId");
-    // let jVarLocalQrCodeModalImageId
+
     jVarLocalModalButtonForImageId.addEventListener("click", async (event) => {
         event.preventDefault();
 
@@ -48,7 +50,8 @@ let LocalModalButtonForImageClickFuncs = () => {
         let jVarLocalfileUpload = document.getElementById("fileUpload");
 
         let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
-        //  formData.Keshav = "Purna";
+        //let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Show";
+
         formData.append("inFolderName", "QrCodes");
         formData.append("inFileNameOnly", "Generate");
         formData.append("inItemName", "Barcodes");
@@ -72,7 +75,7 @@ let LocalModalButtonForImageClickFuncs = () => {
             // var myModal = new bootstrap.Modal(jVarLocalexampleModal, {
             //     keyboard: false
             // });
-            var myModal =  bootstrap.Modal.getInstance(jVarLocalexampleModal);
+            var myModal = bootstrap.Modal.getInstance(jVarLocalexampleModal);
 
             console.log("myModal : ", myModal);
             myModal.hide();
@@ -80,4 +83,56 @@ let LocalModalButtonForImageClickFuncs = () => {
     });
 };
 
+
+let LocalModalButtonForImageDownloadFuncs = () => {
+    let jVarLocalUpdateClassName = document.getElementsByClassName("ShowImageButtonClass");
+
+    for (let i = 0; i < jVarLocalUpdateClassName.length; i++) {
+        jVarLocalUpdateClassName[i].addEventListener("click", LocalModalButtonForImageDownloadClick)
+    };
+};
+
+
+let LocalModalButtonForImageDownloadClick = async (event) => {
+    event.preventDefault();
+
+    let jVarLocalCurrentTarget = event.currentTarget;
+    let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
+    let jVarLocalfileUpload = document.getElementById("fileUpload");
+
+    // let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
+    let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Show";
+    let jVarLocalBodyData = {};
+
+    jVarLocalBodyData.inFolderName = "QrCodes";
+    jVarLocalBodyData.inFileNameOnly = "Generate";
+    jVarLocalBodyData.inItemName = "Barcodes";
+    jVarLocalBodyData.inRowPk = jVarLocalRowPk;
+
+    let jVArLocalHeader = {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jVarLocalBodyData)
+    };
+
+    let jVarFromFetch = await fetch(jVarLocalFetchUrl, jVArLocalHeader);
+
+    if (jVarFromFetch.status === 200) {
+        const imageBlob = await jVarFromFetch.blob();
+
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+
+        const image = document.getElementById('ShowImageId')
+        image.src = imageObjectURL;
+        let jVarLocalShowImageModalLabel = document.getElementById("ShowImageModalLabel");
+        jVarLocalShowImageModalLabel.innerHTML = jVarLocalRowPk;
+
+        const myModalAlternative = new bootstrap.Modal('#ShowImageModal', {
+            keyboard: false
+        });
+        myModalAlternative.show();
+    };
+};
 export { StartFunc };

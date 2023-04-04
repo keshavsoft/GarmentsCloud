@@ -13,7 +13,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         inRowPK: jVarLocalRowPk.RowPK,
         inProjectName
     });
-    
+
     if (jVarLocalData.KTF) {
         jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
         await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
@@ -60,5 +60,6 @@ let ShowSuccessFunc = async ({ inShowSuccess }) => {
         };
     };
 };
+
 
 export { StartFunc };

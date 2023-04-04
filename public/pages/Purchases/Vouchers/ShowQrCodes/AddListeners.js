@@ -33,6 +33,7 @@ let StartFunc =async ({ inFolderName, inFileName, inItemName, inProjectName }) =
             };
         });
     };
+    
     StartFuncKeyPressFuncs();
 };
 
