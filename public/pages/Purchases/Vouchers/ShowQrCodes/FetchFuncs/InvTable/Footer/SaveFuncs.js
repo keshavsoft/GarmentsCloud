@@ -1,6 +1,6 @@
 import { ReturnRowPK } from "../../../urlSearchParams.js";
 
-let PreparePostData = () => {
+let LocalPreparePostData = () => {
     let jVarLocalItemNameId = document.getElementById("ItemsDataListId");
     let jVarLocalRateId = document.getElementById("RateId1");
     let jVarLocalQty = document.getElementById("QtyId1");
@@ -9,6 +9,7 @@ let PreparePostData = () => {
     let jVarvalueCostValue = document.getElementById("CostValueId");
     let jVarvalueMRP = document.getElementById("MRPId");
     let jVarvalueSaleValue = document.getElementById("SaleValueId");
+    let jVarLocalAmountId = document.getElementById("AmountId");
 
 
     let jVarLocalReturnData = {};
@@ -40,9 +41,10 @@ let PreparePostData = () => {
     if (!(jVarvalueSaleValue === null)) {
         jVarLocalReturnData.SaleValue = parseInt(jVarvalueSaleValue.value);
     };
-
-
-    //jVarLocalReturnData.GST = jVarLocalGSTId.value;
+    
+    if (!(jVarLocalAmountId === null)) {
+        jVarLocalReturnData.Amount = parseInt(jVarLocalAmountId.value);
+    };
 
     return jVarLocalReturnData;
 };
@@ -62,7 +64,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
             SubTableKey: "InvGrid"
         };
 
-        inFetchPostData.DataToInsert = PreparePostData();
+        inFetchPostData.DataToInsert = LocalPreparePostData();
         let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert`;
 
         let jVarLocalFetchHeaders = {
