@@ -31,8 +31,8 @@ let LocalPostQrCodeButtonFuncs = ({ inProjectName }) => {
 
             if (jVarLocalFromGet.KTF === false) {
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
+                    icon: 'success',
+                    title: 'Raised',
                     text: jVarLocalFromGet.KReason
                 });
             };
