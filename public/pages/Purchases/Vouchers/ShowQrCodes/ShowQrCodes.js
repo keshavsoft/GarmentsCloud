@@ -19,8 +19,10 @@ let jFStartFunc = async () => {
     await FormLoadStartFunc({ inProjectName: jVarCommonProjectName });
 
     await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+
+    await AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+
 };
 
 jFStartFunc().then(() => {
-    AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
 });

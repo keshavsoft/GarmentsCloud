@@ -1,8 +1,20 @@
 import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
+import { StartFunc as StartFuncDeleteFuncs } from "./ButtonFuncsForDelete/DeleteFuncs.js";
 
-let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+let StartFunc =async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+
+    let jVarLocalDeleteButtons = document.getElementsByClassName("DeleteButtonClass");
+
+    for (var i = 0; i < jVarLocalDeleteButtons.length; i++) {
+        jVarLocalDeleteButtons[i].addEventListener("click", async (event) => {
+            await StartFuncDeleteFuncs({
+                inFolderName, inFileName, inItemName, inProjectName,
+                inEvent: event
+            })
+        });
+    };
 
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
