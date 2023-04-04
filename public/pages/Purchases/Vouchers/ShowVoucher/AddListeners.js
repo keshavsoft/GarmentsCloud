@@ -41,18 +41,16 @@ let LocalModalButtonForImageClickFuncs = () => {
 
     jVarLocalModalButtonForImageId.addEventListener("click", async (event) => {
         let jVarLocalCurrentTarget = event.currentTarget;
-
+        let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
         var formData = new FormData();
         let jVarLocalfileUpload = document.getElementById("fileUpload");
-        // var input = document.querySelector('input[type=file]');
-        // let file = input.files[0];
 
         let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
         //  formData.Keshav = "Purna";
         formData.append("inFolderName", "QrCodes");
         formData.append("inFileNameOnly", "Generate");
         formData.append("inItemName", "Barcodes");
-        formData.append("inRowPk", "17");
+        formData.append("inRowPk", jVarLocalRowPk);
         formData.append('uploaded_file', jVarLocalfileUpload.files[0]);
 
         fetch(jVarLocalFetchUrl, {

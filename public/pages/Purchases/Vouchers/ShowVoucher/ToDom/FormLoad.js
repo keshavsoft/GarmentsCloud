@@ -46,7 +46,8 @@ let ShowOnDomTableFooter = async ({ inProjectName }) => {
 };
 
 let jVarLocalQrCodeModalFuncs = () => {
-    const exampleModal = document.getElementById('exampleModal')
+    const exampleModal = document.getElementById('exampleModal');
+
     if (exampleModal) {
         exampleModal.addEventListener('show.bs.modal', event => {
             // Button that triggered the modal
@@ -59,9 +60,10 @@ let jVarLocalQrCodeModalFuncs = () => {
             // Update the modal's content.
             const modalTitle = exampleModal.querySelector('.modal-title')
             const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-            modalTitle.textContent = `QrCode : ${recipient}`
-            //  modalBodyInput.value = recipient
+            let jVarLocalmodalfooter = exampleModal.querySelector(".modal-footer button.ModalButtonForImageClass");
+            
+            modalTitle.textContent = `QrCode : ${recipient}`;
+            jVarLocalmodalfooter.dataset.rowpk = recipient;
         })
     };
 };
