@@ -1,16 +1,7 @@
-import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPull/TableHead.js";
-import { StartFunc as TableFootStartFunc } from "../FetchFuncs/HtmlPull/TableFoot.js";
-import { StartFunc as ItemsStartFunc } from "../Items/ShowOnDom.js";
-
-let StartFunc = async ({ inProjectName }) => {
+let StartFunc = async () => {
     jVarLocalQrCodeModalFuncs();
     jVarLocalModalForQrCodeOnlyFuncs();
-
 };
-
-
-
-
 
 let jVarLocalQrCodeModalFuncs = () => {
     const exampleModal = document.getElementById('exampleModal');
@@ -28,7 +19,7 @@ let jVarLocalQrCodeModalFuncs = () => {
             const modalTitle = exampleModal.querySelector('.modal-title')
             const modalBodyInput = exampleModal.querySelector('.modal-body input')
             let jVarLocalmodalfooter = exampleModal.querySelector(".modal-footer button.ModalButtonForImageClass");
-            
+
             modalTitle.textContent = `QrCode : ${recipient}`;
             jVarLocalmodalfooter.dataset.rowpk = recipient;
         })
@@ -45,20 +36,60 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
             const button = event.relatedTarget
             // Extract info from data-bs-* attributes
             const recipient = button.getAttribute('data-rowpk')
-            console.log("recipient:",recipient);
-            // If necessary, you could initiate an Ajax request here
-            // and then do the updating in a callback.
+            const jVarLocalproductname = button.getAttribute("data-productname");
 
             // Update the modal's content.
             const modalTitle = exampleModal.querySelector('.modal-title')
             const modalBodyInput = exampleModal.querySelector('.modal-body input')
             let jVarLocalmodalfooter = exampleModal.querySelector(".modal-footer button.ModalButtonForImageClass");
-            
+            let jVarOnModalProductNameModalId = exampleModal.querySelector('#ProductNameModalId');
+
             modalTitle.textContent = `QrCode : ${recipient}`;
-            jVarLocalmodalfooter.dataset.rowpk = recipient;
+
+            GenerateQrCodeOnModal({
+                inQrData: `M-${recipient}/${jVarLocalproductname}`,
+                inCanvasId: document.getElementById("CanvasId")
+            });
+
+            jVarOnModalProductNameModalId.innerHTML = jVarLocalproductname;
+
+            //  jVarLocalmodalfooter.dataset.rowpk = recipient;
         })
     };
 };
 
+
+
+let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
+    var canvas = inCanvasId;
+    canvas.height = 1;
+    canvas.width = 1;
+    canvas.style.visibility = 'hidden';
+
+    // Convert the options to an object.
+    let opts = {};
+
+    // Finish up the options
+    opts.text = inQrData;
+    opts.bcid = "qrcode";
+    opts.scaleX = 1;
+    opts.scaleY = 1;
+    opts.rotate = "N";
+
+    // Draw the bar code to the canvas
+    try {
+        let ts0 = new Date;
+        bwipjs.toCanvas(canvas, opts);
+        show(ts0, new Date);
+    } catch (e) {
+        console.log("error : ", e);
+
+        return;
+    }
+
+    function show(ts0, ts1) {
+        canvas.style.visibility = 'visible';
+    }
+};
 
 export { StartFunc };

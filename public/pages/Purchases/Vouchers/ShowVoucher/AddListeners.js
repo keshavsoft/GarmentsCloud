@@ -43,8 +43,9 @@ let LocalModalButtonForImageClickFuncs = () => {
 
     jVarLocalModalButtonForImageId.addEventListener("click", async (event) => {
         event.preventDefault();
-
+      
         let jVarLocalCurrentTarget = event.currentTarget;
+        console.log("aaaaaaaaaa : ", jVarLocalCurrentTarget.dataset);
         let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
         var formData = new FormData();
         let jVarLocalfileUpload = document.getElementById("fileUpload");
