@@ -123,8 +123,8 @@
                 },
                 {
                     "IsTextArea": false,
-                    "DisplayName": "Name",
-                    "DataAttribute": "Name",
+                    "DisplayName": "SupplierName",
+                    "DataAttribute": "SupplierName",
                     "DisplayOrder": {
                         "inTable": 0
                     },
@@ -141,8 +141,8 @@
                             "ConsiderFirmPeriod": false
                         },
                         "SaveCheck": {
-                            "Type": "",
-                            "Validate": false
+                            "Type": "Unique",
+                            "Validate": true
                         },
                         "TransformBeforeSave": {
                             "Validate": false,
