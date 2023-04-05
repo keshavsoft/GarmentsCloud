@@ -37,21 +37,28 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
             // Extract info from data-bs-* attributes
             const recipient = button.getAttribute('data-rowpk')
             const jVarLocalproductname = button.getAttribute("data-productname");
+            const jVarLocalSalePrice = button.getAttribute("data-saleprice");
+            const jVarLocalUserdescription = button.getAttribute("data-Userdescription");
 
             // Update the modal's content.
             const modalTitle = exampleModal.querySelector('.modal-title')
             const modalBodyInput = exampleModal.querySelector('.modal-body input')
             let jVarLocalmodalfooter = exampleModal.querySelector(".modal-footer button.ModalButtonForImageClass");
             let jVarOnModalProductNameModalId = exampleModal.querySelector('#ProductNameModalId');
+            let jVarOnModalSalePriceModalModalId = exampleModal.querySelector('#SalePriceModalId');
+            let jVarOnModalUserDescriptionModalId = exampleModal.querySelector('#UserDescriptionModalId');
 
             modalTitle.textContent = `QrCode : ${recipient}`;
 
             GenerateQrCodeOnModal({
-                inQrData: `M-${recipient}/${jVarLocalproductname}`,
+                inQrData: `M-${recipient}/${jVarLocalproductname}/${jVarLocalUserdescription}/${jVarLocalSalePrice}`,
                 inCanvasId: document.getElementById("CanvasId")
             });
 
+
             jVarOnModalProductNameModalId.innerHTML = jVarLocalproductname;
+            jVarOnModalSalePriceModalModalId.innerHTML = jVarLocalSalePrice;
+            jVarOnModalUserDescriptionModalId.innerHTML = jVarLocalUserdescription;
 
             //  jVarLocalmodalfooter.dataset.rowpk = recipient;
         })
