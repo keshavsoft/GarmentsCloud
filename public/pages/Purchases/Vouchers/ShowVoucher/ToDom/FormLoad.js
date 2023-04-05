@@ -1,9 +1,11 @@
 import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPull/TableHead.js";
 import { StartFunc as TableFootStartFunc } from "../FetchFuncs/HtmlPull/TableFoot.js";
 import { StartFunc as ItemsStartFunc } from "../Items/ShowOnDom.js";
+import { StartFunc as StartFuncShowModals } from "./ShowModals.js";
 
 let StartFunc = async ({ inProjectName }) => {
-    jVarLocalQrCodeModalFuncs();
+    // jVarLocalQrCodeModalFuncs();
+    StartFuncShowModals();
 
     document.querySelector('#fileUpload').addEventListener('change', (event) => {
         jFShowImage(event);
@@ -61,7 +63,7 @@ let jVarLocalQrCodeModalFuncs = () => {
             const modalTitle = exampleModal.querySelector('.modal-title')
             const modalBodyInput = exampleModal.querySelector('.modal-body input')
             let jVarLocalmodalfooter = exampleModal.querySelector(".modal-footer button.ModalButtonForImageClass");
-            
+
             modalTitle.textContent = `QrCode : ${recipient}`;
             jVarLocalmodalfooter.dataset.rowpk = recipient;
         })
