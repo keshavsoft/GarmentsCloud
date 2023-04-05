@@ -4,7 +4,6 @@ let StartFunc = () => {
     let jVarLocalGSTId = document.getElementById("GSTId");
     let jVarLocalPhoneId= document.getElementById("PhoneId");
     let jVarLocalAliasName= document.getElementById("AliasNameId");
-    
 
     let jVarLocalReturnData = {};
     jVarLocalReturnData.SupplierName = jVarLocalSupplierNameId.value;
