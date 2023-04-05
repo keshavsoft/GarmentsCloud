@@ -3,8 +3,16 @@ import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { StartFunc as StartFuncDeleteFuncs } from "./ButtonFuncsForDelete/DeleteFuncs.js";
 
-let StartFunc =async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+    LocalDeleteButtonClassAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
+    LocalInvTableFooterSaveButtonIdAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
 
+
+    StartFuncKeyPressFuncs();
+
+};
+
+let LocalDeleteButtonClassAddFuncs = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalDeleteButtons = document.getElementsByClassName("DeleteButtonClass");
 
     for (var i = 0; i < jVarLocalDeleteButtons.length; i++) {
@@ -15,6 +23,10 @@ let StartFunc =async ({ inFolderName, inFileName, inItemName, inProjectName }) =
             })
         });
     };
+
+};
+
+let LocalInvTableFooterSaveButtonIdAddFuncs = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
@@ -33,8 +45,8 @@ let StartFunc =async ({ inFolderName, inFileName, inItemName, inProjectName }) =
             };
         });
     };
-    
-    StartFuncKeyPressFuncs();
+
 };
+
 
 export { StartFunc };
