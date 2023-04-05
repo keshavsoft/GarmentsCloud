@@ -609,8 +609,9 @@
                 </div>
             </footer>
         </div>
-    </main>
 
+    </main>
+        <!-- modal popups here -->
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -628,32 +629,113 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="ModalButtonForImageId" class="btn bg-gradient-primary ModalButtonForImageClass">Upload Image</button>
+                    <button type="button" id="ModalButtonForImageId"
+                        class="btn bg-gradient-primary ModalButtonForImageClass">Upload Image</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="ShowImageModal" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+    <div class="modal fade" id="ShowImageModal" tabindex="-1" role="dialog" aria-labelledby="modal-notification"
+        aria-hidden="true">
         <div class="modal-dialog modal-danger modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h6 class="modal-title" id="ShowImageModalLabel">Show Image</h6>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="ShowImageModalLabel">Show Image</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" id="ShowImageId" width="700">
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" id="ShowImageModalDeleteButtonId" class="btn bg-gradient-danger">Delete
+                        Image</button>
+                    <button type="button" class="btn btn-white" data-bs-dismiss="modal">Ok, Got it</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <img src="" alt="" id="ShowImageId" width="700">
-            </div>
-            <div class="modal-footer">
-              
-              <button type="button" id="ShowImageModalDeleteButtonId" class="btn bg-gradient-danger">Delete Image</button>
-              <button type="button" class="btn btn-white" data-bs-dismiss="modal">Ok, Got it</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+
+    <div class="modal fade" id="ModalForQrCodeOnly" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">QrCodesOnly</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="ModalBodyorQrCodeOnly">
+                    <div>
+                        <div style="width: 75%; float: left; height: 70px;">
+
+                            <div class="row">
+
+                                <div style="text-align: left;" class="col">
+                                    <b>
+                                        MAGUVA
+                                    </b>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <b>
+                                    <div style="text-align: left; font-family: Arial, sans-serif;" class="col"
+                                        id="ProductNameModalId">Shirt
+                                    </div>
+                                </b>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: left;" class="col" id="ProductAliasNameModalId">
+                                    cotton
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: left;" class="col" id="UserDescriptionModalId">
+                                    new
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div style="text-align: left;" class="col">
+                                    <b>
+                                        MRP. </b><b id="SalePriceModalId">10000</b>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div style="margin-left: 75%; height: 70px;">
+
+                            <div class="row">
+                                <div style="text-align: right;" class="col">
+                                    <canvas id="CanvasId" width=1 height=1
+                                        style="border:1px solid #fff;visibility:hidden"></canvas>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div style="text-align: center;" class="col" id="QrCodeOnModalId"> M-16
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"
+                        onclick="printJS('ModalBodyorQrCodeOnly', 'html')">Print</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <template id="TemplateForRow">
         <tr>
@@ -772,10 +854,10 @@
     <script src="../../../../assets/js/plugins/dragula/dragula.min.js"></script>
     <script src="../../../../assets/js/plugins/jkanban/jkanban.js"></script>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
-    
+
     <script>
         let jVarGlobalData;
         var win = navigator.platform.indexOf('Win') > -1;
@@ -790,9 +872,13 @@
     <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../../../assets/js/argon-dashboard.min.js?v=2.0.5"></script>
+    <script src="../../../../assets/js/Maguvaa/AddOn/bwip-js-min.js"></script>
+    <script src="../../../../assets/js/Maguvaa/AddOn/print.min.js"></script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    
     <script>
         let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
             var canvas = inCanvasId;
