@@ -1,7 +1,6 @@
 import { FromNode } from "../PullData/FetchFuncsQrCode.js";
 import { ReturnRowPK } from "../urlSearchParams.js";
 
-
 let StartFunc = async ({ inProjectName }) => {
     let localurlSearchParams = ReturnRowPK().RowPK;
 
@@ -14,10 +13,11 @@ let StartFunc = async ({ inProjectName }) => {
         inValueToCheck: localurlSearchParams
     });
 
-    if (jVarLocalData.KTF) {
-        jVarGlobalData = jVarLocalData.JsonData;
-        // await ShowOnDom({ localData: jVarLocalData.JsonData });
-    };
+    return await jVarLocalData;
+    // if (jVarLocalData.KTF) {
+    //     jVarGlobalData = jVarLocalData.JsonData;
+    //     // await ShowOnDom({ localData: jVarLocalData.JsonData });
+    // };
 };
 
 

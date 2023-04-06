@@ -3,12 +3,9 @@ import { StartFunc as TableHeadStartFunc } from "../../FetchFuncs/HtmlPullQrCode
 import { StartFunc as StartFuncAddListeners } from "../AddListeners.js";
 
 let StartFunc = async ({ inData }) => {
-
     await ShowOnDomTableHeader();
     await ShowOnDomTableBody({ inData });
     await StartFuncAddListeners();
-
-    
 };
 
 let ShowOnDomTableBody = async ({ inData }) => {

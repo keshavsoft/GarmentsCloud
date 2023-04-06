@@ -1,10 +1,11 @@
 import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPull/TableHead.js";
 import { StartFunc as TableFootStartFunc } from "../FetchFuncs/HtmlPull/TableFoot.js";
 import { StartFunc as ItemsStartFunc } from "../Items/ShowOnDom.js";
-import { StartFunc as StartFuncShowModals } from "./ShowModals.js";
+import { StartFunc as StartFuncAddToModals } from "./ShowModals.js";
+import { ReturnRowPK as ReturnRowPKurlSearchParams } from "../urlSearchParams.js";
 
 let StartFunc = async ({ inProjectName }) => {
-    StartFuncShowModals();
+    StartFuncAddToModals();
 
     document.querySelector('#fileUpload').addEventListener('change', (event) => {
         jFShowImage(event);
@@ -12,6 +13,20 @@ let StartFunc = async ({ inProjectName }) => {
 
     await ShowOnDomTableHeader();
     await ShowOnDomTableFooter({ inProjectName });
+
+    LocalShowTabFuncFromurlSearchParams();
+};
+
+let LocalShowTabFuncFromurlSearchParams = () => {
+    let jVarLocalFromurlSearchParams = ReturnRowPKurlSearchParams();
+
+    if ("ForUpload" in jVarLocalFromurlSearchParams) {
+        if (jVarLocalFromurlSearchParams.ForUpload) {
+            let jVarLocalSecondTabNextButtonId = document.getElementById("SecondTabNextButtonId");
+            jVarLocalSecondTabNextButtonId.click();
+            console.log("jVarLocalSecondTabNextButtonId ; ", jVarLocalSecondTabNextButtonId);
+        };
+    };
 };
 
 let ShowOnDomTableHeader = async () => {
