@@ -15,6 +15,17 @@ let LocalTotalFunc = ({ inData }) => {
     console.log("jVarLocalInvArrayAmount : ", jVarLocalInvArrayAmount);
     let jVarLocalAmountTotal = document.getElementById("AmountTotal");
     jVarLocalAmountTotal.innerHTML = jVarLocalInvArrayAmount.reduce((a, b) => a + b, 0);;
+
+    let jVarLocalInvArrayRate = Object.values(inData.InvGrid).map(element => element.UnitRate);
+
+    let jVarLocalRateTotal = document.getElementById("rateTotal");
+    jVarLocalRateTotal.innerHTML = jVarLocalInvArrayRate.reduce((a, b) => a + b, 0);;
+
+    let jVarLocalInvArrayMRP = Object.values(inData.InvGrid).map(element => element.MRP);
+
+    let jVarLocalMRPTotal = document.getElementById("MRPTotal");
+    jVarLocalMRPTotal.innerHTML = jVarLocalInvArrayMRP.reduce((a, b) => a + b, 0);;
+
 };
 
 let ShowOnDomTableBody = async ({ inData }) => {

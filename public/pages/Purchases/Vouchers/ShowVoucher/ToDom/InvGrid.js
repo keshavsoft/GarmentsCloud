@@ -2,7 +2,35 @@ import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPull/TableRow.
 
 let StartFunc = async ({ inData }) => {
     await ShowOnDomTableBody({ inData });
+    LocalTotalFunc({inData});
 };
+
+let LocalTotalFunc = ({ inData }) => {
+    console.log("inData",inData);
+    let jVarLocalInvArrayNeeded = Object.values(inData.InvGrid).map(element => element.Qty);
+
+    let jVarLocalItemsQtyTotal = document.getElementById("ItemsQtyTotal");
+    jVarLocalItemsQtyTotal.innerHTML = jVarLocalInvArrayNeeded.reduce((a, b) => a + b, 0);;
+
+    let jVarLocalInvArrayAmount = Object.values(inData.InvGrid).map(element => element.Amount);
+
+    let jVarLocalAmountTotal = document.getElementById("AmountTotal");
+    jVarLocalAmountTotal.innerHTML = jVarLocalInvArrayAmount.reduce((a, b) => a + b, 0);;
+
+    let jVarLocalInvArrayRate = Object.values(inData.InvGrid).map(element => element.UnitRate);
+
+    let jVarLocalRateTotal = document.getElementById("rateTotal");
+    jVarLocalRateTotal.innerHTML = jVarLocalInvArrayRate.reduce((a, b) => a + b, 0);;
+
+    let jVarLocalInvArrayMRP = Object.values(inData.InvGrid).map(element => element.MRP);
+
+    let jVarLocalMRPTotal = document.getElementById("MRPTotal");
+    jVarLocalMRPTotal.innerHTML = jVarLocalInvArrayMRP.reduce((a, b) => a + b, 0);;
+
+    
+};
+
+
 
 let ShowOnDomTableBody = async ({ inData }) => {
     let jVarLocalTableBodyId = document.getElementById("InvTableBodyId");
