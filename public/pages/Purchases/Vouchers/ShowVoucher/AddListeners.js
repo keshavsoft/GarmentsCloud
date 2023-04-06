@@ -2,6 +2,7 @@ import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/S
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { StartFunc as StartFuncShowQrCode } from "./QrCodeGeneration/ToDom/ShowQrCode.js";
+import { StartFunc as StartFuncCommonQrandPrint } from "./ToDom/CommonQrandPrint.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
@@ -36,6 +37,8 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     StartFuncKeyPressFuncs();
     LocalModalButtonForImageClickFuncs();
     LocalDeleteImageFuncs();
+    localPrintButtonClass();
+
 };
 
 let LocalModalButtonForImageClickFuncs = () => {
@@ -43,7 +46,7 @@ let LocalModalButtonForImageClickFuncs = () => {
 
     jVarLocalModalButtonForImageId.addEventListener("click", async (event) => {
         event.preventDefault();
-      
+
         let jVarLocalCurrentTarget = event.currentTarget;
         console.log("aaaaaaaaaa : ", jVarLocalCurrentTarget.dataset);
         let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
@@ -181,6 +184,13 @@ let LocalDeleteImageButtonClick = async (event) => {
         console.log("myModal : ", myModal);
         myModal.hide();
     };
+};
+
+let localPrintButtonClass = () => {
+    let jvarLocalButtonClass = document.getElementsByClassName("PrintSowButtonClass");
+
+    jvarLocalButtonClass.addEventListener("click", StartFuncCommonQrandPrint)
+
 };
 
 export { StartFunc };
