@@ -1,10 +1,28 @@
 import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPull/TableHead.js";
 import { StartFunc as TableFootStartFunc } from "../FetchFuncs/HtmlPull/TableFoot.js";
 import { StartFunc as ItemsStartFunc } from "../Items/ShowOnDom.js";
+import { ReturnRowPK } from "../urlSearchParams.js";
 
 let StartFunc = async ({ inProjectName }) => {
     await ShowOnDomTableHeader();
     await ShowOnDomTableFooter({ inProjectName });
+    jVarLocalShowProductsTabFunc();
+};
+
+let jVarLocalShowProductsTabFunc = () => {
+    let jVarLocalFromurlSearchParams = ReturnRowPK();
+    
+    if ("FromDelete" in jVarLocalFromurlSearchParams) {
+        if (jVarLocalFromurlSearchParams.FromDelete) {
+            document.getElementById("FirstBtnNext").click();
+        };
+    };
+
+    if ("FromSave" in jVarLocalFromurlSearchParams) {
+        if (jVarLocalFromurlSearchParams.FromSave) {
+            document.getElementById("FirstBtnNext").click();
+        };
+    };
 };
 
 let ShowOnDomTableHeader = async () => {

@@ -7,9 +7,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
     LocalDeleteButtonClassAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
     LocalInvTableFooterSaveButtonIdAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
 
-
     StartFuncKeyPressFuncs();
-
 };
 
 let LocalDeleteButtonClassAddFuncs = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
@@ -27,7 +25,6 @@ let LocalDeleteButtonClassAddFuncs = ({ inFolderName, inFileName, inItemName, in
 };
 
 let LocalInvTableFooterSaveButtonIdAddFuncs = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
@@ -38,10 +35,12 @@ let LocalInvTableFooterSaveButtonIdAddFuncs = ({ inFolderName, inFileName, inIte
             });
 
             if (LocalFromSave.KTF) {
-                await ShowOnDomStartFunc({
-                    inFolderName, inFileName, inItemName, inProjectName,
-                    inShowSuccess: true
-                });
+                window.location.href += "&FromSave=true";
+                // await ShowOnDomStartFunc({
+                //     inFolderName, inFileName, inItemName, inProjectName,
+                //     inShowSuccess: true
+                // });
+
             };
         });
     };
