@@ -4,12 +4,27 @@ import { StartFunc as AddListenersStartFunc } from "./AddListeners.js";
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
 import { StartFunc as FormLoadStartFunc } from "./ToDom/FormLoad.js";
-import { StartFunc as StartFuncShowQrCode } from "./ToDom/ShowQrCode.js";
+// import { StartFunc as StartFuncShowQrCode } from "./ToDom/ShowQrCode.js";
+import { ReturnRowPK as ReturnRowPKurlSearchParams } from "./urlSearchParams.js";
 
 let jVarCommonKToken = ConfigObject.TokenName;
 let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName;
 let jVarCommonKeys = KeysObject.CommonKeys;
 let jVarCommonProjectName = ConfigObject.ProjectName;
+
+let LocalShowTabFuncFromurlSearchParams = () => {
+    let jVarLocalFromurlSearchParams = ReturnRowPKurlSearchParams();
+
+    if ("ForUpload" in jVarLocalFromurlSearchParams) {
+        if (jVarLocalFromurlSearchParams.ForUpload) {
+            let jVarLocalSecondTabNextButtonId = document.getElementById("SecondTabNextButtonId");
+            let jVarLocalSowDataID = document.getElementById("SowDataID");
+
+            jVarLocalSecondTabNextButtonId.click();
+            jVarLocalSowDataID.click();
+        };
+    };
+};
 
 let jFStartFunc = async () => {
     CheckUserFuncsjFStartFunc({
@@ -25,4 +40,5 @@ let jFStartFunc = async () => {
 
 jFStartFunc().then(() => {
     AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+    LocalShowTabFuncFromurlSearchParams();
 });

@@ -14,7 +14,7 @@ let StartFunc = async ({ inProjectName }) => {
     await ShowOnDomTableHeader();
     await ShowOnDomTableFooter({ inProjectName });
 
-    LocalShowTabFuncFromurlSearchParams();
+   // LocalShowTabFuncFromurlSearchParams();
 };
 
 let LocalShowTabFuncFromurlSearchParams = () => {
@@ -23,8 +23,10 @@ let LocalShowTabFuncFromurlSearchParams = () => {
     if ("ForUpload" in jVarLocalFromurlSearchParams) {
         if (jVarLocalFromurlSearchParams.ForUpload) {
             let jVarLocalSecondTabNextButtonId = document.getElementById("SecondTabNextButtonId");
+            let jVarLocalSowDataID = document.getElementById("SowDataID");
+            
             jVarLocalSecondTabNextButtonId.click();
-            console.log("jVarLocalSecondTabNextButtonId ; ", jVarLocalSecondTabNextButtonId);
+            jVarLocalSowDataID.click();
         };
     };
 };
