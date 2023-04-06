@@ -12,7 +12,6 @@ let StartFunc = () => {
             jVarLocalMRPId.value = parseInt(localCal);
             let jVarLocalCostValue = jVarLocalQtyId1.value * jVarLocalRate.value;
             jvarLocalAmountId.value = jVarLocalCostValue;
-            console.log("jVarLocalCostValue", jVarLocalCostValue);
         }
     });
 };
