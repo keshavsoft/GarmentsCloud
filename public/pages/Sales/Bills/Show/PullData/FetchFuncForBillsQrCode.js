@@ -3,18 +3,18 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
         let localItemName = "BillsQrCode";
-        // let inFetchPostData = {
-        //     FileNameOnly: inFileName,
-        //     FolderName: inFolderName,
-        //     ItemName: "BillsQrCode",
-        //     JsonPk: inRowPK,
-        //     Screenname: "Create"
-        // };
 
-        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
+        let fetchBodyObj = {
+            inFolderName: inFolderName,
+            inFileNameOnly: inFileName,
+            inItemName: "BillsQrCode",
+            inColumnName: "BillPk",
+            inValueToCheck: inRowPK
+        };
 
-
+        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
+        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual
+        `;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -22,11 +22,7 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                inFolderName,
-                inFileNameOnly: inFileName,
-                inItemName:localItemName
-            })
+            body: JSON.stringify(fetchBodyObj)
         };
 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);

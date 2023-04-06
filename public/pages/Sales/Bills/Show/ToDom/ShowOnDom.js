@@ -16,28 +16,31 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
     });
 
     if (jVarLocalData.KTF) {
-        let localpk = jVarLocalData.JsonData.pk
-        jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
-
-        await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
-        let jVarLocalDataToShow = await FetchFuncForBillsQrCode({
-            inFolderName,
-            inFileName,
-            inItemName,
-            inRowPK: jVarLocalRowPk.RowPK,
-            inProjectName
-        });
-
-        if (jVarLocalDataToShow.KTF) {
-            let localdata = jVarLocalDataToShow.JsonData
-            let filteredArray = localdata.filter(item => item.pk === localpk);
-
-            await InvGridStartFunc({ inData: filteredArray });
-        };
+        let localindataJson = jVarLocalData.JsonData
+        ShowOnDom({ inData: localindataJson, inShowSuccess });
+        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
     };
 };
 
-let ShowOnDom = async ({ inData, inShowSuccess }) => {
+let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjectName, inRowPk }) => {
+    let localpk = inRowPk
+
+    let jVarLocalDataToShow = await FetchFuncForBillsQrCode({
+        inFolderName,
+        inFileName,
+        inItemName,
+        inRowPK: localpk,
+        inProjectName
+    });
+
+    if (jVarLocalDataToShow.KTF) {
+        let localdata = jVarLocalDataToShow.JsonData
+
+        await InvGridStartFunc({ inData: localdata });
+    };
+};
+
+let ShowOnDom = ({ inData, inShowSuccess }) => {
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
@@ -53,12 +56,12 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
         jVarLocalDateId.innerHTML = inData.Date;
     };
 
-    await ShowSuccessFunc({ inShowSuccess });
+    ShowSuccessFunc({ inShowSuccess });
 };
 
-let ShowSuccessFunc = async ({ inShowSuccess }) => {
+let ShowSuccessFunc = ({ inShowSuccess }) => {
     if (inShowSuccess) {
-        let LocalFromHtml = await TableFootSuccessStartFunc();
+        let LocalFromHtml = TableFootSuccessStartFunc();
         let LocalTableFooterSuccessId = document.getElementById("TableFooterSuccessId");
 
         if (LocalFromHtml.KTF) {
