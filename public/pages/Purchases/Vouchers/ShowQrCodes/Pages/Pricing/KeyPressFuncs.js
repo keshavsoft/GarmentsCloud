@@ -10,8 +10,9 @@ let StartFunc = () => {
             event.preventDefault();
             let localCal = jVarLocalRate.value * (1 + (jVarLocalValueAdditionId.value / 100));
             jVarLocalMRPId.value = parseInt(localCal);
-            let jVarLocalCostValue = jVarLocalQtyId1.value * jVarLocalRate.value
-            console.log("jVarLocalCostValue",jVarLocalCostValue);
+            let jVarLocalCostValue = jVarLocalQtyId1.value * jVarLocalRate.value;
+            jvarLocalAmountId.value = jVarLocalCostValue;
+            console.log("jVarLocalCostValue", jVarLocalCostValue);
         }
     });
 };
