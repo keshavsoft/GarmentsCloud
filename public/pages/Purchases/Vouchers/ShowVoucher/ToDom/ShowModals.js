@@ -1,9 +1,9 @@
 let StartFunc = async () => {
-    jVarLocalQrCodeModalFuncs();
+    jVarLocalImageModalAddFuncs();
     jVarLocalModalForQrCodeOnlyFuncs();
 };
 
-let jVarLocalQrCodeModalFuncs = () => {
+let jVarLocalImageModalAddFuncs = () => {
     const exampleModal = document.getElementById('exampleModal');
 
     if (exampleModal) {
@@ -26,7 +26,6 @@ let jVarLocalQrCodeModalFuncs = () => {
     };
 };
 
-
 let jVarLocalModalForQrCodeOnlyFuncs = () => {
     const exampleModal = document.getElementById('ModalForQrCodeOnly');
 
@@ -44,7 +43,6 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
             const jVarLocalinventoryserial = button.getAttribute("data-inventoryserial");
             const jVarLocalAliesName= document.getElementById("AliesNameId").innerHTML;
 
-
             // Update the modal's content.
             const modalTitle = exampleModal.querySelector('.modal-title')
             const modalBodyInput = exampleModal.querySelector('.modal-body input')
@@ -61,7 +59,6 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
                 inCanvasId: document.getElementById("CanvasId")
             });
             
-            
             jVarOnModalQrCodeOnModalId.innerHTML = `M-${recipient}`;
             jVarOnModalProductNameModalId.innerHTML = jVarLocalproductname;
             jVarOnModalSalePriceModalModalId.innerHTML = jVarLocalSalePrice;
@@ -71,7 +68,6 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
         })
     };
 };
-
 
 
 let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
