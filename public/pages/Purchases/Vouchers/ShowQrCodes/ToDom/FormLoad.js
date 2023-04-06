@@ -11,7 +11,7 @@ let StartFunc = async ({ inProjectName }) => {
 
 let jVarLocalShowProductsTabFunc = () => {
     let jVarLocalFromurlSearchParams = ReturnRowPK();
-    
+
     if ("FromDelete" in jVarLocalFromurlSearchParams) {
         if (jVarLocalFromurlSearchParams.FromDelete) {
             document.getElementById("FirstBtnNext").click();
@@ -19,8 +19,12 @@ let jVarLocalShowProductsTabFunc = () => {
     };
 
     if ("FromSave" in jVarLocalFromurlSearchParams) {
-        if (jVarLocalFromurlSearchParams.FromSave) {
+        if (jVarLocalFromurlSearchParams.FromSave === "true") {
             document.getElementById("FirstBtnNext").click();
+            
+            let jVarLocalItemsDataListId = document.getElementById("QtyId1");
+            
+            jVarLocalItemsDataListId.focus();
         };
     };
 };

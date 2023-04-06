@@ -12,7 +12,7 @@ let LocalTotalFunc = ({ inData }) => {
     jVarLocalItemsQtyTotal.innerHTML = jVarLocalInvArrayNeeded.reduce((a, b) => a + b, 0);;
 
     let jVarLocalInvArrayAmount = Object.values(inData.InvGrid).map(element => element.Amount);
-    console.log("jVarLocalInvArrayAmount : ", jVarLocalInvArrayAmount);
+    
     let jVarLocalAmountTotal = document.getElementById("AmountTotal");
     jVarLocalAmountTotal.innerHTML = jVarLocalInvArrayAmount.reduce((a, b) => a + b, 0);;
 

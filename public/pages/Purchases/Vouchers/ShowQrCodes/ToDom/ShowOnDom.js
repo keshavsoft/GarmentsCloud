@@ -13,7 +13,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         inRowPK: jVarLocalRowPk.RowPK,
         inProjectName
     });
-    
+
     if (jVarLocalData.KTF) {
         jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
         await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
@@ -48,6 +48,22 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
 
     await InvGridStartFunc({ inData });
     await ShowSuccessFunc({ inShowSuccess });
+    jVarLocalShowInventorySerial({ inData });
+};
+
+let jVarLocalShowInventorySerial = ({ inData }) => {
+    console.log("inData : ", inData);
+    let jVarLocalSnoid = document.getElementById("Snoid");
+
+    if ("InvGrid" in inData) {
+        jVarLocalSnoid.value = Object.keys(inData.InvGrid).length + 1;
+
+        if (Object.keys(inData.InvGrid).length === 0) {
+            // jVarLocalSnoid.value = 1;
+        } else {
+
+        };
+    };
 };
 
 let ShowSuccessFunc = async ({ inShowSuccess }) => {

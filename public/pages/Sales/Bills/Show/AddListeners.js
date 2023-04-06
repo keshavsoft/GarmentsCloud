@@ -3,6 +3,12 @@ import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as KeyPressStartFunc } from "./FetchFuncs/KeyPress.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+    LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
+    QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
+};
+
+
+let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
@@ -11,18 +17,20 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
                 inFolderName, inFileName, inItemName, inProjectName,
                 inEvent: event
             });
-
+            
             if (LocalFromSave.KTF) {
                 await ShowOnDomStartFunc({
                     inFolderName, inFileName, inItemName, inProjectName,
                     inShowSuccess: true
                 });
-            };
+            }else{
+                Swal.fire(LocalFromSave.KReason);
+            }
         });
     };
-    QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
-    // QrCode
+
 };
+
 
 let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalQrCode = document.getElementById("QrCode");
