@@ -3,6 +3,7 @@ import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { StartFunc as StartFuncShowQrCode } from "./QrCodeGeneration/ToDom/ShowQrCode.js";
 import { StartFunc as StartFuncCommonQrandPrint } from "./ToDom/ShowDataOnQrModal.js";
+import { AddButtonClickFuncs as AddButtonClickFuncsImageUpload } from "./AddListenersFuncs/ImageUpload.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
@@ -36,9 +37,9 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     };
 
     StartFuncKeyPressFuncs();
-    LocalModalButtonForImageClickFuncs();
+    AddButtonClickFuncsImageUpload();
+    // LocalModalButtonForImageClickFuncs();
     LocalDeleteImageFuncs();
-    // localPrintButtonClass();
 };
 
 let LocalModalButtonForImageClickFuncs = () => {
@@ -48,7 +49,7 @@ let LocalModalButtonForImageClickFuncs = () => {
         event.preventDefault();
 
         let jVarLocalCurrentTarget = event.currentTarget;
-        console.log("aaaaaaaaaa : ", jVarLocalCurrentTarget.dataset);
+
         let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
         var formData = new FormData();
         let jVarLocalfileUpload = document.getElementById("fileUpload");
@@ -75,10 +76,6 @@ let LocalModalButtonForImageClickFuncs = () => {
             Swal.fire('Uploaded successfully...');
 
             let jVarLocalexampleModal = document.getElementById("exampleModal");
-            console.log("jVarLocalexampleModal : ", jVarLocalexampleModal);
-            // var myModal = new bootstrap.Modal(jVarLocalexampleModal, {
-            //     keyboard: false
-            // });
             var myModal = bootstrap.Modal.getInstance(jVarLocalexampleModal);
 
             console.log("myModal : ", myModal);
@@ -188,10 +185,6 @@ let LocalDeleteImageButtonClick = async (event) => {
 
 let localPrintButtonClass = () => {
     let jvarLocalButtonClass = document.getElementsByClassName("PrintShowButtonClass");
-    // PrintSowButtonClass
-    // StartFuncCommonQrandPrint
-    // PrintShowButtonClass
-
 
     for (let i = 0; i < jvarLocalButtonClass.length; i++) {
         jvarLocalButtonClass[i].addEventListener("click", (inEvent) => {
@@ -200,22 +193,11 @@ let localPrintButtonClass = () => {
             let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
 
             let jVarANeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
-            
+
             StartFuncCommonQrandPrint({ inbutton: jVarANeeded });
             printJS('ModalBodyorQrCodeOnly', 'html');
         })
     };
-    // jvarLocalButtonClass.addEventListener("click", (inEvent) => {
-    //     let jVarLocalCurrentTarget = inEvent.currentTarget;
-    //     console.log("jVarLocalCurrentTarget : ", jVarLocalCurrentTarget);
-
-    //     let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
-
-    //     let jVarANeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
-    //     console.log("jVarANeeded : ", jVarANeeded);
-    //  //   StartFuncCommonQrandPrint({ inbutton: jVarANeeded });
-    // });
-
 };
 
 export { StartFunc };
