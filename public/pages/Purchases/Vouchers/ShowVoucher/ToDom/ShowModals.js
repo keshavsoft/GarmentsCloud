@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncShowDataOnQrModal } from "./ShowDataOnQrModal.js";
+
 let StartFunc = async () => {
     jVarLocalImageModalAddFuncs();
     jVarLocalModalForQrCodeOnlyFuncs();
@@ -31,6 +33,17 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
 
     if (exampleModal) {
         exampleModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget
+            StartFuncShowDataOnQrModal({ inbutton: button });
+        })
+    };
+};
+
+let jVarLocalModalForQrCodeOnlyFuncs_Keshav_6Apr = () => {
+    const exampleModal = document.getElementById('ModalForQrCodeOnly');
+
+    if (exampleModal) {
+        exampleModal.addEventListener('show.bs.modal', event => {
             // Button that triggered the modal
             const button = event.relatedTarget
             // Extract info from data-bs-* attributes
@@ -41,7 +54,7 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
             const jVarLocalUserdescription = button.getAttribute("data-Userdescription");
             const jVarLocalpurchasepk = button.getAttribute("data-purchasepk");
             const jVarLocalinventoryserial = button.getAttribute("data-inventoryserial");
-            const jVarLocalAliesName= document.getElementById("AliesNameId").innerHTML;
+            const jVarLocalAliesName = document.getElementById("AliesNameId").innerHTML;
 
             // Update the modal's content.
             const modalTitle = exampleModal.querySelector('.modal-title')
@@ -58,7 +71,7 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
                 inQrData: `M-${recipient}/${jVarLocalproductname}/${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}/${jVarLocalSalePrice}`,
                 inCanvasId: document.getElementById("CanvasId")
             });
-            
+
             jVarOnModalQrCodeOnModalId.innerHTML = `M-${recipient}`;
             jVarOnModalProductNameModalId.innerHTML = jVarLocalproductname;
             jVarOnModalSalePriceModalModalId.innerHTML = jVarLocalSalePrice;
@@ -68,7 +81,6 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
         })
     };
 };
-
 
 let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
     var canvas = inCanvasId;
@@ -102,4 +114,4 @@ let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
     }
 };
 
-export { StartFunc,GenerateQrCodeOnModal };
+export { StartFunc, GenerateQrCodeOnModal };

@@ -2,7 +2,7 @@ import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/S
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { StartFunc as StartFuncShowQrCode } from "./QrCodeGeneration/ToDom/ShowQrCode.js";
-import { StartFunc as StartFuncCommonQrandPrint } from "./ToDom/CommonQrandPrint.js";
+import { StartFunc as StartFuncCommonQrandPrint } from "./ToDom/ShowDataOnQrModal.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
@@ -31,14 +31,14 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
             let localDatd = jVarGlobalData;
             await StartFuncShowQrCode({ inData: localDatd });
             LocalModalButtonForImageDownloadFuncs();
+            localPrintButtonClass();
         });
     };
 
     StartFuncKeyPressFuncs();
     LocalModalButtonForImageClickFuncs();
     LocalDeleteImageFuncs();
-    localPrintButtonClass();
-
+    // localPrintButtonClass();
 };
 
 let LocalModalButtonForImageClickFuncs = () => {
@@ -187,9 +187,34 @@ let LocalDeleteImageButtonClick = async (event) => {
 };
 
 let localPrintButtonClass = () => {
-    let jvarLocalButtonClass = document.getElementsByClassName("PrintSowButtonClass");
+    let jvarLocalButtonClass = document.getElementsByClassName("PrintShowButtonClass");
+    // PrintSowButtonClass
+    // StartFuncCommonQrandPrint
+    // PrintShowButtonClass
 
-    jvarLocalButtonClass.addEventListener("click", StartFuncCommonQrandPrint)
+
+    for (let i = 0; i < jvarLocalButtonClass.length; i++) {
+        jvarLocalButtonClass[i].addEventListener("click", (inEvent) => {
+            let jVarLocalCurrentTarget = inEvent.currentTarget;
+
+            let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
+
+            let jVarANeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
+            
+            StartFuncCommonQrandPrint({ inbutton: jVarANeeded });
+            printJS('ModalBodyorQrCodeOnly', 'html');
+        })
+    };
+    // jvarLocalButtonClass.addEventListener("click", (inEvent) => {
+    //     let jVarLocalCurrentTarget = inEvent.currentTarget;
+    //     console.log("jVarLocalCurrentTarget : ", jVarLocalCurrentTarget);
+
+    //     let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
+
+    //     let jVarANeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
+    //     console.log("jVarANeeded : ", jVarANeeded);
+    //  //   StartFuncCommonQrandPrint({ inbutton: jVarANeeded });
+    // });
 
 };
 

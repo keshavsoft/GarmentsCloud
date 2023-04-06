@@ -1,4 +1,3 @@
-{{log "ssssssssss" this}}
 <tr>
     <td class="text-center"> {{KSNo}} </td>
     <td class="text-center">{{InventorySerial}}</td>
@@ -8,12 +7,11 @@
     <td>{{PercentageValueAddition}}%</td>
     <td>{{SalePrice}}</td>
 
-
     <td class="text-lg">
-        <a href="javascript:;" data-productname="{{ProductName}}" data-saleprice="{{SalePrice}}"
-            data-Userdescription="{{UserDescription}}" data-purchasepk="{{PurchasePk}}" data-inventoryserial="{{InventorySerial}}"
-            data-billnumber="{{BillNumber}}" data-rowpk="{{pk}}" data-ksno="{{KSNo}}" data-bs-toggle="modal"
-            data-bs-target="#ModalForQrCodeOnly">
+        <a class="ShowQrCodeModalAClass" href="javascript:;" data-productname="{{ProductName}}" data-saleprice="{{SalePrice}}"
+            data-Userdescription="{{UserDescription}}" data-purchasepk="{{PurchasePk}}"
+            data-inventoryserial="{{InventorySerial}}" data-billnumber="{{BillNumber}}" data-rowpk="{{pk}}"
+            data-ksno="{{KSNo}}" data-bs-toggle="modal" data-bs-target="#ModalForQrCodeOnly">
             <i class="fas fa-qrcode"></i>
         </a>
     </td>
@@ -36,7 +34,7 @@
         </a>
     </td>
     <td class="text-lg">
-        <a href="javascript:;" data-rowpk="{{pk}}" data-bs-toggle="modal" class="PrintSowButtonClass" onclick="printJS('ModalBodyorQrCodeOnly', 'html')">
+        <a href="#" data-rowpk="{{pk}}" class="PrintShowButtonClass">
             <i class="fa fa-print" aria-hidden="true"></i>
         </a>
     </td>
