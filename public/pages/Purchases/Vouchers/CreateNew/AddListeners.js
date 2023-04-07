@@ -20,12 +20,12 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 };
 
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
-   // console.log("inFetchPostData : ", inFetchPostData);
     if (inFetchPostData.KTF) {
+        let RowPk = inFetchPostData.NewRowPK;
 
-        let RowPk = inFetchPostData.JsonData;
-        console.log("RowPk",RowPk);
-        window.location = "../ShowAll/ShowAll.html?FromSave=true";
+        window.location = `../../Vouchers/ShowQrCodes/ShowQrCodes.html?RowPK=${RowPk}`;
+
+        // window.location = "../ShowAll/ShowAll.html?FromSave=true";
         // window.location = "../Show/Show.html?RowPK={{BillNumber}}";
     } else {
         if ("KReason" in inFetchPostData) {
