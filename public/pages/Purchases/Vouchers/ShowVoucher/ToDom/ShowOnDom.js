@@ -17,6 +17,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
     if (jVarLocalData.KTF) {
         jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
         await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
+        jVarGlobalData = jVarLocalData.JsonData;
     };
 };
 

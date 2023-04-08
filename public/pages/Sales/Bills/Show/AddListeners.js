@@ -1,10 +1,12 @@
 import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as KeyPressStartFunc } from "./FetchFuncs/KeyPress.js";
+import { StartFunc as DeleteFuncsStartFunc } from "./ButtonFuncs/DeleteFuncs.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
     QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
+    localButtonDeleteFunc({ inFolderName, inFileName, inItemName, inProjectName });
 };
 
 
@@ -49,6 +51,20 @@ let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectNam
             });
         }
     });
+};
+
+let localButtonDeleteFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+    let jVarLocalDeleteButtons = document.getElementsByClassName("DeleteButtonClass");
+
+    for (var i = 0; i < jVarLocalDeleteButtons.length; i++) {
+        jVarLocalDeleteButtons[i].addEventListener("click", async (event) => {
+            await DeleteFuncsStartFunc({
+                inFolderName, inFileName, inItemName, inProjectName,
+                inEvent: event
+            })
+        });
+    };
+
 };
 
 export { StartFunc };
