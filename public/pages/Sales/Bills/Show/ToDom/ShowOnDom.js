@@ -57,6 +57,22 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
     };
 
     ShowSuccessFunc({ inShowSuccess });
+    jVarLocalShowInventorySerial({ inData });
+};
+
+let jVarLocalShowInventorySerial = ({ inData }) => {
+    console.log("inData : ", inData);
+    let jVarLocalSnoid = document.getElementById("Snoid");
+
+    if ("InvGrid" in inData) {
+        jVarLocalSnoid.value = Object.keys(inData.InvGrid).length + 1;
+
+        if (Object.keys(inData.InvGrid).length === 0) {
+            // jVarLocalSnoid.value = 1;
+        } else {
+
+        };
+    };
 };
 
 let ShowSuccessFunc = ({ inShowSuccess }) => {
