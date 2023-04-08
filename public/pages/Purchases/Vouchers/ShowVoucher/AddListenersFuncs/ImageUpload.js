@@ -43,7 +43,7 @@ let LocalPostButtonclick = ({ inRowPk }) => {
     myModal.hide();
 
     let jVarLocalTableBodyId = document.getElementById("TableBodyId");
-    let jVarLocalFindPk = jVarLocalTableBodyId.querySelector(`.PrintShowButtonClass-${inRowPk}`);
+    // let jVarLocalFindPk = jVarLocalTableBodyId.querySelector(`.PrintShowButtonClass-${inRowPk}`);
     jVarLocalFindPk.click();
 };
 
