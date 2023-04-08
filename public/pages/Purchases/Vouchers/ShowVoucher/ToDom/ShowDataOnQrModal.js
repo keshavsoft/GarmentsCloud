@@ -13,6 +13,9 @@ let StartFunc = ({ inbutton }) => {
     const jVarLocalinventoryserial = button.getAttribute("data-inventoryserial");
     const jVarLocalAliesName = document.getElementById("AliesNameId").innerHTML;
 
+    let localInJsonData = jVarGlobalData;
+    const localQty = localInJsonData.InvGrid[jVarLocalinventoryserial].Qty;
+
     // Update the modal's content.
     const modalTitle = exampleModal.querySelector('.modal-title')
     const modalBodyInput = exampleModal.querySelector('.modal-body input')
@@ -25,14 +28,14 @@ let StartFunc = ({ inbutton }) => {
     modalTitle.textContent = `QrCode : ${recipient}`;
 
     GenerateQrCodeOnModal({
-        inQrData: `M-${recipient}/${jVarLocalproductname}/${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}/${jVarLocalSalePrice}`,
+        inQrData: `M-${recipient}/${jVarLocalproductname}/${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}-${localQty}/${jVarLocalSalePrice}`,
         inCanvasId: document.getElementById("CanvasId")
     });
 
     jVarOnModalQrCodeOnModalId.innerHTML = `M-${recipient}`;
     jVarOnModalProductNameModalId.innerHTML = jVarLocalproductname;
     jVarOnModalSalePriceModalModalId.innerHTML = jVarLocalSalePrice;
-    jVarOnModalUserDescriptionModalId.innerHTML = `${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}`;
+    jVarOnModalUserDescriptionModalId.innerHTML = `${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}-${localQty}`;
 };
 
 
