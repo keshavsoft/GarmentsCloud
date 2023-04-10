@@ -3,13 +3,13 @@ import { ReturnRowPK } from "../../../urlSearchParams.js";
 let PreparePostData = () => {
     let jVarLocalItemNameId = document.getElementById("ItemsDataList");
     let jVarLocalRateId = document.getElementById("RateId1");
-    // let jVarLocalQty = document.getElementById("QtyId1");
     let jVarLocalSno = document.getElementById("Snoid");
     let jVarLocalQrCode = document.getElementById("QrCode");
+    let jVarLocalDisPersantage = document.getElementById("DisPersantage");
+    let jVarLocalDisRate = document.getElementById("DisRate");
 
     let jVarLocalRowPK = ReturnRowPK().RowPK;
 
-    console.log("jVarLocalRowPK-------:", jVarLocalRowPK);
     let jVarLocalReturnData = {};
     jVarLocalReturnData.ItemName = jVarLocalItemNameId.value;
 
@@ -29,6 +29,14 @@ let PreparePostData = () => {
 
     if (!(jVarLocalQrCode === null)) {
         jVarLocalReturnData.Barcode = jVarLocalQrCode.value;
+    };
+
+    if (!(jVarLocalQrCode === null)) {
+        jVarLocalReturnData.DisPercentage = parseInt(jVarLocalDisPersantage.value);
+    };
+
+    if (!(jVarLocalQrCode === null)) {
+        jVarLocalReturnData.DisRate = parseInt(jVarLocalDisRate.value);
     };
 
 
@@ -104,7 +112,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
-        
+
         return await data;
     } catch (error) {
         console.log("error:", error);
