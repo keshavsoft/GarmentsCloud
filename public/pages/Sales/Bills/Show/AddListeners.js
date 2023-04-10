@@ -3,12 +3,14 @@ import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as KeyPressStartFunc } from "./FetchFuncs/KeyPress.js";
 import { StartFunc as DeleteFuncsStartFunc } from "./ButtonFuncs/DeleteFuncs.js";
 import { StartFunc as StartFuncinvKeyPressCal } from "./invKeyPressCal.js";
+import { ReturnRowPK } from "./urlSearchParams.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
     QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
     localButtonDeleteFunc({ inFolderName, inFileName, inItemName, inProjectName });
     StartFuncinvKeyPressCal();
+    localprintBurronClickFuncc();
 };
 
 
@@ -22,13 +24,14 @@ let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectNa
                 inFolderName, inFileName, inItemName, inProjectName,
                 inEvent: event
             });
-            
+
             if (LocalFromSave.KTF) {
+                window.location.href += "&FromSave=true";
                 await ShowOnDomStartFunc({
                     inFolderName, inFileName, inItemName, inProjectName,
                     inShowSuccess: true
                 });
-            }else{
+            } else {
                 Swal.fire(LocalFromSave.KReason);
             }
         });
@@ -68,6 +71,14 @@ let localButtonDeleteFunc = ({ inFolderName, inFileName, inItemName, inProjectNa
         });
     };
 
+};
+let localprintBurronClickFuncc = () => {
+    let jvarLocalPrinButtonId = document.getElementById("PrintId");
+    jvarLocalPrinButtonId.addEventListener("click", () => {
+        let localRowPK = ReturnRowPK().RowPK;
+        window.location.href = `/pages/Sales/BillPrint/Show/Show.html?RowPK=${localRowPK}`;
+
+    })
 };
 
 export { StartFunc };
