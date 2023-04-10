@@ -1,7 +1,7 @@
 let StartFunc = () => {
     let jVarLocalDisPersantage = document.getElementById("DisPersantage");
     let jVarLocalRate = document.getElementById("RateId1");
-    let jVarLocalDisValue = document.getElementById("DisRate");
+    let jVarLocalDisRate = document.getElementById("DisRate");
 
 
     jVarLocalDisPersantage.addEventListener("keypress", async (event) => {
@@ -12,24 +12,19 @@ let StartFunc = () => {
 
             let jVarLocalCurrentTarget = parseInt((localdisPercentage * jVarLocalRatevalue) / 100);
             let localWithDisValue = (jVarLocalRatevalue - jVarLocalCurrentTarget)
-
-            jVarLocalDisValue.value = localWithDisValue;
+            jVarLocalDisRate.value = localWithDisValue;
 
         }
     });
 
-    jVarLocalDisValue.addEventListener("keypress", async (event) => {
+    jVarLocalDisRate.addEventListener("keypress", async (event) => {
         if (event.keyCode === 13) { // key code of the keybord key
             event.preventDefault();
-            let localdisPercentagevalue = parseInt(jVarLocalDisValue.value);
+            let localdisRateValue = parseInt(jVarLocalDisRate.value);
             let jVarLocalRatevalue = parseInt(jVarLocalRate.value);
 
-            let localWithDisValue = parseInt(jVarLocalRatevalue - localdisPercentagevalue);
-            console.log("localWithDisValue",localWithDisValue);
-
-
+            let localWithDisValue = parseInt(jVarLocalRatevalue - localdisRateValue);
             let jVarLocalCurrentTarget = parseInt((localWithDisValue / jVarLocalRatevalue) * 100);
-
             jVarLocalDisPersantage.value = jVarLocalCurrentTarget;
 
         }
