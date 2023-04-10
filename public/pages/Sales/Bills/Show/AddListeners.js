@@ -2,11 +2,13 @@ import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/S
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as KeyPressStartFunc } from "./FetchFuncs/KeyPress.js";
 import { StartFunc as DeleteFuncsStartFunc } from "./ButtonFuncs/DeleteFuncs.js";
+import { StartFunc as StartFuncinvKeyPressCal } from "./invKeyPressCal.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
     QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
     localButtonDeleteFunc({ inFolderName, inFileName, inItemName, inProjectName });
+    StartFuncinvKeyPressCal();
 };
 
 
@@ -15,6 +17,7 @@ let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectNa
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
         jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
+            event.preventDefault();
             let LocalFromSave = await SaveFuncsStartFunc({
                 inFolderName, inFileName, inItemName, inProjectName,
                 inEvent: event
