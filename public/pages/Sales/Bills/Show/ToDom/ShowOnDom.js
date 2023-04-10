@@ -61,7 +61,6 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
 };
 
 let jVarLocalShowInventorySerial = ({ inData }) => {
-    console.log("inData : ", inData);
     let jVarLocalSnoid = document.getElementById("Snoid");
 
     if ("InvGrid" in inData) {
