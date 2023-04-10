@@ -42,12 +42,20 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
 
 let ShowOnDom = ({ inData, inShowSuccess }) => {
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
+    let jVarLocalCustomerNameId = document.getElementById("CustomerNameId");
+
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
+
+    if (jVarLocalCustomerNameId !== null) {
+        jVarLocalCustomerNameId.innerHTML = inData.CustomerName;
+    };
 
     if (jVarLocalVoucherNameId !== null) {
         jVarLocalVoucherNameId.innerHTML = inData.Date;
     };
+
+    
     if (jVarLocalBillNumberId !== null) {
         jVarLocalBillNumberId.innerHTML = inData.BillNumber;
     };
