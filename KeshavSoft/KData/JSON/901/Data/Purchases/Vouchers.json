@@ -1,1 +1,1 @@
-{"VouchersName":{"1":{"VoucherName":"","pk":"","BillNumber":"s16-732832","Date":"2023-04-05","VoucherValue":"","VoucherSign":"","ParentVoucherName":"","AccountCode":"","AccountName":"","InvGrid":{"1":{"FK":"","pk":"","sno":1,"Tax":"","Qty":2,"UnitRate":1600,"Amount":3200,"ItemName":"Saree","PercentageValueAddition":20,"MRP":1920},"2":{"FK":"","pk":"","sno":2,"Tax":"","Qty":10,"UnitRate":2000,"Amount":20000,"ItemName":"Saree","PercentageValueAddition":40,"MRP":2800}},"SupplierName":"Supplier16","AliasName":"s16","TotalAmount":16000}}}
+{"VouchersName":{}}

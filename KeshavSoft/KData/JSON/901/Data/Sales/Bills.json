@@ -1,4 +1,6 @@
 {
-    "POS":{},
-    "BillsQrCode": {}
+    "POS": {
+    },
+    "BillsQrCode": {
+    }
 }
