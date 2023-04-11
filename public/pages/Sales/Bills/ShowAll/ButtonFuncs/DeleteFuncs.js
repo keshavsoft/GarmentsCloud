@@ -1,5 +1,5 @@
 //import { StartFunc as PushDataStartFunc } from "./PushData/FetchFuncs.js";
-//import { StartFunc as DeleteFuncsStartFunc } from "../FetchFuncs/DeleteFuncs.js";
+import { StartFunc as DeleteFuncsStartFunc } from "../FetchFuncs/DeleteFuncs.js";
 import { StartFunc as InvCountFuncsStartFunc } from "../FetchFuncs/InvCount.js";
 
 let StartFunc1 = async ({ inFolderName, inFileName, inItemName, inProjectName, inEvent }) => {
@@ -47,6 +47,28 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
             if (jVarLocalDataSetKeyNeeded in jVarLocalDataSet) {
                 let jVarLocalRowPK = jVarLocalDataSet[jVarLocalDataSetKeyNeeded];
 
+                let jVarLocalFromDelete = await InvCountFuncsStartFunc({
+                    inFolderName, inFileName, inItemName,
+                    inProjectName,
+                    inRowPK: jVarLocalRowPK
+                });
+
+                if (jVarLocalFromDelete.KTF) {
+
+                    if (jVarLocalFromDelete.JsonData.length === 0) {
+                        let jVarLocalFromDelete = await DeleteFuncsStartFunc({
+                            inFolderName, inFileName, inItemName,
+                            inProjectName,
+                            inRowPK: jVarLocalRowPK
+                        });
+
+                        if (jVarLocalFromDelete.KTF) {
+                            window.location = `?FromDelete=true&RowPK=${jVarLocalRowPK}`;
+                        };
+                    };
+                    // window.location = `?FromDelete=true&RowPK=${jVarLocalRowPK}`;
+                };
+
                 // let jVarLocalFromDelete = await DeleteFuncsStartFunc({
                 //     inFolderName, inFileName, inItemName,
                 //     inProjectName,
@@ -58,15 +80,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
                 // };
 
 
-                  let jVarLocalFromDelete = await InvCountFuncsStartFunc({
-                    inFolderName, inFileName, inItemName,
-                    inProjectName,
-                    inRowPK: jVarLocalRowPK
-                });
 
-                if (jVarLocalFromDelete.KTF) {
-                  // window.location = `?FromDelete=true&RowPK=${jVarLocalRowPK}`;
-                };
             };
         };
     });
