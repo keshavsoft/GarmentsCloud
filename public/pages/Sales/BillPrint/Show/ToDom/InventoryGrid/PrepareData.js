@@ -1,7 +1,7 @@
 import { FromNode as FetchFuncForBillsQrCode } from "../../PullData/FetchFuncForBillsQrCode.js";
 import { StartFunc as InvGridStartFunc } from "../InvGrid.js";
 import { StartFunc as FetchFuncsForMasters } from "../../PullData/FetchFuncsForMasters.js";
-import { StartFunc as InvTableStartFunc } from "../InvTable.js";
+import { StartFunc as StartFuncTaxTable } from "../TaxTable.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inRowPk }) => {
     let localpk = inRowPk
@@ -20,10 +20,10 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         await FetchFuncsForMasters({ inProjectName });
 
         let jVarLocalNewArray = LocalInsertGstPercentage({ inInvData: localdata });
-        window.localStorage.setItem("inventeryData", JSON.stringify(jVarLocalNewArray));
+        window.localStorage.setItem("InventoryData", JSON.stringify(jVarLocalNewArray));
 
-        await InvGridStartFunc({ inData: jVarLocalNewArray });
-        await InvTableStartFunc();
+        await InvGridStartFunc();
+        await StartFuncTaxTable();
     };
 };
 
