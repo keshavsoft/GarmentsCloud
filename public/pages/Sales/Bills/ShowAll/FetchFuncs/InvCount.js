@@ -3,10 +3,10 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inRowPK, inProjec
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
         let inFetchPostData = {
-            FileNameOnly: inFileName,
-            FolderName: inFolderName,
-            ItemName: "BillsQrCode",
-            Screenname: "Create",
+            inFileNameOnly: inFileName,
+            inFolderName: inFolderName,
+            inItemName: "BillsQrCode",
+            inScreenname: "Create",
             inColumnName: "BillPk",
             inValueToCheck: inRowPK
         };
