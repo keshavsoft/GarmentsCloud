@@ -3,9 +3,11 @@ let StartFunc = ({ inJSONData }) => {
 
     let jVarLocalItemsDataList = document.getElementById("ItemsDataList");
     let jVarLocalRateId = document.getElementById("RateId1");
+    let jVarLocalGrossAmout = document.getElementById("GrossAmout");
 
     jVarLocalItemsDataList.value = jVarLocalinJSONData.ProductName
-    jVarLocalRateId.value = jVarLocalinJSONData.SalePrice
+    jVarLocalRateId.value = jVarLocalinJSONData.SalePrice;
+    jVarLocalGrossAmout.value = jVarLocalinJSONData.SalePrice;
 };
 
 
