@@ -7,7 +7,7 @@ let StartFunc = async () => {
     let inData = localStorage.getItem('InventoryData');
     let jVarLocalGroupedData = LocalGroupDataFunc(JSON.parse(inData));
     console.log("jVarLocalGroupedData : ", jVarLocalGroupedData);
-    await ShowOnDomTableBody({ inData: JSON.parse(inData) });
+    await ShowOnDomTableBody({ inData: jVarLocalGroupedData});
 
     // LocalTotalFunc(inData);
 };
@@ -22,11 +22,6 @@ let ShowOnDomTableBody = async ({ inData }) => {
 
         Object.entries(inData).forEach(
             ([key, value]) => {
-                value.pk = key;
-                value.FK = inData.pk;
-                value.SupplierName = inData.SupplierName;
-                value.BillNumber = inData.BillNumber;
-                value.Date = inData.Date;
 
                 let jVarLocalToShowHtml = template(value);
 
