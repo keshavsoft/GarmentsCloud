@@ -3,7 +3,6 @@ let StartFunc = () => {
     let jVarLocalRate = document.getElementById("RateId1");
     let jVarLocalDisRate = document.getElementById("DisRate");
 
-
     jVarLocalDisPersantage.addEventListener("keypress", async (event) => {
         if (event.keyCode === 13) { // key code of the keybord key
             event.preventDefault();

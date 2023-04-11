@@ -13,7 +13,6 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     localprintBurronClickFuncc();
 };
 
-
 let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
