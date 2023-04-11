@@ -3,6 +3,7 @@ import { FromNode as FetchFuncForBillsQrCode } from "../PullData/FetchFuncForBil
 import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
+import { StartFunc as FetchFuncsForMasters } from "../PullData/FetchFuncsForMasters.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
@@ -19,6 +20,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         let localindataJson = jVarLocalData.JsonData
         ShowOnDom({ inData: localindataJson, inShowSuccess });
         await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
+        await FetchFuncsForMasters({ inProjectName });
     };
 };
 
@@ -55,7 +57,7 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
         jVarLocalVoucherNameId.innerHTML = inData.Date;
     };
 
-    
+
     if (jVarLocalBillNumberId !== null) {
         jVarLocalBillNumberId.innerHTML = inData.BillNumber;
     };
