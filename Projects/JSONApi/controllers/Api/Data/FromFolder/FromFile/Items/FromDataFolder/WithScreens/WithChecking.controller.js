@@ -21,7 +21,7 @@ let CreateNewFunc = async (req, res, next) => {
         inScreenName: LocalScreenName
     });
 
-    CommonMiddlewares.
+   // CommonMiddlewares.
 
     res.end(JSON.stringify(PromiseData));
 
