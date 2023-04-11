@@ -53,7 +53,7 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
 
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
-
+    
     if (jVarLocalCustomerNameId !== null) {
         jVarLocalCustomerNameId.innerHTML = inData.CustomerName;
     };
