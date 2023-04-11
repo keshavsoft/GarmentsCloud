@@ -42,7 +42,6 @@ let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectNa
 let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalQrCode = document.getElementById("QrCode");
 
-
     jVarLocalQrCode.addEventListener("keypress", async (event) => {
         if (event.keyCode === 13) { // key code of the keybord key
             event.preventDefault();

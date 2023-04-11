@@ -11,7 +11,6 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
 
         let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
 
-
         let jVarLocalFetchHeaders = {
             method: "post",
             headers: {
@@ -25,13 +24,11 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
                 JsonPk: jVarLocalRowPK,
             })
         };
-        console.log("sssssss : ", jVarLocalFetchUrl);
 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
 
         Object.freeze(data.JsonData)
-        // data.JsonData.SalePrice = 80000
 
         StartFucToFooter({ inJSONData: data.JsonData });
 
