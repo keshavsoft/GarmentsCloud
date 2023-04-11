@@ -4,6 +4,7 @@ import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
 import { StartFunc as FetchFuncsForMasters } from "../PullData/FetchFuncsForMasters.js";
+import { StartFunc as StartFuncInventoryGrid } from "./InventoryGrid/PrepareData.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
@@ -19,8 +20,10 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
     if (jVarLocalData.KTF) {
         let localindataJson = jVarLocalData.JsonData
         ShowOnDom({ inData: localindataJson, inShowSuccess });
-        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
-        await FetchFuncsForMasters({ inProjectName });
+
+        // await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
+
+        await StartFuncInventoryGrid({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
     };
 };
 
@@ -37,6 +40,8 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
 
     if (jVarLocalDataToShow.KTF) {
         let localdata = jVarLocalDataToShow.JsonData
+
+        await FetchFuncsForMasters({ inProjectName });
 
         await InvGridStartFunc({ inData: localdata });
     };
