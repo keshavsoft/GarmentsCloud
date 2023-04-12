@@ -27,7 +27,7 @@ let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectNa
             });
 
             if (LocalFromSave.KTF) {
-                window.location.href += "&FromSave=true";
+                //window.location.href += "&FromSave=true";
                 await ShowOnDomStartFunc({
                     inFolderName, inFileName, inItemName, inProjectName,
                     inShowSuccess: true
