@@ -45,8 +45,7 @@ let PreparePostData = () => {
     if (!(jVarLocalGrossAmout === null)) {
         jVarLocalReturnData.GrossAmout = parseInt(jVarLocalGrossAmout.value);
     };
-    console.log("jVarLocalReturnData",jVarLocalReturnData);
-
+   
 
     jVarLocalReturnData.BillPk = jVarLocalRowPK;
 
