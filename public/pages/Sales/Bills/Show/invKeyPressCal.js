@@ -24,7 +24,7 @@ let StartFunc = () => {
             let localdisRateValue = parseInt(jVarLocalDisRate.value);
             let jVarLocalRatevalue = parseInt(jVarLocalRate.value);
 
-            let localWithDisValue = (parseInt(localdisRateValue / jVarLocalRatevalue) * 100);
+            let localWithDisValue = (localdisRateValue / jVarLocalRatevalue) * 100;
             // let jVarLocalCurrentTarget = parseInt((localWithDisValue / jVarLocalRatevalue) * 100);
             jVarLocalDisPersantage.value = localWithDisValue;
             jVarLocalGrossAmout.value = (jVarLocalRatevalue - localdisRateValue);
