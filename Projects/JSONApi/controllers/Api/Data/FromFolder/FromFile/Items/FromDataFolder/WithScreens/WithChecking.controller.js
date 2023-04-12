@@ -1,18 +1,13 @@
 let Repos = require("../../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking");
 
-// let CommonMiddlewares = require("../../../../../../../../Middlewares/ForRoutes/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking");
-
-// let Common = require("../../../../../../../../Middlewares");
-
 let CreateNewFunc = async (req, res, next) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileNameOnly;
     let LocalItemName = req.body.ItemName;
     let LocalScreenName = req.body.ScreenName;
-    // console.log("ppppppppppppp");
+    console.log("ppppppppppppp");
 
-   // CommonMiddlewares.CreateNewFunc(req, res, next)
     let PromiseData = await Repos.CreateNewFunc({
         inDataPK: LocalDataPk,
         inFolderName: LocalFolderName,
@@ -20,8 +15,6 @@ let CreateNewFunc = async (req, res, next) => {
         inItemName: LocalItemName,
         inScreenName: LocalScreenName
     });
-
-   // CommonMiddlewares.
 
     res.end(JSON.stringify(PromiseData));
 
@@ -53,7 +46,6 @@ let InsertFunc = async (req, res, next) => {
     res.end(JSON.stringify(PromiseData));
 };
 let InsertWithPkFunc = async (req, res, next) => {
-  
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileNameOnly;
@@ -61,6 +53,8 @@ let InsertWithPkFunc = async (req, res, next) => {
     let LocalScreenName = req.body.ScreenName;
     let LocalJsonPK = req.body.JsonPk;
     let LocalDataToInsert = req.body.inPostData;
+
+    console.log("----------:", LocalDataToInsert);
 
 
     let PromiseData = await Repos.InsertWithPkFunc({

@@ -34,21 +34,16 @@ exports.InsertFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName
 };
 
 exports.InsertWithPkFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
-    console.log("jatin");
     let LocalReturnObject = await CommonDataSupplyInsertWithPk.StartFunc({
-        
         inDataPK,
         inFolderName, inFileNameOnly, inItemName,
         inScreenName,
         inJsonPk,
         inDataToInsert
     });
-   
-    
 
     return await LocalReturnObject;
 };
-
 
 exports.PostFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inJsonPk }) => {
     let LocalReturnObject = await CommonDataSupply.StartFunc({
