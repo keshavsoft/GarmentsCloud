@@ -9,6 +9,7 @@ exports.InsertFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName
 };
 
 exports.InsertWithPkFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert }) => {
+    console.log("neeraj");
     return await dal.InsertWithPkFunc({ inDataPK, inFolderName, inFileNameOnly, inItemName, inScreenName, inJsonPk, inDataToInsert });
 };
 

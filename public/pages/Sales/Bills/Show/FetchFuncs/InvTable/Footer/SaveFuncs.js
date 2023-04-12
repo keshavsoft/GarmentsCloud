@@ -7,6 +7,9 @@ let PreparePostData = () => {
     let jVarLocalQrCode = document.getElementById("QrCode");
     let jVarLocalDisPersantage = document.getElementById("DisPersantage");
     let jVarLocalDisRate = document.getElementById("DisRate");
+    let jVarLocalGrossAmout = document.getElementById("GrossAmout");
+    
+
 
     let jVarLocalRowPK = ReturnRowPK().RowPK;
 
@@ -38,6 +41,11 @@ let PreparePostData = () => {
     if (!(jVarLocalQrCode === null)) {
         jVarLocalReturnData.DisRate = parseInt(jVarLocalDisRate.value);
     };
+
+    if (!(jVarLocalGrossAmout === null)) {
+        jVarLocalReturnData.GrossAmout = parseInt(jVarLocalGrossAmout.value);
+    };
+    console.log("jVarLocalReturnData",jVarLocalReturnData);
 
 
     jVarLocalReturnData.BillPk = jVarLocalRowPK;
