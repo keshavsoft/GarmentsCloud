@@ -4,6 +4,7 @@ import { StartFunc as KeyPressStartFunc } from "./FetchFuncs/KeyPress.js";
 import { StartFunc as DeleteFuncsStartFunc } from "./ButtonFuncs/DeleteFuncs.js";
 import { StartFunc as StartFuncinvKeyPressCal } from "./invKeyPressCal.js";
 import { ReturnRowPK } from "./urlSearchParams.js";
+import { StartFunc as ButtonForImageDownload } from "./ToDom/ButtonForImageDownload.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
@@ -11,6 +12,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     localButtonDeleteFunc({ inFolderName, inFileName, inItemName, inProjectName });
     StartFuncinvKeyPressCal();
     localprintBurronClickFuncc();
+    LocalModalButtonForImageDownloadFuncs();
 };
 
 let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
@@ -78,5 +80,14 @@ let localprintBurronClickFuncc = () => {
 
     })
 };
+
+let LocalModalButtonForImageDownloadFuncs = () => {
+    let jVarLocalUpdateClassName = document.getElementsByClassName("ShowImageButtonClass");
+
+    for (let i = 0; i < jVarLocalUpdateClassName.length; i++) {
+        jVarLocalUpdateClassName[i].addEventListener("click", ButtonForImageDownload)
+    };
+};
+
 
 export { StartFunc };
