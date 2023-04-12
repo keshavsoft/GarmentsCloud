@@ -1,5 +1,7 @@
 //import { StartFunc as PushDataStartFunc } from "./PushData/FetchFuncs.js";
 import { StartFunc as DeleteFuncsStartFunc } from "../FetchFuncs/DeleteFuncs.js";
+import { ReturnRowPK } from "../urlSearchParams.js";
+
 
 let StartFunc1 = async ({ inFolderName, inFileName, inItemName, inProjectName, inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
@@ -32,6 +34,8 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalDataSet = jVarLocalCurrentTarget.dataset;
     let jVarLocalDataSetKeyNeeded = "rowpk";
+    let localRowPK = ReturnRowPK().RowPK;
+
 
     Swal.fire({
         title: 'Are you sure?',
@@ -53,7 +57,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
                 });
 
                 if (jVarLocalFromDelete.KTF) {
-                    window.location = `?FromDelete=true&RowPK=${jVarLocalRowPK}`;
+                    window.location.href = `?RowPK=${localRowPK}&FromDelete=true`;
                 };
             };
         };

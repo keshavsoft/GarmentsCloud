@@ -16,6 +16,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 };
 
 let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+    let localRowPK = ReturnRowPK().RowPK;
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
@@ -27,7 +28,7 @@ let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectNa
             });
 
             if (LocalFromSave.KTF) {
-                window.location.href += "&FromSave=true";
+                window.location.href = `?RowPK=${localRowPK}&FromSave=true`;
                 await ShowOnDomStartFunc({
                     inFolderName, inFileName, inItemName, inProjectName,
                     inShowSuccess: true
