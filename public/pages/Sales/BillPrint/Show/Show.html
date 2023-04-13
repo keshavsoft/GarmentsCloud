@@ -348,159 +348,132 @@
                     <form class="" action="index.html" method="post">
                         <div class="card my-sm-5 my-lg-0" id="PrintDiv">
                             <div class="card-header text-center">
-                                <div class="row justify-content-between">
-                                    <div class="col-md-4 text-start">
-                                        <h4>
-                                            MAGUVA
-                                        </h4>
-                                        <p>50-50-30/12/2,
-                                            vandana plaza,GURUDWARA,
-                                            VISHAKAPTANAM
-                                            GSTIN:37ACJPL9300K2ZB,PH:08912796666
-                                            State Code:37
-                                        </p>
+                                <div class="row justify-content-between ">
+                                    <div class="row ">
+                                        <div class="col">MAGUVA</div>
+                                    </div>
+                        
+                                    <div class="row">
+                                        <div class="col">50-50-30/12/2, vandana plaza</div>
                                     </div>
                                     <div class="row">
-                                        <h6 class="d-block mt-2 mb-0">TAX INVOICE
-                                        </h6>
-                                        <h6 class="d-block mt-2 mb-0">CASH BILL
-                                        </h6>
+                                        <div class="col">GURUDWARA,VISHAKAPATNAM</div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-3">
-                                            <h6 class="mb-0 text-start text-secondary">
-                                                CustomerName:
-                                            </h6>
-                                        </div>
-                                        <div class="col-9">
-                                            <h6 class="mb-0 text-start text-secondary" id="CustomerNameId">
-                                                jatin
-                                            </h6>
-                                        </div>
-
+                                        <div class="col">GSTIN:37ACJPL9300K2ZB,Ph:08912796666</div>
                                     </div>
-                                </div>
-
-                                <br>
-                                <div class="row justify-content-md-between">
-                                    <div class="col-md-4 mt-auto">
-
-                                        <h6 class="colmb-0 text-start text-secondary">
-                                            Invoice no
-                                        </h6>
-                                        <h5 class="coltext-start mb-0" id="BillNumberId">
-                                            #0453119
-                                        </h5>
+                                    <div class="row">
+                                        <div class="col">State Code:37</div>
                                     </div>
-                                    <div class="col-lg-5 col-md-7 mt-auto">
-                                        <div class="row mt-md-5 mt-4 text-md-end text-start">
-                                            <div class="col-md-6">
-                                                <h6 class="text-secondary mb-0">Invoice date:</h6>
+                                    <div class="row">
+                                        <div class="col text-center">TAX INVOICE</div>
+                                    </div>
+                                    <div class="row"> 
+                                        <div class="col text-center">CASH BILL</div>
+                                    </div>
+                        
+                        
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-3">CustomerName:</div>
+                                            <div class="col-9" id="CustomerNameId">jatin</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">PhoneNumber:</div>
+                                            <div class="col-9" id="ContactNumberId">jatin</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">BillNumber:</div>
+                                            <div class="col-9" id="BillNumberId">jatin</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">Date:</div>
+                                            <div class="col-9" id="DateId">jatin</div>
+                                        </div>
+                        
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                              <tr>
+                                                <th scope="col">SNO</th>
+                                                <th scope="col">QR-Code</th>
+                                                <th scope="col">ItemName</th>
+                                                <th scope="col">Disc%</th>                       
+                                                <th scope="col">G Rate</th>
+                                              </tr>
+                                              <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                                <th scope="col">Discount</th>
+                                                <th scope="col">Rate</th>
+                                                <th scope="col"></th>
+                                                
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row" id="Snoid">1</th>
+                                                <td id="QrCode">M-1</td>
+                                                <td id="ItemsDataList">Silk </td>
+                                                <td id="DisPersantage">20%</td>
+                                                <td id="GrossAmout">1</td>
+                                              
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"></th>
+                                                <td></td>
+                                                <td id="DisRate"></td>
+                                                <td id="RateId1"></td>
+                                                
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                        
+                                          <table class="table">
+                                            <thead class="thead-dark">
+                                              <tr>
+                                                <th scope="col">SNO</th>
+                                                <th scope="col">GST</th>
+                                                <th scope="col"></th>
+                                                <th scope="col">TotalAmount</th>                       
+                                               
+                                              </tr>
+                                        
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row" id="">1</th>
+                                                <td id="">5%</td>
+                                                <td id=""></td>
+                                                <td id="GrossAmout">3520</td>
+                                             
+                                              
+                                              </tr>
+                              
+                                            </tbody>
+                                          </table>
+                        
+                        
+                                          <div class="card-footer mt-md-5 mt-4">
+                                            <div class="row">
+                                                <div class="col-lg-5 text-left">
+                                                    <h5>Terms And Conditions</h5>
+                                                    <p class="text-secondary text-sm">Exchange Time Between 1-4PM</p>
+                                                    <p class="text-secondary text-sm">Goods Will Be Exchaged WithIn 7Days,Rchase
+                                                        Date,
+                                                        No Colour Gurantee
+                                                    </p>
+                                                    <h6 class="text-dark mb-0">
+                                                        *Thank You For Shopping With Us*
+                                                    </h6>
+                                                </div>
+                                                <div class="col-lg-7 text-md-end mt-md-0 mt-3">
+                                                    <button class="btn btn-primary mt-lg-7 mb-0 d-print-none"
+                                                        onClick="window.print()" type="button" name="button">Print</button>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6" id="DateId">
-                                                <h6 class="text-dark mb-0">06/03/2019</h6>
-                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="table-responsive border-radius-lg">
-                                            <table class="table text-right">
-                                                <thead class="bg-default">
-                                                    <tr>
-                                                        <th scope="col" style="width: 15%;" class="text-white">#</th>
-                                                        <th scope="col" style="width: 15%;" class="text-white">QR Code</th>
-                                                        <th scope="col" style="width: 35%;" class="text-white">ItemName</th>
-                                                        <th scope="col" style="width: 20%;" class="text-white">Rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th scope="col" style="width: 15%;" class="text-white"></th>
-                                                        <th scope="col" style="width: 15%;" class="text-white"></th>
-                                                        <th scope="col" style="width: 35%;" class="text-white">Discount</th>
-                                                        <th scope="col" style="width: 20%;" class="text-white">GST</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="ItemsTableBodyId">
-                                                    <tr>
-                                                        <td class="ps-4">$ 9.00</td>
-                                                        <td class="text-start">Premium Support</td>
-                                                        <td class="ps-4">1</td>
-                                                        <td class="ps-4" colspan="2">$ 9.00</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="ps-4">$ 300.00</td>
-                                                        <td class="text-start">Soft UI Design System PRO</td>
-                                                        <td class="ps-4">3</td>
-                                                        <td class="ps-4" colspan="2">$ 100.00</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="ps-4">$ 89.00</td>
-                                                        <td class="text-start">Parts for service</td>
-                                                        <td class="ps-4">1</td>
-                                                        <td class="ps-4" colspan="2">$ 89.00</td>
-
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot id="ItemsTableBodyId">
-                                                    <!-- <tr>
-                                                        <th colspan="1" class="text-right h5 ps-4">$ 698</th>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th class="h5 ps-4" colspan="2">Total</th>
-
-                                                    </tr> -->
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="table-responsive border-radius-lg">
-                                            <table class="table text-right">
-                                                <thead class="bg-default">
-                                                    <tr>
-                                                        <th scope="col" style="width: 15%;" class="text-white">#</th>
-                                                        <th scope="col" style="width: 35%;" class="text-white">GST</th>
-                                                        <th scope="col" style="width: 15%;" class="text-white">Total amout</th>
-                                                    </tr>
-
-                                                   
-                                                </thead>
-                                                <tbody id="GstTableBodyId">
-                                                    
-                                                </tbody>
-                                                <tfoot id="ItemsTableBodyId">
-                                                    
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer mt-md-5 mt-4">
-                                <div class="row">
-                                    <div class="col-lg-5 text-left">
-                                        <h5>Terms And Conditions</h5>
-                                        <p class="text-secondary text-sm">Exchange Time Between 1-4PM</p>
-                                        <p class="text-secondary text-sm">Goods Will Be Exchaged WithIn 7Days,Rchase
-                                            Date,
-                                            No Colur Gurantee
-                                        </p>
-                                        <h6 class="text-dark mb-0">
-                                            *Thank You For Shopping With Us*
-                                        </h6>
-                                    </div>
-                                    <div class="col-lg-7 text-md-end mt-md-0 mt-3">
-                                        <button class="btn btn-primary mt-lg-7 mb-0 d-print-none"
-                                            onClick="window.print()" type="button" name="button">Print</button>
-                                    </div>
+                                          
+                        
                                 </div>
                             </div>
                         </div>
