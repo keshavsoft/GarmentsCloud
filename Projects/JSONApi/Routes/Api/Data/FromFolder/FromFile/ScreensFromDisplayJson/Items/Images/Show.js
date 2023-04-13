@@ -19,6 +19,7 @@ router.post('/', (req, res) => {
         inRowPk: LocalinRowPk,
         inDataPK: LocalDataPk
     });
+    console.log("LocalFromDataSupply:",LocalFromDataSupply);
 
     if (LocalFromDataSupply.KTF) {
         fs.readdir(
@@ -30,7 +31,9 @@ router.post('/', (req, res) => {
                 res.sendFile(`${LocalFromDataSupply.RowPkAsFolderPath}/${files[0]}`);
             }
         );
-    };
+    }else{
+        res.sendStatus(403);
+    }
 });
 
 module.exports = router;

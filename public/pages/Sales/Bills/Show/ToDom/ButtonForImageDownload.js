@@ -3,7 +3,7 @@ let StartFunc = async (event) => {
 
     let jVarLocalCurrentTarget = event.currentTarget;
     let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
-    let jVarLocalfileUpload = document.getElementById("fileUpload");
+    // let jVarLocalfileUpload = document.getElementById("fileUpload");
 
     // let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
     let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Show";
@@ -42,6 +42,10 @@ let StartFunc = async (event) => {
         });
         myModalAlternative.show();
     };
+    if (jVarFromFetch.status === 403) {
+        Swal.fire('Images not upload..!')
+    };
+   
 };
 
 export { StartFunc };
