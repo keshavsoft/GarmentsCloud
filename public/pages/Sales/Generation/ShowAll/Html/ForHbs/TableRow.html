@@ -1,3 +1,4 @@
+{{log "this" this}}
 <tr>
     <td>
         <div class="d-flex">
@@ -7,19 +8,18 @@
             <img class="w-10 ms-3"
                 src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/ecommerce/adidas-hoodie.jpg"
                 alt="hoodie">
-            <h6 class="ms-3 my-auto">{{ProductName}}</h6>
+            <h6 class="ms-3 my-auto">{{ItemName}}</h6>
         </div>
 
     </td>
-    <td>{{SupplierName}}</td>
-    <td>{{BillNumber}}</td>
-    <td>{{Date}}</td>
+    <td>{{BillPk}}</td>
     <td>M-{{pk}}</td>
-    <td>{{CostPrice}}</td>
-    <td>{{PercentageValueAddition}}%</td>
-    <td>{{SalePrice}}</td>
+    <td>{{UnitRate}}</td>
+    <td>{{DisPercentage}}%</td>
+    <td>{{DisRate}}</td>
+    <td>{{GrossAmout}}</td>
     <td class="text-sm">
-        <a href="/pages/Sales/Bills/Show/Show.html?RowPK={{BillNumber}}" data-bs-toggle="tooltip" data-bs-original-title="Preview product">
+        <a href="/pages/Sales/Bills/Show/Show.html?RowPK={{BillPk}}" data-bs-toggle="tooltip" data-bs-original-title="Preview product">
             <i class="fas fa-eye text-secondary"></i>
         </a>
         <a href="../ItemEdit/ItemEdit.html?RowPK={{pk}}" href="javascript:;" class="mx-3 " data-bs-toggle="tooltip"
