@@ -3,6 +3,9 @@ let StartFunc = async (event) => {
 
     let jVarLocalCurrentTarget = event.currentTarget;
     let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
+    let jVarLocalsno = jVarLocalCurrentTarget.dataset.sno;
+    let jVarLocalUnitRate = jVarLocalCurrentTarget.dataset.unitrate;
+    let jVarLocalitemname = jVarLocalCurrentTarget.dataset.itemname;
     // let jVarLocalfileUpload = document.getElementById("fileUpload");
 
     // let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
@@ -33,8 +36,12 @@ let StartFunc = async (event) => {
         image.src = imageObjectURL;
         let jVarLocalShowImageModalLabel = document.getElementById("ShowImageModalLabel");
         jVarLocalShowImageModalLabel.innerHTML = jVarLocalRowPk;
-        // let jVarLocalShowImageModalDeleteButtonId = document.getElementById("ShowImageModalDeleteButtonId");
-        // jVarLocalShowImageModalDeleteButtonId.dataset.rowpk = jVarLocalRowPk;
+
+        let jVarLocalShowItemNameId = document.getElementById("ShowItemNameId");
+        jVarLocalShowItemNameId.innerHTML = jVarLocalitemname;
+
+        let jVarLocalShowUnitrate = document.getElementById("ShowUnitrateId");
+        jVarLocalShowUnitrate.innerHTML = jVarLocalUnitRate;
         //rowpk
 
         const myModalAlternative = new bootstrap.Modal('#ShowImageModal', {
@@ -45,7 +52,7 @@ let StartFunc = async (event) => {
     if (jVarFromFetch.status === 403) {
         Swal.fire('Images not upload..!')
     };
-   
+
 };
 
 export { StartFunc };
