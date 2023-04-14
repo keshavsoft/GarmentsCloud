@@ -1,8 +1,8 @@
 let KeysObject = {
     CommonKeys: {
-        inFolderName: "QrCodes",
-        inFileName: "Generate",
-        inItemName: "Barcodes"
+        inFolderName: "Sales",
+        inFileName: "Bills",
+        inItemName: "BillsQrCode"
     }
 };
 
