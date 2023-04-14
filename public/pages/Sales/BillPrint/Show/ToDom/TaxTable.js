@@ -6,7 +6,6 @@ import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPullForGST/Tab
 let StartFunc = async () => {
     let inData = localStorage.getItem('InventoryData');
     let jVarLocalGroupedData = LocalGroupDataFunc(JSON.parse(inData));
-    console.log("jVarLocalGroupedData : ", jVarLocalGroupedData);
     await ShowOnDomTableBody({ inData: jVarLocalGroupedData});
 
     // LocalTotalFunc(inData);
@@ -42,12 +41,13 @@ const groupBy = (arr, groupFn) =>
 
 let LocalGroupDataFunc = (inData) => {
     let jVarLocalGroupedData = groupBy(inData, (person) => person.GST);
+    console.log("jVarLocalGroupedData:",jVarLocalGroupedData);
     let jVarLocalReturnArray = [];
 
     Object.entries(jVarLocalGroupedData).forEach(
         ([key, value]) => {
             let jVarLoopInsideAmount = value.map(element => {
-                return element.DisRate;
+                return element.UnitRate;
             });
             const sum = jVarLoopInsideAmount.reduce((a, b) => a + b, 0);
 
