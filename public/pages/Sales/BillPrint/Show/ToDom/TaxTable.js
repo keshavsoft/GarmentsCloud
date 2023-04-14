@@ -6,7 +6,7 @@ import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPullForGST/Tab
 let StartFunc = async () => {
     let inData = localStorage.getItem('InventoryData');
     let jVarLocalGroupedData = LocalGroupDataFunc(JSON.parse(inData));
-    await ShowOnDomTableBody({ inData: jVarLocalGroupedData});
+    await ShowOnDomTableBody({ inData: jVarLocalGroupedData });
 
     // LocalTotalFunc(inData);
 };
@@ -40,16 +40,41 @@ const groupBy = (arr, groupFn) =>
     );
 
 let LocalGroupDataFunc = (inData) => {
+    let jvarLocalPrintRate = document.getElementById("PrintRateId");
+    let jvarLocalPrintDiscount = document.getElementById("PrintDiscountId");
+    let jvarLocalPrintNetAmount = document.getElementById("PrintNetAmountId");
     let jVarLocalGroupedData = groupBy(inData, (person) => person.GST);
-    console.log("jVarLocalGroupedData:",jVarLocalGroupedData);
+    console.log("jVarLocalGroupedData:", jVarLocalGroupedData);
     let jVarLocalReturnArray = [];
 
     Object.entries(jVarLocalGroupedData).forEach(
         ([key, value]) => {
             let jVarLoopInsideAmount = value.map(element => {
+                return element.GrossAmout;
+            });
+            let jVarLoopInsideRate = value.map(element => {
+                console.log("element", element);
                 return element.UnitRate;
             });
+
+            let jVarLoopInsideDiscount = value.map(element => {
+                console.log("element", element);
+                return element.DisRate;
+            });
+
+            let jVarLoopInsideGrossAmout = value.map(element => {
+                console.log("element", element);
+                return element.GrossAmout;
+            });
+
             const sum = jVarLoopInsideAmount.reduce((a, b) => a + b, 0);
+            const localUnitRate = jVarLoopInsideRate.reduce((a, b) => a + b, 0);
+            const localdiscount = jVarLoopInsideDiscount.reduce((a, b) => a + b, 0);
+            const localUnitNetAmout = jVarLoopInsideGrossAmout.reduce((a, b) => a + b, 0);
+            
+            jvarLocalPrintRate.innerHTML = localUnitRate;
+            jvarLocalPrintDiscount.innerHTML = localdiscount;
+            jvarLocalPrintNetAmount.innerHTML = localUnitNetAmout;
 
             //console.log("jVarLoopInsideAmount : ", jVarLoopInsideAmount);
 
