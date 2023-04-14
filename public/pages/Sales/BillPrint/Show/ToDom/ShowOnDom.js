@@ -21,7 +21,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         let localindataJson = jVarLocalData.JsonData
         ShowOnDom({ inData: localindataJson, inShowSuccess });
 
-        // await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
+        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
 
         await StartFuncInventoryGrid({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
     };
@@ -48,11 +48,13 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
 };
 
 let ShowOnDom = ({ inData, inShowSuccess }) => {
+    console.log("inData-------------",inData);
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
     let jVarLocalCustomerNameId = document.getElementById("CustomerNameId");
 
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
+    let jVarLocalCustomerNumber = document.getElementById("ContactNumberId");
     
     if (jVarLocalCustomerNameId !== null) {
         jVarLocalCustomerNameId.innerHTML = inData.CustomerName;
@@ -69,6 +71,9 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
 
     if (jVarLocalDateId !== null) {
         jVarLocalDateId.innerHTML = inData.Date;
+    };
+    if (jVarLocalCustomerNumber !== null) {
+        jVarLocalCustomerNumber.innerHTML = inData.CustomerNumber;
     };
 
     ShowSuccessFunc({ inShowSuccess });
