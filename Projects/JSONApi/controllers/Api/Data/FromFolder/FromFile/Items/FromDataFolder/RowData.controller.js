@@ -1,7 +1,6 @@
 let Repos = require("../../../../../../../Repository/Api/Data/FromFolder/FromFile/Items/FromDataFolder/RowData");
 
 let PostFunc = async (req, res, next) => {
-    //  console.log("------ : ", req.KeshavSoft);
     //let LocalUserName = req.KeshavSoft.kUserName;
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
