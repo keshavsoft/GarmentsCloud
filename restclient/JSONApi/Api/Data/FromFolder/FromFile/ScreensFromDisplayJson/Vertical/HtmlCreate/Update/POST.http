@@ -1,0 +1,10 @@
+POST http://localhost:4120/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Update
+Cookie: KToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTmFtZSI6Ik1BR1VWQUEiLCJEYXRhUGsiOjkwMSwiaWF0IjoxNjgxNzE3OTM0fQ.d6clw4-0WwH-zIQI9_3tN1B9S0ZdCaiRhKafg-DvWII
+content-type: application/json
+
+{
+    "JsonConfig": "{ inFolderName:Purchases, inJsonFileName:Suppliers.json}",
+    "ItemConfig": "{ inItemName:SuppliersName, inScreenName: Create }",
+    "inDataToUpdate": "{SupplierName:NALAM KESAHV}",
+    "pk": 1
+}
