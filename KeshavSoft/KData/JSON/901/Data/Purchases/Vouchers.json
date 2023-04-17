@@ -1,1 +1,1 @@
-{"VouchersName":{}}
+{"VouchersName":{"1":{"VoucherName":"","pk":"","BillNumber":"361","Date":"","VoucherValue":"","VoucherSign":"","ParentVoucherName":"","AccountCode":"","AccountName":"","InvGrid":{"1":{"FK":"","pk":"","sno":1,"Tax":"","Qty":2,"UnitRate":1600,"Amount":3200,"ItemName":"Uppada Saree","PercentageValueAddition":20,"MRP":1920},"2":{"FK":"","pk":"","sno":2,"Tax":"","Qty":5,"UnitRate":25000,"Amount":125000,"ItemName":"Kanchi pattu","PercentageValueAddition":25,"MRP":31250}},"SupplierName":"Kakinada fashions","AliasName":"kf","TotalAmount":null}}}
