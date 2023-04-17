@@ -51,8 +51,6 @@ let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectNam
             let jVarLocalQrCodeValue = jVarLocalQrCode.value
             let Rowpk = parseInt(jVarLocalQrCodeValue.substring(2));
 
-            let jVarLocalCurrentTarget = event.currentTarget;
-
             await KeyPressStartFunc({
                 inFolderName, inFileName, inItemName, inProjectName, inJsonPK: Rowpk
             });
