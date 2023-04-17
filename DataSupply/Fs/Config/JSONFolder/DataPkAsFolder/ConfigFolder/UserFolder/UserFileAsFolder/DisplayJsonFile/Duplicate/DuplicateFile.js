@@ -1,8 +1,6 @@
 let localpullFolders = require("../../../getDirectories");
 let fs = require("fs-extra");
-let srcDir;
-let distDir;
-
+//code in this file not needed.
 let StartFunc = async ({ inFolderName, inFileNameOnly, inToFileName, inDataPK }) => {
 
     let LocalReturnData = { KTF: false, KReason: "" };
@@ -43,6 +41,6 @@ let localMockFunc = async () => {
     console.log("localdata", localdata);
 };
 
-localMockFunc();
+// localMockFunc();
 
 module.exports = { StartFunc };

@@ -9,7 +9,6 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
             ItemName: inItemName,
             ScreenName: "Create"
         };
-        console.log("inFetchPostData",inFetchPostData);
 
         inFetchPostData.inPostData = PreparePostDataStartFunc();
 

@@ -11,7 +11,12 @@ let StartFunc = async ({ inDataPK, inFolderName, inFileNameOnly, inItemName, inT
 
     let LocalReturnObject = { KTF: false, KReason: "" };
 
-    let localJsonData = await localPullDataJsonData.StartFunc({ inFolderName: localinFolderName, inFileNameOnly: localinFileNameOnly, inDataPK: localinDataPK });
+    let localJsonData = await localPullDataJsonData.StartFunc({
+        inFolderName: localinFolderName,
+        inFileNameOnly: localinFileNameOnly, inDataPK: localinDataPK
+    });
+
+    LocalReturnObject = { ...localJsonData };
 
     let localNewJsonDate = localJsonData.JsonData;
     let localoldItemData = localJsonData.JsonData;
@@ -67,7 +72,7 @@ let localMockFunc = async () => {
     console.log("FromStartFunc", FromStartFunc);
 
 };
-
+// uncomment next 2 lines to run the mock func
 // localMockFunc().then((PromiseData) => {
 // });
 
