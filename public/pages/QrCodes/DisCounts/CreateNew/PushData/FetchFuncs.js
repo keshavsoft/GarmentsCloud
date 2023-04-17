@@ -1,5 +1,4 @@
 import { StartFunc as PreparePostDataStartFunc } from "../PreparePostData.js";
-import { StartFunc as getUrlQueryParamsStartFunc } from "../getUrlQueryParams.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     try {

@@ -6,11 +6,10 @@ let StartFunc = () => {
     let jVarLocaleditDeschiption = document.getElementById("edit-deschiption").querySelector("p");
     let jVarLocalDiscountRsID = document.getElementById("DiscountRsID");
 
-
     let jVarLocalReturnData = {};
 
     if (jVarLocalQrCodeID !== null) {
-        jVarLocalReturnData.QrCode = jVarLocalQrCodeID.value;
+        jVarLocalReturnData.QrCode = parseInt(jVarLocalQrCodeID.value);
     };
 
     if (jVarLocalDateTimeEnteredID !== null) {
@@ -22,9 +21,8 @@ let StartFunc = () => {
     };
 
     if (jVarLocalDiscountID !== null) {
-        jVarLocalReturnData.Discount = parseInt(jVarLocalDiscountID.value);
+        jVarLocalReturnData.DiscountPer = parseInt(jVarLocalDiscountID.value);
     };
-
 
     if (jVarLocaleditDeschiption !== null) {
         jVarLocalReturnData.UserDescription = jVarLocaleditDeschiption.innerHTML;
