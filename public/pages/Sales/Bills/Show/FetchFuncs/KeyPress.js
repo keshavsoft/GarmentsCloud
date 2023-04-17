@@ -47,10 +47,14 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
     StartFucToFooter({ inJSONData: jVarLocalQrCodeData.JsonData });
 
     let jVarLocalDiscountData = await jFLocalFetchQrDiscountData({ inProjectName, inRowPK: inJsonPK });
-    console.log("jVarLocalDiscountData : ", jVarLocalDiscountData);
+
     StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[0] });
 };
 
+const jFLocalLatestDiscount = ({ inDiscountArray }) => {
+    let jVarLocalKeys = Object.keys(inDiscountArray);
+
+};
 
 let jFLocalFetchQrCodeData = async ({ inProjectName, inJsonPK }) => {
     let inFolderName = "Generate";
@@ -93,7 +97,6 @@ let jFLocalFetchQrCodeData = async ({ inProjectName, inJsonPK }) => {
 
 };
 
-
 let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
     let inFolderName = "QrCodes";
     let inFileName = "Discounts";
@@ -123,7 +126,6 @@ let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
 
-        //   Object.freeze(data.JsonData)
         LocalReturnObject.JsonData = data.JsonData;
         Object.freeze(LocalReturnObject.JsonData);
         //  StartFucToFooter({ inJSONData: data.JsonData });
@@ -135,7 +137,6 @@ let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
     }
 
 };
-
 
 let StartFunc1 = async ({ inProjectName, inJsonPK }) => {
     let inFolderName = "Generate";
