@@ -1,14 +1,12 @@
 import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
-import { StartFunc as StartFuncShowQrCode } from "./QrCodeGeneration/ToDom/ShowQrCode.js";
 import { StartFunc as StartFuncCommonQrandPrint } from "./ToDom/ShowDataOnQrModal.js";
 import { AddButtonClickFuncs as AddButtonClickFuncsImageUpload } from "./AddListenersFuncs/ImageUpload.js";
 import { StartFunc as StartFuncFromShowDataButtonClickFuncs } from "./AddListenersFuncs/ThirdTabFuncs/ShowDataButtonClickFuncs.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
-    let jVarLocalSowDataID = document.getElementById("SowDataID");
 
     if (jVarLocalInvTableFooterSaveButtonId !== null) {
         jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
@@ -29,14 +27,6 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     };
 
     StartFuncFromShowDataButtonClickFuncs({ inProjectName });
-    // if (jVarLocalSowDataID !== null) {
-    //     jVarLocalSowDataID.addEventListener("click", async (event) => {
-    //         let localDatd = jVarGlobalData;
-    //         await StartFuncShowQrCode({ inData: localDatd });
-    //         LocalModalButtonForImageDownloadFuncs();
-    //         localPrintButtonClass();
-    //     });
-    // };
 
     StartFuncKeyPressFuncs();
     AddButtonClickFuncsImageUpload();
