@@ -9,6 +9,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
             ItemName: inItemName,
             ScreenName: "Create"
         };
+        console.log("inFetchPostData",inFetchPostData);
 
         inFetchPostData.inPostData = PreparePostDataStartFunc();
 
@@ -25,8 +26,9 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
+        console.log("data",data);
 
-        LocalAfterSaveFunc({ inFetchPostData: data });
+        // LocalAfterSaveFunc({ inFetchPostData: data });
 
         // LocalReturnObject.KTF = true;
         // return await LocalReturnObject;
@@ -37,26 +39,26 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 
 };
 
-let LocalAfterSaveFunc = ({ inFetchPostData }) => {
-    let jVarLocalFromgetUrlQueryParamsStartFunc = getUrlQueryParamsStartFunc();
+// let LocalAfterSaveFunc = ({ inFetchPostData }) => {
+//     let jVarLocalFromgetUrlQueryParamsStartFunc = getUrlQueryParamsStartFunc();
     
-    if (inFetchPostData.KTF) {
-        if ("PurchasePk" in jVarLocalFromgetUrlQueryParamsStartFunc) {
-            window.location = `../../../Purchases/Vouchers/ShowProducts/ShowProducts.html?RowPK=${jVarLocalFromgetUrlQueryParamsStartFunc.PurchasePk}`;
-        } else {
-            window.location = "../ShowAll/ShowAll.html?FromSave=true";
-        };
-    } else {
-        if ("KReason" in inFetchPostData) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: inFetchPostData.KReason,
-                footer: '<a href="">Why do I have this issue?</a>'
-            });
-        };
-    };
+//     if (inFetchPostData.KTF) {
+//         if ("PurchasePk" in jVarLocalFromgetUrlQueryParamsStartFunc) {
+//             window.location = `../../../Purchases/Vouchers/ShowProducts/ShowProducts.html?RowPK=${jVarLocalFromgetUrlQueryParamsStartFunc.PurchasePk}`;
+//         } else {
+//             window.location = "../ShowAll/ShowAll.html?FromSave=true";
+//         };
+//     } else {
+//         if ("KReason" in inFetchPostData) {
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: 'Oops...',
+//                 text: inFetchPostData.KReason,
+//                 footer: '<a href="">Why do I have this issue?</a>'
+//             });
+//         };
+//     };
 
-};
+// };
 
 export { StartFunc };

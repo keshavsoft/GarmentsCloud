@@ -490,7 +490,7 @@
                                             <div class="row mt-3">
                                                 <div class="col-12 col-sm-6">
                                                     <label>QrCode</label>
-                                                    <input id="BarcodeId" class="multisteps-form__input form-control"
+                                                    <input id="QrCodeID" class="multisteps-form__input form-control"
                                                         type="text" placeholder="eg. Off-White" />
                                                 </div>
                                                 <div class="col-12 col-sm-6 mt-4 mt-sm-0">
@@ -498,7 +498,7 @@
                                                     <!-- <select class="form-control" name="choices-questions"
                                                         id="ItemsDataListId">
                                                     </select> -->
-                                                    <input class="form-control" type="number" name="ProductName" id="ItemNameId">
+                                                    <input class="form-control" type="date" name="ProductName" id="DateTimeEnteredID">
 
                                                     </input>
                                                 </div>
@@ -506,7 +506,7 @@
                                             <div class="row mt-3">
                                                 <div class="col-12 col-sm-6">
                                                     <label>UserNameEntered</label>
-                                                    <input id="BarcodeId" class="multisteps-form__input form-control"
+                                                    <input id="UserNameEnteredID" class="multisteps-form__input form-control"
                                                         type="text" placeholder="eg. Off-White" />
                                                 </div>
                                                 <div class="col-12 col-sm-6 mt-4 mt-sm-0">
@@ -532,12 +532,12 @@
                                                 </div>
                                                 <div class="col-sm-6 mt-sm-0 mt-4">
                                                     <label class="mt-4">Discount</label>
-                                                    <input class="form-control" type="number" name="ProductAliasNameId"
-                                                        id="ProductAliasNameId">
+                                                    <input class="form-control" type="number" name="DiscountID"
+                                                        id="DiscountID">
                                                     </input>
                                                     <label>DiscountRs</label>
-                                                    <input class="form-control" type="number" name="ProductAliasNameId"
-                                                        id="ProductAliasNameId">
+                                                    <input class="form-control" type="number" name="DiscountRs"
+                                                        id="DiscountRsID">
                                                     </input>
                                                     <!-- <select class="form-control" name="choices-sizes"
                                                         id="choices-sizes">
@@ -549,9 +549,13 @@
                                                     </select> -->
                                                 </div>
                                             </div>
-                                            <div class="button-row d-flex mt-4">
+                                            <!-- <div class="button-row d-flex mt-4">
                                                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
                                                     type="button" title="Next">Next</button>
+                                            </div> -->
+                                            <div class="button-row d-flex mt-4">
+                                                <button class="btn bg-gradient-dark ms-auto mb-0 " id="CreateNewButtonId"
+                                                    type="button" title="Next">Save</button>
                                             </div>
                                         </div>
                                     </div>
