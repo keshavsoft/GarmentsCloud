@@ -1,4 +1,5 @@
 import { StartFunc as StartFucToFooter } from "../ToDom/ToFooter.js";
+import { StartFunc as StartFuncDiscount } from "../ToDom/ProductDetails/Table/Footer/Discount.js";
 
 let StartFunc2 = async ({ inProjectName, inJsonPK }) => {
     let inFolderName = "Generate";
@@ -46,8 +47,8 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
     StartFucToFooter({ inJSONData: jVarLocalQrCodeData.JsonData });
 
     let jVarLocalDiscountData = await jFLocalFetchQrDiscountData({ inProjectName, inRowPK: inJsonPK });
-
-    
+    console.log("jVarLocalDiscountData : ", jVarLocalDiscountData);
+    StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[0] });
 };
 
 
@@ -122,8 +123,9 @@ let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
 
-        Object.freeze(data.JsonData)
-
+        //   Object.freeze(data.JsonData)
+        LocalReturnObject.JsonData = data.JsonData;
+        Object.freeze(LocalReturnObject.JsonData);
         //  StartFucToFooter({ inJSONData: data.JsonData });
 
         return await LocalReturnObject;
