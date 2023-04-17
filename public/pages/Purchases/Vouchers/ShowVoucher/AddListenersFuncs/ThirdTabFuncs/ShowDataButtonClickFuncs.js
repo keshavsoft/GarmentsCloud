@@ -7,8 +7,6 @@ let StartFunc = ({ inProjectName }) => {
 
     if (jVarLocalSowDataID !== null) {
         jVarLocalSowDataID.addEventListener("click", async (event) => {
-            //let localDatd = jVarGlobalData;
-
             let jVarFromStartFuncFromShowQrCode = await StartFuncFromShowQrCode({ inProjectName });
             
             if (jVarFromStartFuncFromShowQrCode.KTF) {
