@@ -68,15 +68,11 @@ let LocalUpdateFuncs = {
             LocalColumnObjectToUpdate = LocalColumnReturnWithIndex.ColumnData;
             LocalColumnIndexToUpdate = LocalColumnReturnWithIndex.ColumnIndex;
             LocalColumnIndexToUpdate = LocalColumnReturnWithIndex.ColumnIndex;
-            console.log("LocalColumnObjectToUpdate", LocalColumnObjectToUpdate, LocalColumnIndexToUpdate);
-
 
             Object.assign(LocalColumnObjectToUpdate, inObjectToUpdate);
 
             LocalTableColumnsArray.splice(LocalColumnIndexToUpdate, 1, LocalColumnObjectToUpdate);
 
-            //LocalColumnFuncs.SetColumnData({ inData, inItemConfig, inKeyToBeAltered, inTableColumnsArrayUpdated: LocalTableColumnsArray });
-            console.log('inData', inData);
             return inData;
         },
 

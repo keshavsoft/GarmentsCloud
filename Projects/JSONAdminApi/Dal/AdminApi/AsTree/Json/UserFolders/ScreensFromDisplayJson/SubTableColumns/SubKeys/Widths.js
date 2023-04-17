@@ -9,9 +9,9 @@ exports.GetFuncs = async ({ DataPK }) => {
     }
 };
 
-exports.Update = async ({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, tablecolumnkey, DataAttribute, BodyAsJson }) => {
+exports.Update = async ({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, DataAttribute, BodyAsJson }) => {
     let LocalinDataPk = DataPK;
     if (LocalinDataPk > 0) {
-        return await CommonDataSupply.Update({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, tablecolumnkey, DataAttribute, BodyAsJson });
+        return await CommonDataSupply.Update({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, DataAttribute, BodyAsJson });
     }
 };

@@ -11,6 +11,7 @@ var router = express.Router();
 // var routeTabular = require("./Reports/Tabular");
 
 var routeDuplicate = require("./Reports/Duplicate");
+var CommonLedgerAutoJsonFile = require("./Reports/LedgerAutoJsonFile");
 
 // router.use('/ShowData', routeShowData);
 // router.use('/ForDataList', routeForDataList);
@@ -23,5 +24,6 @@ var routeDuplicate = require("./Reports/Duplicate");
 // router.use('/Tabular', routeTabular);
 
 router.use('/Duplicate', routeDuplicate);
+router.use('/LedgerAutoJsonFile', CommonLedgerAutoJsonFile);
 
 module.exports = router;

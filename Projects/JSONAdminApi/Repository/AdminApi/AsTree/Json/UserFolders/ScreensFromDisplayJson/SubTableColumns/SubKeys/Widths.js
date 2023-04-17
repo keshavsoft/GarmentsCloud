@@ -7,10 +7,10 @@ let GetFuncs = async ({ DataPK }) => {
     }
 };
 
-let Update = async ({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, tablecolumnkey, DataAttribute, BodyAsJson }) => {
+let Update = async ({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, DataAttribute, BodyAsJson }) => {
     let LocalinDataPk = DataPK;
     if (LocalinDataPk > 0) {
-        return await Dal.Update({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, tablecolumnkey, DataAttribute, BodyAsJson });
+        return await Dal.Update({ DataPK, folderName, FileName, ItemName, ScreenName, subtablecolumnkey, DataAttribute, BodyAsJson });
     }
 };
 

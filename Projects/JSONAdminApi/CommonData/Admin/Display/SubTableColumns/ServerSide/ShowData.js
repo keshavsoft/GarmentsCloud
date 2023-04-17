@@ -1,11 +1,8 @@
 let _ = require("lodash");
-let debug = require("debug")("KS7");
 let GlobalUserNameToPK = require("../../../../Users/NameToPK");
 let CommonPullDataAdmin = require("../../../../Fs/PullData/Admin");
 let CommonColumnKey = "TableColumns";
 let CommonSubColumnKey = "SubTableColumns";
-
-
 
 let LocalColumnFuncs = {
     ReturnTableColumnsArray: ({ inData, inItemConfig, inColumnKey }) => {
@@ -68,7 +65,6 @@ let ReturnTableColumnData = ({ inJsonConfig, inItemConfig, inUserName }) => {
 
         let LocalDataFromJSON = CommonPullDataAdmin.DisplayJson({ inJsonConfig, inUserPK: LocalUserPK });
         LocalTableColumnData = _.get(LocalDataFromJSON, `${LocalItemName}.${LocalScreenName}.${CommonSubColumnKey}.${LocalColumnName}.${CommonColumnKey}`);
-        console.log("LocalColumnData", LocalTableColumnData)
    
         return LocalTableColumnData;
     };

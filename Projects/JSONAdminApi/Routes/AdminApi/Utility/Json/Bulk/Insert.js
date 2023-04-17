@@ -4,7 +4,6 @@ let router = express.Router();
 
 router.get('/', function (req, res, next) {
     let LocalBody = req.body;
-    console.log("LocalBody : ", LocalBody);
 
     // Repos.Bulk({
     //     inFolderName: LocalFolderName,

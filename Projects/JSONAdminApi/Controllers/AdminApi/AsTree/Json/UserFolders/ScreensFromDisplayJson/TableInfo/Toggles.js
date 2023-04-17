@@ -1,11 +1,13 @@
-let Repos = require("../../../../../../../Repository/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/Toggles");
+let Repos = require("../../../../../../../Repository/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableColumns/TableInfo/Toggles");
 
 let GetFuncs = async (req, res) => {
+    console.log("ssssss");
     let LocalDataPk = req.KeshavSoft.DataPk;
 
     let LocalFromRepo = await Repos.GetFuncs({
         DataPK: LocalDataPk
     });
+    console.log("LocalFromRepo-",LocalFromRepo);
     res.json(LocalFromRepo)
 };
 

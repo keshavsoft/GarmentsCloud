@@ -2,7 +2,6 @@ let CommonDashboard = require("../../../../../../../../DataSupply/Fs/Dashboard/F
 
 let DataAttributes = async ({ inUserPK }) => {
     if (inUserPK > 0) {
-        console.log("inUserPK-------------- : ", inUserPK);
         return await CommonDashboard.AsTreeWithColumns({ inUserPK });
     };
 };

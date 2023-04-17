@@ -12,7 +12,7 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalfilename = jVarLocalCurrentTarget.dataset.filename;
     let jVarLocalitemname = jVarLocalCurrentTarget.dataset.itemname;
     let jVarLocalscreenname = jVarLocalCurrentTarget.dataset.screenname;
-    let jVarLocalInColumnName = jVarLocalCurrentTarget.dataset.columnName;
+    let jVarLocalInColumnName = jVarLocalCurrentTarget.dataset.columnname;
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/ToSubtable/ToSubtableCreate";
 

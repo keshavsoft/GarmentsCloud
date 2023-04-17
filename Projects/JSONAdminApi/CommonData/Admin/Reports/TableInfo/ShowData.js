@@ -14,8 +14,7 @@ let ReturnTableInfoDataWithKey = ({ inJsonConfig, inItemConfig, inUserPK }) => {
 let CommonFunc = ({ inReportConfig, inUserPK, inQueryObject }) => {
     let LocalDisplayData = CommonPullDataAdmin.PullDataReport({ inUserPK });
     let LocalTableInfoData = TableInfoCheckData.PullData({ inItemConfig: inReportConfig, inQueryObject, inDisplayData: LocalDisplayData });
-
-    console.log("LocalTableInfoData : ", LocalTableInfoData);
+    
     return LocalTableInfoData;
 };
 

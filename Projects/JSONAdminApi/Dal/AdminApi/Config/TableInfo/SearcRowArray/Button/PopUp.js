@@ -2,7 +2,6 @@ let CommonDataSupply = require("../../../../../../../../DataSupply/Fs/Config/Fol
 let CommonDataSupplyUpdateData = require("../../../../../../../../DataSupply/Fs/Config/Folders/Files/ConfigFromDisplayJson/Items/Screens/PullData/FromDisplayJson/TableInfo/SearchRowArray/Button/PopUp/UpdateData");
 
 exports.PullData = async ({ inFolderName, inFileNameWithExtension, inItemName, inScreenName, inDataPK }) => {
-   // console.log("Dal............", inFolderName, inFileNameWithExtension, inItemName, inScreenName, inDataPK);
     let LocalDataToReturn = await CommonDataSupply.FromFoldFileItemScreen({ inFolderName, inFileNameWithExtension, inItemName, inScreenName, inDataPK });
 
     return await LocalDataToReturn;

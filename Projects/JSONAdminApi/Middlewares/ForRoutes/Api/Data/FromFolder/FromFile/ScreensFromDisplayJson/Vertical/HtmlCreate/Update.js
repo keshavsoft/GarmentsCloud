@@ -1,5 +1,4 @@
 exports.FromParams = (req, res, next) => {
-    console.log("sssssssssss------ : ", req.body);
 
     if (Object.keys(req.body).length === 0) {
         res.json({

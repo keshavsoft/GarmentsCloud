@@ -1,16 +1,43 @@
 let Repos = require("../../../../../../../../../Repository/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableColumns/SubKeys/ServerSide/TransformBeforeSave");
 
+
 let GetFuncs = async (req, res) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
 
     let LocalFromRepo = await Repos.GetFuncs({
         DataPK: LocalDataPk
     });
-
-    res.json(LocalFromRepo);
+    res.json(LocalFromRepo)
 };
 
-let Update = async (req, res) => {
+
+// let Update = async (req, res) => {
+//     let LocalDataPk = req.KeshavSoft.DataPk;
+
+//     let jVarLocalfolderName = req.body.folderName;
+//     let jVarLocalFileName = req.body.FileName;
+//     let jVarLocalItemName = req.body.ItemName;
+//     let jVarLocalScreenName = req.body.ScreenName;
+//     let jVarLocalDataAttribute = req.body.DataAttribute;
+//     let localUpdateBodyAsJson = req.body.BodyAsJson;
+
+//     let LocalFromRepo = await Repos.Update({
+//         DataPK: LocalDataPk,
+//         folderName: jVarLocalfolderName,
+//         FileName: jVarLocalFileName,
+//         ItemName: jVarLocalItemName,
+//         ScreenName: jVarLocalScreenName,
+//         DataAttribute: jVarLocalDataAttribute,
+//         BodyAsJson: localUpdateBodyAsJson
+//     });
+//     if (LocalFromRepo.KTF) {
+//         res.sendStatus(200);
+//     } else {
+//         res.sendStatus(204);
+//     };
+// };
+
+let PatchFuncs = async (req, res) => {
     let LocalDataPk = req.KeshavSoft.DataPk;
 
     let jVarLocalfolderName = req.body.folderName;
@@ -18,21 +45,26 @@ let Update = async (req, res) => {
     let jVarLocalItemName = req.body.ItemName;
     let jVarLocalScreenName = req.body.ScreenName;
     let jVarLocalDataAttribute = req.body.DataAttribute;
+    let jVarLocalsubtablecolumnkey = req.body.subtablecolumnkey;
+
     let localUpdateBodyAsJson = req.body.BodyAsJson;
 
     let LocalFromRepo = await Repos.Update({
         DataPK: LocalDataPk,
-        folderName: jVarLocalfolderName,
+        FolderName: jVarLocalfolderName,
         FileName: jVarLocalFileName,
         ItemName: jVarLocalItemName,
         ScreenName: jVarLocalScreenName,
         DataAttribute: jVarLocalDataAttribute,
+        subtablecolumnkey:jVarLocalsubtablecolumnkey,
         BodyAsJson: localUpdateBodyAsJson
     });
+
     if (LocalFromRepo.KTF) {
         res.sendStatus(200);
     } else {
         res.sendStatus(204);
     };
 };
-module.exports = { GetFuncs, Update };
+
+module.exports = { GetFuncs, PatchFuncs };

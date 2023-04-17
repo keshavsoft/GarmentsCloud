@@ -17,6 +17,7 @@ let Update = async (req, res) => {
     let jVarLocalFileName = req.body.FileName;
     let jVarLocalItemName = req.body.ItemName;
     let jVarLocalScreenName = req.body.ScreenName;
+    let jVarLocalsubtablecolumnkey = req.body.subtablecolumnkey;
     let jVarLocalDataAttribute = req.body.DataAttribute;
     let localUpdateBodyAsJson = req.body.BodyAsJson;
 
@@ -26,6 +27,7 @@ let Update = async (req, res) => {
         FileName: jVarLocalFileName,
         ItemName: jVarLocalItemName,
         ScreenName: jVarLocalScreenName,
+        subtablecolumnkey: jVarLocalsubtablecolumnkey,
         DataAttribute: jVarLocalDataAttribute,
         BodyAsJson: localUpdateBodyAsJson
     });

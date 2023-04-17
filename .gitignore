@@ -4,6 +4,20 @@ node_modules/
 web.config
 
 /KData
+/DataSupply
 /common-
+
+/Projects/JSONAdminApi
+/Projects/JSONImport
+/Projects/JSONUser
+/Projects/Tally
+/Projects/JSONReports
+/Projects/JSONUtility
+
+/public/JSONUser
+/public/Tally
+/public/JSONReports
+/public/JSONAdminApi
+/public/JSONUtility
 
 .env

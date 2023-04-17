@@ -48,12 +48,17 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
 
     let jVarLocalDiscountData = await jFLocalFetchQrDiscountData({ inProjectName, inRowPK: inJsonPK });
 
-    StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[0] });
+    let jVarLocalMaxPk = jFLocalLatestDiscount({ inDiscountArray: jVarLocalDiscountData.JsonData });
+
+    StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[jVarLocalMaxPk] });
 };
 
 const jFLocalLatestDiscount = ({ inDiscountArray }) => {
     let jVarLocalKeys = Object.keys(inDiscountArray);
+    const numArr = jVarLocalKeys.map((item) => parseInt(item, 0));
+    const max = Math.max(...numArr);
 
+    return max;
 };
 
 let jFLocalFetchQrCodeData = async ({ inProjectName, inJsonPK }) => {

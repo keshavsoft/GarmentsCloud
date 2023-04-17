@@ -35,7 +35,7 @@ let LocalTallyFuncs = {
         LocalMinDate = Math.min(...LocalDatesArray);
 
         LocalFileNameWithExtension = `${LocalMinDate}-${LocalMaxDate}.json`;
-        console.log("LocalFileNameWithExtension : ", LocalFileNameWithExtension);
+        
         return LocalFileNameWithExtension;
     },
     PrepareBodyData: {

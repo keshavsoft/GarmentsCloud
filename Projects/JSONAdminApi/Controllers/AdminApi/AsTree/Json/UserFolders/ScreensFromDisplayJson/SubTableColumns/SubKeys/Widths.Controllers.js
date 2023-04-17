@@ -18,7 +18,6 @@ let Update = async (req, res) => {
     let jVarLocalItemName = req.body.ItemName;
     let jVarLocalScreenName = req.body.ScreenName;
     let jVarLocalsubtablecolumnkey = req.body.subtablecolumnkey;
-    let jVarLocaltablecolumnkey = req.body.tablecolumnkey;
     let jVarLocalDataAttribute = req.body.DataAttribute;
     let localUpdateBodyAsJson = req.body.BodyAsJson;
 
@@ -29,7 +28,6 @@ let Update = async (req, res) => {
         ItemName: jVarLocalItemName,
         ScreenName: jVarLocalScreenName,
         subtablecolumnkey: jVarLocalsubtablecolumnkey,
-        tablecolumnkey: jVarLocaltablecolumnkey,
         DataAttribute: jVarLocalDataAttribute,
         BodyAsJson: localUpdateBodyAsJson
     });

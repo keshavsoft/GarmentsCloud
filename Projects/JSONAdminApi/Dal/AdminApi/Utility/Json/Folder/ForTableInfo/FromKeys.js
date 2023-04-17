@@ -2,7 +2,6 @@ let CommonDashboard = require("../../../../../../../../DataSupply/Fs/Dashboard/F
 
 let ColumnReOrder = async ({ inUserPK }) => {
     if (inUserPK > 0) {
-        //console.log("hai....");
         return await CommonDashboard.ColumnReOrder({
             inUserPK
         });
@@ -11,7 +10,6 @@ let ColumnReOrder = async ({ inUserPK }) => {
 
 let MainKeys = async ({ inUserPK }) => {
     if (inUserPK > 0) {
-        //console.log("hai....");
         return await CommonDashboard.MainKeys({
             inUserPK
         });
@@ -20,7 +18,6 @@ let MainKeys = async ({ inUserPK }) => {
 
 let Delete = async ({ inUserPK }) => {
     if (inUserPK > 0) {
-        //console.log("hai....");
         return await CommonDashboard.Delete({
             inUserPK
         });

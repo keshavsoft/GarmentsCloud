@@ -4,12 +4,9 @@ let router = express.Router();
 let Repo = require("../../../../Repository/Validate/Users/InUserDataJson/ForUserNameAndPassword")
 let CommonjwtFunc = require("../../../../../../common/Jwt/Bs5");
 
-
-
 router.post('/TokenToCookie', (req, res,) => {
     let LocalUserName = req.body.inUserName;
     let LocalPassWord = req.body.inPassWord;
-    console.log("----",LocalUserName,LocalPassWord);
     
     Repo.ForUserAndPasswordReturnFirmDetails({
         inUserName: LocalUserName,

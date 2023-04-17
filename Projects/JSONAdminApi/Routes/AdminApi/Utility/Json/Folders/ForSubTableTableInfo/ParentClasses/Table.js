@@ -3,7 +3,6 @@ let router = express.Router();
 let Repos = require("../../../../../../../Repository/AdminApi/Utility/Json/Folder/ForSubTableTableInfo/ParentClasses/Table");
 
 router.get('/', function (req, res, next) {
-    // console.log("okokokoko");
     let LocalUserPK = req.KeshavSoft.DataPk;
 
     Repos.Table({ LocalUserPK }).then(DataFromRepo => {

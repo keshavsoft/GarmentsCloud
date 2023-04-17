@@ -36,7 +36,6 @@ let ParentClasses = async ({ inUserPK }) => {
 };
 
 let WithDataAttributeAndDisplayName = async ({ inDataPk }) => {
-    //console.log("inUserPK -------------- : ", inDataPk);
     if (inDataPk > 0) {
         return await CommonWithDataAttributeAndDisplayName.AsTreeWithColumns({ inDataPk });
     };

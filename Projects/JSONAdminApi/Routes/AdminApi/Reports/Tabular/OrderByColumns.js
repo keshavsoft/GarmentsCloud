@@ -6,8 +6,6 @@ router.get('/AsTree', function (req, res, next) {
     let LocalReportItemName = req.params.ReportItemName;
     let LocalUserName = req.KeshavSoft.kUserName;
 
-    console.log("LocalReportItemName : ", LocalReportItemName);
-
     Repos.AsTree({
         inReportName: LocalReportItemName, inUserName: LocalUserName
     }).then(PromiseData => {
@@ -19,8 +17,6 @@ router.get('/AsTree', function (req, res, next) {
 router.get('/Toggles', function (req, res, next) {
     let LocalReportItemName = req.params.ReportItemName;
     let LocalUserName = req.KeshavSoft.kUserName;
-
-    console.log("LocalReportItemName : ", LocalReportItemName);
 
     Repos.Toggles({
         inReportName: LocalReportItemName, inUserName: LocalUserName

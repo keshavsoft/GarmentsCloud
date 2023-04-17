@@ -32,12 +32,7 @@ let PushData = ({ inItemConfig, inQueryObject, inDisplayData, inObjectToUpdate }
                 LocalDataNeeded = LocalDataNeeded[LoopItem];
             };
         };
-
-     //   console.log("mmmmmmmmmmmm--------- : ", LocalDataNeeded);
     });
-
- //   console.log("last--------- : ", LocalDataNeeded);
-   // console.log("last---------111111 : ", inObjectToUpdate);
 
     for (const property in inObjectToUpdate) {
         LocalDataNeeded[property] = inObjectToUpdate[property]

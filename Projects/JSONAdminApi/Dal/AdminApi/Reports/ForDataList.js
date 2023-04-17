@@ -1,7 +1,5 @@
 
 let _ = require("lodash");
-let debug = require("debug")("KS2");
-const path = require('path');
 
 let GlobalUserNameToPK = require("../../../CommonData/Users/NameToPK");
 let GlobalCommonData = require("../../../CommonData/Fs/PullData/Show");
@@ -9,7 +7,7 @@ let CommonPullDataReports = require("../../../CommonData/Fs/PullData/Reports");
 
 let ShowNames = ({ inJsonConfig, inItemConfig, inUserName, callback }) => {
     let LocalUserPK = GlobalUserNameToPK.UserNameToPKRet({ inUserName });
-    console.log("inUserName : ", inUserName);
+    
     if (LocalUserPK > 0) {
         let LocalData;
         let LocalScreensData;
@@ -20,8 +18,6 @@ let ShowNames = ({ inJsonConfig, inItemConfig, inUserName, callback }) => {
         let LocalDataFromJSONObject = JSON.parse(LocalDataFromJSON);
 
         LocalScreensData = _.get(LocalDataFromJSONObject, `${LocalItemName}.VouchersConsider`);
-
-        console.log(" LocalScreensData", inJsonConfig, inItemConfig);
 
         LocalData = LocalScreensData.map((LoopItem) => {
             return [LoopItem.pk, LoopItem.ItemName]
@@ -84,7 +80,6 @@ let Columns = ({ inJsonConfig, inReportConfig, inUserName, callback }) => {
         LocalVouchersConsiderArray = LocalDataFromJSON[LocalReportName][LocalVouchersConsider];
         LocalVouchersConsiderFilterObject.pk = parseInt(LocalPkName);
         LocalVouchersConsiderFindObject = _.find(LocalVouchersConsiderArray, LocalVouchersConsiderFilterObject);
-        //console.log(" LocalScreensData", LocalVouchersConsiderFindObject.Columns);
 
         LocalData = LocalVouchersConsiderFindObject.Columns.map((LoopItem) => {
             return [LoopItem.pk, LoopItem.Name];
