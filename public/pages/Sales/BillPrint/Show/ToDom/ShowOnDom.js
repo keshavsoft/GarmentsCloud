@@ -39,23 +39,22 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
     });
 
     if (jVarLocalDataToShow.KTF) {
-        let localdata = jVarLocalDataToShow.JsonData
+        localStorage.setItem('InventoryData', JSON.stringify(jVarLocalDataToShow.JsonData));
 
         await FetchFuncsForMasters({ inProjectName });
 
-        await InvGridStartFunc({ inData: localdata });
+        await InvGridStartFunc();
     };
 };
 
 let ShowOnDom = ({ inData, inShowSuccess }) => {
-    console.log("inData-------------",inData);
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
     let jVarLocalCustomerNameId = document.getElementById("CustomerNameId");
 
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
     let jVarLocalCustomerNumber = document.getElementById("ContactNumberId");
-    
+
     if (jVarLocalCustomerNameId !== null) {
         jVarLocalCustomerNameId.innerHTML = inData.CustomerName;
     };
