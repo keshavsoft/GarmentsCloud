@@ -1,12 +1,5 @@
 {
     "QrCodeWise": {
-        "1": {
-            "QrCode": 2,
-            "DateTimeEntered": "17-04-2023",
-            "UserNameEntered": "Keshav",
-            "Description": "",
-            "DiscountPer": 20,
-            "DiscountRs": 300
+       
         }
     }
-}

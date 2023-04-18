@@ -1,1 +1,4 @@
-{"POS":{"1":{"pk":"","BillNumber":"1","Date":"2023-04-17","InvGrid":{},"CustomerName":"","CustomerNumber":""}},"BillsQrCode":{"2":{"ItemName":"Uppada Saree","UnitRate":1920,"pk":2,"sno":1,"Barcode":"M-2","DisPercentage":null,"DisRate":null,"GrossAmout":1920,"BillPk":"1"},"5":{"ItemName":"Kanchi pattu","UnitRate":31250,"pk":5,"sno":1,"Barcode":"M-5","DisPercentage":null,"DisRate":null,"GrossAmout":31250,"BillPk":"1"}}}
+{
+    "POS": {},
+    "BillsQrCode": {}
+}
