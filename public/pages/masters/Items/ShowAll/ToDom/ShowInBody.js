@@ -42,6 +42,10 @@ let ShowOnDomTableBody = async ({ inData }) => {
     if (jVarLocalTemplate.KTF) {
         var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
 
+        Handlebars.registerHelper('ForSNo', function (item) {
+            return item + 1;
+        });
+
         inData.forEach(element => {
 
             let jVarLocalToShowHtml = template(element);

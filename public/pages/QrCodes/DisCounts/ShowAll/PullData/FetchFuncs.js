@@ -23,6 +23,7 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inProjectName }) =
 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
+        console.log("data",data);
 
         if (data.KTF === false) {
             LocalReturnObject.KReason = data.KReason;

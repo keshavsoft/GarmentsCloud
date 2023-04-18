@@ -1,6 +1,5 @@
 import { jFStartFunc as CheckUserFromCookie } from "../../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
 import { StartFunc as AddListenersStartFunc } from "./AddListenerFuncs/StartFunc.js"
-import { StartFunc as FormLoadFuncs } from "./FormLoadFuncs.js";
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
 
@@ -15,7 +14,6 @@ let StartFunc = async () => {
         inKTokenKey: jVarCommonKToken
     });
 
-    await FormLoadFuncs({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
     await AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
 };
 
