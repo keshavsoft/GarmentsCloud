@@ -1,17 +1,13 @@
 {{log "this" this}}
 <tr>
-    <td class="ps-4">{{sno}}</td>
-    <td class="ps-4">{{Barcode}}</td>
-    <td class="ps-4">{{ItemName}}</td>
-    <td class="ps-4">{{DisPercentage}}%</td>
-    <td class="ps-4">{{GrossAmout}}</td>
+    <th scope="row" >{{sno}}</th>
+    <td colspan="2">{{Barcode}}/{{ItemName}}</td>
+    <td class="text-end">{{UnitRate}}</td>
 </tr>
-
 <tr>
-    <td></td>
-    <td></td>
-    <td class="ps-4">{{DisRate}}</td>
-    <td>{{UnitRate}}</td>
-</tr>
+    <th scope="row"></th>
+    <td >{{GST}}%</td>
+    <td class="text-end">{{DisPercentage}}%-{{DisRate}}</td>
+    <td class="text-end">{{GrossAmout}}</td>
 
-<tr><hr></tr>
+</tr>
