@@ -1,0 +1,1 @@
+For JSON as database keep in JSON folder 
