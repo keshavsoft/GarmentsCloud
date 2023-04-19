@@ -14,6 +14,17 @@ let StartFunc = () => {
             jvarLocalAmountId.value = jVarLocalCostValue;
         }
     });
+
+    jVarLocalMRPId.addEventListener("keypress", (event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            let jVarLocalCurrentTarget = event.currentTarget;
+            let jVarLocalMrpValue = jVarLocalCurrentTarget.value;
+
+            let localCal = ((jVarLocalMrpValue - jVarLocalRate.value) / jVarLocalRate.value) * 100;
+            jVarLocalValueAdditionId.value = parseInt(localCal);
+        }
+    });
 };
 
 export { StartFunc }
