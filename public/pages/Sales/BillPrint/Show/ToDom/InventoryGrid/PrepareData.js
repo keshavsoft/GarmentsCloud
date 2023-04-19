@@ -20,6 +20,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         await FetchFuncsForMasters({ inProjectName });
 
         let jVarLocalNewArray = LocalInsertGstPercentage({ inInvData: localdata });
+        
         window.localStorage.setItem("InventoryData", JSON.stringify(jVarLocalNewArray));
 
         await InvGridStartFunc();

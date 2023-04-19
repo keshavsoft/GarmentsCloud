@@ -1,9 +1,11 @@
 import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPull/TableRow.js";
+import { StartFunc as StartFuncInventoryTotals } from "./InventoryTotals/ShowOnDom.js";
 
 let StartFunc = async () => {
     let inData = localStorage.getItem('InventoryData');
 
     await ShowOnDomTableBody({ inData: JSON.parse(inData) });
+    await StartFuncInventoryTotals();
 };
 
 let ShowOnDomTableBody = async ({ inData }) => {
