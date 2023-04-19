@@ -8,8 +8,6 @@ let PreparePostData = () => {
     let jVarLocalDisPersantage = document.getElementById("DisPersantage");
     let jVarLocalDisRate = document.getElementById("DisRate");
     let jVarLocalGrossAmout = document.getElementById("GrossAmout");
-    
-
 
     let jVarLocalRowPK = ReturnRowPK().RowPK;
 
@@ -21,7 +19,10 @@ let PreparePostData = () => {
     };
 
     if (!(jVarLocalQrCode === null)) {
-        let localpk = parseInt((jVarLocalQrCode.value).substring(2));
+        let jVarLocalQrCodeArray = jVarLocalQrCode.value.split("/");
+        let jVarLocalQrCodeArrayFirstValue = jVarLocalQrCodeArray[0];
+
+        let localpk = parseInt((jVarLocalQrCodeArrayFirstValue).substring(2));
 
         jVarLocalReturnData.pk = localpk;
     };
@@ -45,7 +46,7 @@ let PreparePostData = () => {
     if (!(jVarLocalGrossAmout === null)) {
         jVarLocalReturnData.GrossAmout = parseInt(jVarLocalGrossAmout.value);
     };
-   
+
 
     jVarLocalReturnData.BillPk = jVarLocalRowPK;
 
@@ -93,9 +94,6 @@ let StartFunc1 = async ({ inFolderName, inFileName, inItemName, inProjectName })
 };
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-        //  jVarLocalRowPK = 2;
-
         let inFetchPostData = {
             FileNameOnly: inFileName,
             FolderName: inFolderName,

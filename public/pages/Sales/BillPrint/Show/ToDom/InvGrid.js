@@ -18,12 +18,6 @@ let ShowOnDomTableBody = async ({ inData }) => {
 
         Object.entries(inData).forEach(
             ([key, value]) => {
-                value.pk = key;
-                value.FK = inData.pk;
-                value.SupplierName = inData.SupplierName;
-                value.BillNumber = inData.BillNumber;
-                value.Date = inData.Date;
-
                 let jVarLocalToShowHtml = template(value);
 
                 jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);

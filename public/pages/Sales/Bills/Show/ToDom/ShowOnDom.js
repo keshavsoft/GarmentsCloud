@@ -35,7 +35,7 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
 
     if (jVarLocalDataToShow.KTF) {
         let localdata = jVarLocalDataToShow.JsonData;
-
+        
         await InvGridStartFunc({ inDataAsArray: localdata });
         jVarLocalShowInventorySerial({ inData: localdata });
 
