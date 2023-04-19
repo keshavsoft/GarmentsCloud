@@ -7,7 +7,6 @@ let StartFunc = async () => {
     let inData = localStorage.getItem('InventoryData');
     let jVarLocalGroupedData = LocalGroupDataFunc(JSON.parse(inData));
     console.log("jVarLocalGroupedData : ", jVarLocalGroupedData);
-    // await ShowOnDomTableBody({ inData: jVarLocalGroupedData });
 
     // LocalTotalFunc(inData);
 };
@@ -64,7 +63,7 @@ let LocalGroupDataFunc = (inData) => {
         element.GstAmount = (element.Amount * (element.GST / (100 + element.GST))).toFixed(2);
         return element;
     });
-
+    ShowOnDomTableBody({ inData: jVarLocalWithTaxAmountArray });
     return jVarLocalWithTaxAmountArray;
 };
 
