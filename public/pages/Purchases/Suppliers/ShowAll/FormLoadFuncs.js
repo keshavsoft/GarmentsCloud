@@ -2,7 +2,24 @@ import { ReturnFromSave, ReturnFromDelete, ReturnFromEdit } from "./urlSearchPar
 
 let StartFunc = () => {
     if (ReturnFromSave().FromSave) {
-        Swal.fire('Created successfully...');
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-top',
+            width: 500,
+            color: ' #000080',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Created in successfully'
+          })
     };
 
     let jVarLocalFromDelete = ReturnFromDelete();
