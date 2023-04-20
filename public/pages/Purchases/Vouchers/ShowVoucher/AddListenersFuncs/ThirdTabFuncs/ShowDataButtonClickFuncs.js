@@ -70,6 +70,23 @@ let LocalModalButtonForImageDownloadClick = async (event) => {
         });
         myModalAlternative.show();
     };
+    if (jVarFromFetch.status === 403) {
+        Swal.fire({
+            title: 'Images not upload.!',
+            width: 600,
+            padding: '3em',
+            color: ' #000080',
+            background: '#fff url()',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("/images/nyan-cat.gif")
+              left top
+              no-repeat
+            `
+          })
+
+    };
+
 };
 
 let localPrintButtonClass = () => {
