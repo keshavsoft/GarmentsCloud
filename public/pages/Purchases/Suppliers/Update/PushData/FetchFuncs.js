@@ -49,9 +49,10 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 };
 
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
-    if (inFetchPostData.KTF) {
+    console.log("inFetchPostData",inFetchPostData);
+    if (inFetchPostData) {
         //argon.showSwal('success-message');
-        window.location = "../ShowAll/ShowAll.html?FromSave=true";
+        window.location = "/pages/Purchases/Suppliers/ShowAll/ShowAll.html?FromSave=true";
     } else {
         if ("KReason" in inFetchPostData) {
             Swal.fire({
