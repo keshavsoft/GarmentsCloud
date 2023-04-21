@@ -1,13 +1,14 @@
 import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
-import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { StartFunc as StartFuncDeleteFuncs } from "./ButtonFuncsForDelete/DeleteFuncs.js";
+import { StartFunc as StartFuncQrCodeGeneration } from "./Pages/QrCodeGeneration/ButtonClicks.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalDeleteButtonClassAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
     LocalInvTableFooterSaveButtonIdAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
 
     StartFuncKeyPressFuncs();
+    StartFuncQrCodeGeneration();
 };
 
 let LocalDeleteButtonClassAddFuncs = ({ inFolderName, inFileName, inItemName, inProjectName }) => {

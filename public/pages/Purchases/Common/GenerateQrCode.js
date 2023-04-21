@@ -1,7 +1,5 @@
-import { StartFunc as AddListenersStartFunc } from "./AddListeners.js";
-
 let StartFunc = ({ inRowPK }) => {
-    let localReturnRowPK = ReturnRowPK({inRowPK}).RowPK
+    let localReturnRowPK = inRowPK;
     let localProjectName = "JSONApi";
 
     let jVarLocalFromGet = GetFunc({
