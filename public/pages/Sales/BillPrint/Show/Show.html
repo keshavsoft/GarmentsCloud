@@ -479,7 +479,7 @@ Have a nice day
 Exchange Time Between 1-4PM,
 Goods Will Be Exchaged WithIn 7Days,
 Rchase Date,No Colour Gurantee
-----------------------------------------
+0----------1----------2----------3----------4----------5
 Thank you for your visit        
 Have a nice day             
 
@@ -533,6 +533,9 @@ Have a nice day
 
             k1.innerHTML += k2.innerHTML;
             k1.innerHTML += `  Customer    :   ${jVarLocalBillDataAsJson.CustomerName}\n`;
+            k1.innerHTML += `  Phone    :   ${jVarLocalBillDataAsJson.CustomerNumber}\n`;
+            k1.innerHTML += `  Bill    :   ${jVarLocalBillDataAsJson.BillNumber}\n`;
+            k1.innerHTML += `  Date    :   ${jVarLocalBillDataAsJson.Date}\n`;
 
             k1.innerHTML += k3.innerHTML;
 
