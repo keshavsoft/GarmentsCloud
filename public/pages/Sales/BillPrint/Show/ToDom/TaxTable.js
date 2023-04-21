@@ -6,7 +6,7 @@ import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPullForGST/Tab
 let StartFunc = async () => {
     let inData = localStorage.getItem('InventoryData');
     let jVarLocalGroupedData = LocalGroupDataFunc(JSON.parse(inData));
-    console.log("jVarLocalGroupedData : ", jVarLocalGroupedData);
+
     ShowOnDomTableBody({ inData: jVarLocalGroupedData });
     // LocalTotalFunc(inData);
     jFLocalShowTaxTotals({ inData: jVarLocalGroupedData });
@@ -15,18 +15,6 @@ let StartFunc = async () => {
 let jFLocalShowTaxTotals = ({ inData }) => {
     jFLocalShowTotalTaxAmount({ inData });
     jFLocalShowTotalAmount({ inData });
-};
-
-let jFLocalShowTaxTotals1 = ({ inData }) => {
-    let jVarLocalTotalTaxAmountId = document.getElementById("TotalTaxAmountId");
-
-    let jVarLocalGstAmountArray = inData.map(element => {
-        return parseFloat(element.GstAmount);
-    });
-
-    const jVarLocalAmountSum = jVarLocalGstAmountArray.reduce((a, b) => a + b, 0);
-
-    jVarLocalTotalTaxAmountId.innerHTML = jVarLocalAmountSum;
 };
 
 let jFLocalShowTotalTaxAmount = ({ inData }) => {
@@ -38,7 +26,7 @@ let jFLocalShowTotalTaxAmount = ({ inData }) => {
 
     const jVarLocalAmountSum = jVarLocalGstAmountArray.reduce((a, b) => a + b, 0);
 
-    jVarLocalTotalTaxAmountId.innerHTML = jVarLocalAmountSum;
+    if (jVarLocalTotalTaxAmountId === null === false) jVarLocalTotalTaxAmountId.innerHTML = jVarLocalAmountSum;
 };
 
 let jFLocalShowTotalAmount = ({ inData }) => {
@@ -47,29 +35,30 @@ let jFLocalShowTotalAmount = ({ inData }) => {
     let jVarLocalGstAmountArray = inData.map(element => {
         return parseFloat(element.Amount);
     });
-    
+
     const jVarLocalAmountSum = jVarLocalGstAmountArray.reduce((a, b) => a + b, 0);
 
-    jVarLocalTotalAmountId.innerHTML = jVarLocalAmountSum;
+    if (jVarLocalTotalAmountId === null === false) jVarLocalTotalAmountId.innerHTML = jVarLocalAmountSum;
 };
-
 
 let ShowOnDomTableBody = async ({ inData }) => {
     let jVarLocalTableBodyId = document.getElementById("GstTableBodyId");
     let jVarLocalTemplate = await TableRowStartFunc();
 
-    if (jVarLocalTemplate.KTF) {
-        jVarLocalTableBodyId.innerHTML = "";
-        var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
+    if (jVarLocalTableBodyId === null === false) {
+        if (jVarLocalTemplate.KTF) {
+            jVarLocalTableBodyId.innerHTML = "";
+            var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
 
-        Object.entries(inData).forEach(
-            ([key, value]) => {
+            Object.entries(inData).forEach(
+                ([key, value]) => {
 
-                let jVarLocalToShowHtml = template(value);
+                    let jVarLocalToShowHtml = template(value);
 
-                jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
-            }
-        );
+                    jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
+                }
+            );
+        };
     };
 };
 

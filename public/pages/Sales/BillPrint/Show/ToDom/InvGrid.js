@@ -12,17 +12,19 @@ let ShowOnDomTableBody = async ({ inData }) => {
     let jVarLocalTableBodyId = document.getElementById("ItemsTableBodyId");
     let jVarLocalTemplate = await TableRowStartFunc();
 
-    if (jVarLocalTemplate.KTF) {
-        jVarLocalTableBodyId.innerHTML = "";
-        var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
+    if (jVarLocalTableBodyId === null === false) {
+        if (jVarLocalTemplate.KTF) {
+            jVarLocalTableBodyId.innerHTML = "";
+            var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
 
-        Object.entries(inData).forEach(
-            ([key, value]) => {
-                let jVarLocalToShowHtml = template(value);
+            Object.entries(inData).forEach(
+                ([key, value]) => {
+                    let jVarLocalToShowHtml = template(value);
 
-                jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
-            }
-        );
+                    jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
+                }
+            );
+        };
     };
 };
 

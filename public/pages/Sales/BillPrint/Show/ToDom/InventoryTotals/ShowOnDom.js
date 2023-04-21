@@ -5,6 +5,7 @@ let StartFunc = async () => {
 };
 
 let jFTotalAmountIdFunc = async ({ inData }) => {
+    console.log("inData : ", inData);
     let jvarLocalTotalAmountId = document.getElementById("TotalAmountId");
     let jvarLocalTotalDiscountId = document.getElementById("TotalDiscountId");
     let jvarLocalTotalNettAmountId = document.getElementById("TotalNettAmountId");
@@ -13,10 +14,9 @@ let jFTotalAmountIdFunc = async ({ inData }) => {
     let jVarLocalDisRateArray = inData.map(element => element.DisRate);
     let jVarLocalGrossAmout = inData.map(element => element.GrossAmout);
 
-    jvarLocalTotalAmountId.innerHTML = jVarLocalUnitRateArray.reduce((a, b) => a + b, 0);;
-    jvarLocalTotalDiscountId.innerHTML = jVarLocalDisRateArray.reduce((a, b) => a + b, 0);;
-    jvarLocalTotalNettAmountId.innerHTML = jVarLocalGrossAmout.reduce((a, b) => a + b, 0);;
-
+    if (jvarLocalTotalAmountId === null === false) { jvarLocalTotalAmountId.innerHTML = jVarLocalUnitRateArray.reduce((a, b) => a + b, 0) };
+    if (jvarLocalTotalDiscountId === null === false) { jvarLocalTotalDiscountId.innerHTML = jVarLocalDisRateArray.reduce((a, b) => a + b, 0) };
+    if (jvarLocalTotalNettAmountId === null === false) { jvarLocalTotalNettAmountId.innerHTML = jVarLocalGrossAmout.reduce((a, b) => a + b, 0) };
 };
 
 export { StartFunc };
