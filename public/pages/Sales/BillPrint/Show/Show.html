@@ -197,17 +197,17 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link " href="/pages/QrCodes/DisCounts/ShowAll/ShowAll.html">
-                                  <span class="sidenav-mini-icon"> D </span>
-                                  <span class="sidenav-normal">DisCount</span>
+                                    <span class="sidenav-mini-icon"> D </span>
+                                    <span class="sidenav-normal">DisCount</span>
                                 </a>
-                              </li>
-                        
+                            </li>
+
                             <li class="nav-item ">
                                 <a class="nav-link " href="/pages/QrCodes/Find/Search/Search.html">
-                                  <span class="sidenav-mini-icon"> O </span>
-                                  <span class="sidenav-normal">Search</span>
+                                    <span class="sidenav-mini-icon"> O </span>
+                                    <span class="sidenav-normal">Search</span>
                                 </a>
-                              </li>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -230,8 +230,8 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link " href="/pages/Sales/Generation/ShowAll/ShowAll.html">
-                                  <span class="sidenav-mini-icon"> Q </span>
-                                  <span class="sidenav-normal"> QrCodes </span>
+                                    <span class="sidenav-mini-icon"> Q </span>
+                                    <span class="sidenav-normal"> QrCodes </span>
                                 </a>
                             </li>
                         </ul>
@@ -364,7 +364,7 @@
             <div class="row">
                 <div class="col-md-8 col-sm-10 mx-auto">
                     <form class="" action="index.html" method="post">
-                   
+
 
                     </form>
                 </div>
@@ -413,52 +413,12 @@
         </div>
     </main>
 
-    <pre id="PrintDiv" style="position: relative; margin-bottom: 16px;">
-        MAGUVA
-50-50-30/12/2, vandana plaza,
-   GURUDWARA,VISHAKAPATNAM,
-GSTIN:37ACJPL9300K2ZB,Ph:08912796666,
-   State Code:37          
-----------------------------------------
-       TAX INVOICE
-        CASH BILL
-----------------------------------------
-Customer    :   sreenivas
-PhoneNumber :   8341177771
-BillNumber  :   01
-Date        :   21/04/2023
-----------------------------------------
-#    Code/ItemName                 Rate
-GST%               Discount   G-Rate
------------------------------------------
-1   M-1/Uppada Pattu               2600
-30%                 10%-260    2340
-2   M-4/Cutton Saree               6000
-15%                 10%-600    5400
-----------------------------------------
-           Gross Amount    :   8600
-           Total Discount  :    860
-           Net Amt         :   5400
-----------------------------------------
-GST         GSTAmount        TotalAmount
-----------------------------------------
-30%         7.00                2340
-15%         8.09                5400
-----------------------------------------
-Total       5933                32100
-----------------------------------------
-* Terms And Conditions *
-Exchange Time Between 1-4PM,
-Goods Will Be Exchaged WithIn 7Days,
-Rchase Date,No Colour Gurantee
-----------------------------------------
-Thank you for your visit        
-   Have a nice day             
-
+    <div style="display:none">
+        <pre id="PrintDiv" style="position: relative; margin-bottom: 16px;">
 </pre>
+    </div>
 
-
-<pre id="PrintDiv1" style="position: relative; margin-bottom: 16px;">
+    <pre id="PrintDiv1" style="position: relative; margin-bottom: 16px; display: none;">
     MAGUVA
 50-50-30/12/2, vandana plaza,
 GURUDWARA,VISHAKAPATNAM,
@@ -492,6 +452,29 @@ GST         GSTAmount        TotalAmount
 ----------------------------------------
 Total       5933                32100
 ----------------------------------------
+* Terms And Conditions *
+Exchange Time Between 1-4PM,
+Goods Will Be Exchaged WithIn 7Days,
+Rchase Date,No Colour Gurantee
+----------------------------------------
+Thank you for your visit        
+Have a nice day             
+
+</pre>
+
+    <pre id="TemplateForFirmHeading">
+                    MAGUVA
+         50-50-30/12/2, vandana plaza,
+           GURUDWARA,VISHAKAPATNAM,
+      GSTIN:37ACJPL9300K2ZB,Ph:08912796666,
+                 State Code:37          
+    ----------------------------------------
+                  TAX INVOICE
+                   CASH BILL
+    ----------------------------------------
+</pre>
+
+    <pre id="TemplateForTerms" style="position: relative; margin-bottom: 16px; display: none;">
 * Terms And Conditions *
 Exchange Time Between 1-4PM,
 Goods Will Be Exchaged WithIn 7Days,
@@ -538,6 +521,24 @@ Have a nice day
 
     <!-- <script src="/assets/js/Maguvaa/pages/masters/suppliers/ShowAll.js" type="module"></script> -->
     <script src="./Show.js" type="module"></script>
+
+    <script>
+        const jF1 = () => {
+            let jVarLocalBillData = localStorage.getItem("BillData");
+            let jVarLocalBillDataAsJson = JSON.parse(jVarLocalBillData);
+            console.log("jVarLocalBillDataAsJson : ", jVarLocalBillDataAsJson);
+            let k1 = document.getElementById("PrintDiv");
+            let k2 = document.getElementById("TemplateForFirmHeading");
+            let k3 = document.getElementById("TemplateForTerms");
+
+            k1.innerHTML += k2.innerHTML;
+            k1.innerHTML += `  Customer    :   ${jVarLocalBillDataAsJson.CustomerName}\n`;
+
+            k1.innerHTML += k3.innerHTML;
+
+            printJS("PrintDiv", "html");
+        };
+    </script>
 
 </body>
 

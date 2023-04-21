@@ -14,6 +14,8 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         inProjectName
     });
 
+    localStorage.setItem("BillData", JSON.stringify(jVarLocalData.JsonData));
+
     if (jVarLocalData.KTF) {
         let localindataJson = jVarLocalData.JsonData
         ShowOnDom({ inData: localindataJson, inShowSuccess });
