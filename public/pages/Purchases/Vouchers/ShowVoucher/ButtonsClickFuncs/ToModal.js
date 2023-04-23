@@ -1,8 +1,5 @@
 let StartFunc = async (event) => {
-    console.log("StartFuncToModal");
     let jVarLocalCurrentTarget = event.currentTarget;
-
-    console.log("jjjjjjjjjjjjjjjj",jVarLocalCurrentTarget);
 
     jFShowQrCodeButtonClickFunc()
 };

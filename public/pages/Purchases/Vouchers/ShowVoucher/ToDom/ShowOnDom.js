@@ -25,12 +25,19 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
 };
 
 let ShowOnDom = async ({ inData, inShowSuccess }) => {
+    console.log("inData : ", inData);
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
     let jVarLocalAliasName = document.getElementById("AliesNameId");
     let jVarLocalTotalAmount = document.getElementById("TotalAmountId");
+    let jVarLocalPurchasePkId = document.getElementById("PurchasePkId");
 
+    // pk
+
+    if (jVarLocalPurchasePkId !== null) {
+        jVarLocalPurchasePkId.innerHTML = inData.pk;
+    };
     if (jVarLocalVoucherNameId !== null) {
         jVarLocalVoucherNameId.innerHTML = inData.SupplierName;
     };

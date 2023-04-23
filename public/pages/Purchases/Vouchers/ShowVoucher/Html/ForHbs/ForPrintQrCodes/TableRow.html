@@ -3,14 +3,17 @@
     <td>
         <div class="d-flex">
             <div class="form-check my-auto">
-                <input class="form-check-input" type="checkbox">
+                <input class="form-check-input" type="checkbox"
+                data-productname="{{ProductName}}"
+                data-saleprice="{{SalePrice}}" 
+                data-inventoryserial="{{InventorySerial}}"
+                data-qrcode="M-{{pk}}">
             </div>
         </div>
     </td>
     <td class="text-center">{{InventorySerial}}</td>
     <td>{{ProductName}}</td>
     <td>M-{{pk}}</td>
-    <td>{{CostPrice}}</td>
     <td>{{PercentageValueAddition}}%</td>
     <td>{{SalePrice}}</td>
 </tr>

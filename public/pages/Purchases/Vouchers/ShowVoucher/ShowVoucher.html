@@ -511,6 +511,15 @@
                                                 </div>
                                             </div>
 
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <p class="mb-0 text-sm">PurchasePk:</p>
+                                                </div>
+                                                <div class="col-10">
+                                                    <h5 id="PurchasePkId">PurchasePk</h5>
+                                                </div>
+                                            </div>
+
                                             <div class="button-row d-flex mt-4">
                                                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
                                                     type="button" title="Next">Next</button>
@@ -578,19 +587,19 @@
                                         data-animation="FadeIn">
                                         <div class="row">
                                             <div class="col">
-                                                <button class="btn bg-gradient-primary" id="PrintQrCodesShowButtonId" type="button"
-                                                    title="Send">Show QrCodes</button>
+                                                <button class="btn bg-gradient-primary" id="PrintQrCodesShowButtonId"
+                                                    type="button" title="Send">Show QrCodes</button>
                                             </div>
                                             <div class="col">
                                                 <div class="form-check my-auto ms-auto">
                                                     <input class="form-check-input" type="checkbox"
                                                         id="PrintQrCodesCheckAll">
-                                                        Select All
+                                                    Select All
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <button class="btn bg-gradient-success" id="PrintQrCodesPrintButtonId" type="button"
-                                                    title="Send">Print QrCodes</button>
+                                                <button class="btn bg-gradient-success" id="PrintQrCodesPrintButtonId"
+                                                    type="button" title="Send">Print QrCodes</button>
                                             </div>
                                         </div>
                                         <div class="multisteps-form__content">
@@ -794,7 +803,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="ModalBodyForQrCodeMultiple">
-                
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary"
@@ -984,6 +993,12 @@
             let jVarLocalDivToShowQrCodeId = document.getElementById("DivToShowQrCodeId");
             GenerateQrCodeOnModal({ inQrData: "16", inCanvasId: jVarLocalDivToShowQrCodeId });
         };
+
+        Handlebars.registerHelper('ForQrCode', function (item) {
+            console.log("ssssssss : ", item);
+            return item;
+        });
+
     </script>
 
     <script src="./ShowVoucher.js" type="module"></script>

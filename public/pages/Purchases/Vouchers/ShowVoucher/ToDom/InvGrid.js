@@ -6,7 +6,6 @@ let StartFunc = async ({ inData }) => {
 };
 
 let LocalTotalFunc = ({ inData }) => {
-    console.log("inData",inData);
     let jVarLocalInvArrayNeeded = Object.values(inData.InvGrid).map(element => element.Qty);
 
     let jVarLocalItemsQtyTotal = document.getElementById("ItemsQtyTotal");
@@ -29,8 +28,6 @@ let LocalTotalFunc = ({ inData }) => {
 
     
 };
-
-
 
 let ShowOnDomTableBody = async ({ inData }) => {
     let jVarLocalTableBodyId = document.getElementById("InvTableBodyId");

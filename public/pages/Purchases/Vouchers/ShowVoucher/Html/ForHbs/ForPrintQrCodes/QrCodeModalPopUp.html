@@ -1,54 +1,40 @@
 {{#each this}}
 {{log this}}
-<div style="width: 100%; height: 200px;">
-    <div style="display: block; margin-left:auto; margin-right: auto; width: 50%;">{{DateTime}}</div>
 
-    <div>
-        <div style="width: 50%; float: left; height: 70px;">
-            <div class="row">
-                <div style="text-align: center;" class="col">
-                    {{QrCode}}
-                </div>
+<!-- jVarOnModalUserDescriptionModalId.innerHTML = `${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}-${localQty}`; -->
 
-            </div>
-            <div class="row">
-                <div style="text-align: center;" class="col">{{CustomerName}}</div>
+<div class="row">
+    <div class="col">
+        <div style="width: 75%; float: left; height: 70px;">
+            <div style="text-align: left;">
+                <b>MAGUVA</b>
             </div>
             <div class="row">
                 <b>
-                    <div style="text-align: center;" class="col">
-                        {{Mobile}}
+                    <div style="text-align: left; font-family: Arial, sans-serif;" class="col">{{ProductName}}
                     </div>
                 </b>
             </div>
-            <div class="row">
-                <div style="text-align: center;" class="col">
-                    {{GarmentsName}} : {{GarmentsPcs}}/{{GarmentPcsTotal}}
-                </div>
-
+            <div style="text-align: left;">
+                {{AliasName}}-{{PurchasePk}}-{{InventorySerial}}
+            </div>
+            <div style="text-align: left;">
+                <b>MRP. {{SalePrice}}</b>
             </div>
 
         </div>
-        <div style="margin-left: 50%; height: 70px;">
-
-            <div class="row">
-                <div style="text-align: center;" class="col">
-                    <canvas id="{{CanvasId}}" width=1 height=1 style="border:1px solid #fff;visibility:hidden"></canvas>
-                </div>
-
+        <div style="margin-left: 75%; height: 70px;">
+            <div style="text-align: right;">
+                <!-- // inQrData: `M-${recipient}/${jVarLocalproductname}/${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}-${localQty}/${jVarLocalSalePrice}`, -->
+                <canvas class="CanvasClass" data-userdescription="{{QrCode}}/{{ProductName}}/{{AliasName}}-{{PurchasePk}}-{{InventorySerial}}/{{SalePrice}}"
+                 width=1 height=1
+                    style="border:1px solid #fff;visibility:hidden">
+                </canvas>
             </div>
-            <div class="row">
-                <div style="text-align: center;" class="col" id="ModalGarments">
-
-                </div>
-
-            </div>
+            <div style="text-align: center;">{{QrCode}}</div>
         </div>
     </div>
-    <b>
-        <div style="font-size: xx-large; text-align: center;" class="col">
-            {{BookingRef}}
-        </div>
-    </b>
+</div>
+<div style="height: 20px;">
 </div>
 {{/each}}

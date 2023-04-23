@@ -1,7 +1,6 @@
 import { StartFunc as StartFuncShowOnDom } from "../ToDom/ShowOnDom.js";
 
 let StartFunc = async ({inData}) => {
-    console.log("StartFuncToModal");
     jFShowQrCodeButtonClickFunc()
     await StartFuncShowOnDom({inData});
 };
@@ -35,7 +34,6 @@ let jFShowQrCodeDetails = ({ inData }) => {
 
 
 let jFShowItemNameLabelIdDetails = ({ inData }) => {
-    console.log("inData", inData);
     let jVarLocalItemNameLabelId = document.getElementById("ProductNameModalId");
     jVarLocalItemNameLabelId.innerText = inData.ProductName;
 };
