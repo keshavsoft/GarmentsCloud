@@ -2,6 +2,7 @@ import { FromNode } from "../PullData/FetchFuncs.js";
 import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
+// import { StartFunc as StartFuncQrCodesData } from "../FetchFuncs/QrCodesData/ToLocalStorage.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
@@ -19,6 +20,8 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
         jVarGlobalData = jVarLocalData.JsonData;
     };
+
+    // await StartFuncQrCodesData({ inProjectName });
 };
 
 let ShowOnDom = async ({ inData, inShowSuccess }) => {
@@ -61,6 +64,5 @@ let ShowSuccessFunc = async ({ inShowSuccess }) => {
         };
     };
 };
-
 
 export { StartFunc };

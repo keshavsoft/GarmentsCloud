@@ -39,7 +39,6 @@ let jVarLocalModalForQrCodeOnlyFuncs = () => {
     };
 };
 
-
 let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
     var canvas = inCanvasId;
     canvas.height = 1;

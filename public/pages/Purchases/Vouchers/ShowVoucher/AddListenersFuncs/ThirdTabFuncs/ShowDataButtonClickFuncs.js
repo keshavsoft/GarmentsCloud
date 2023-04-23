@@ -8,7 +8,7 @@ let StartFunc = ({ inProjectName }) => {
     if (jVarLocalSowDataID !== null) {
         jVarLocalSowDataID.addEventListener("click", async (event) => {
             let jVarFromStartFuncFromShowQrCode = await StartFuncFromShowQrCode({ inProjectName });
-            
+
             if (jVarFromStartFuncFromShowQrCode.KTF) {
                 await StartFuncShowQrCode({ inData: jVarFromStartFuncFromShowQrCode.JsonData });
                 LocalModalButtonForImageDownloadFuncs();
@@ -83,7 +83,7 @@ let LocalModalButtonForImageDownloadClick = async (event) => {
               left top
               no-repeat
             `
-          })
+        })
 
     };
 
@@ -99,7 +99,7 @@ let localPrintButtonClass = () => {
             let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
 
             let jVarANeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
-
+            console.log("jVarANeeded  : ", jVarANeeded);
             StartFuncCommonQrandPrint({ inbutton: jVarANeeded });
             printJS('ModalBodyorQrCodeOnly', 'html');
         })

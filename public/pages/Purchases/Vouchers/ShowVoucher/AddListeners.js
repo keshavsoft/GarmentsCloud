@@ -4,6 +4,7 @@ import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFun
 import { StartFunc as StartFuncCommonQrandPrint } from "./ToDom/ShowDataOnQrModal.js";
 import { AddButtonClickFuncs as AddButtonClickFuncsImageUpload } from "./AddListenersFuncs/ImageUpload.js";
 import { StartFunc as StartFuncFromShowDataButtonClickFuncs } from "./AddListenersFuncs/ThirdTabFuncs/ShowDataButtonClickFuncs.js";
+//import { StartFunc as StartFuncPrintQrCodes } from "./Pages/PrintQrCodes/ButtonClickFuncs.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
@@ -32,56 +33,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     AddButtonClickFuncsImageUpload();
     // LocalModalButtonForImageClickFuncs();
     LocalDeleteImageFuncs();
-};
-
-let LocalModalButtonForImageClickFuncs = () => {
-    let jVarLocalModalButtonForImageId = document.getElementById("ModalButtonForImageId");
-
-    jVarLocalModalButtonForImageId.addEventListener("click", async (event) => {
-        event.preventDefault();
-
-        let jVarLocalCurrentTarget = event.currentTarget;
-
-        let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
-        var formData = new FormData();
-        let jVarLocalfileUpload = document.getElementById("fileUpload");
-
-        let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Save";
-        //let jVarLocalFetchUrl = "/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Images/Show";
-
-        formData.append("inFolderName", "QrCodes");
-        formData.append("inFileNameOnly", "Generate");
-        formData.append("inItemName", "Barcodes");
-        formData.append("inRowPk", jVarLocalRowPk);
-        formData.append('uploaded_file', jVarLocalfileUpload.files[0]);
-
-        let jVarFromFetch = await fetch(jVarLocalFetchUrl, {
-            method: 'POST',
-            body: formData
-        });
-
-        let data = await jVarFromFetch.json();
-
-        if (data.KTF) {
-            jVarLocalfileUpload.value = "";
-
-            Swal.fire('Uploaded successfully...');
-
-            let jVarLocalexampleModal = document.getElementById("exampleModal");
-            var myModal = bootstrap.Modal.getInstance(jVarLocalexampleModal);
-
-            console.log("myModal : ", myModal);
-            myModal.hide();
-        };
-    });
-};
-
-let LocalModalButtonForImageDownloadFuncs = () => {
-    let jVarLocalUpdateClassName = document.getElementsByClassName("ShowImageButtonClass");
-
-    for (let i = 0; i < jVarLocalUpdateClassName.length; i++) {
-        jVarLocalUpdateClassName[i].addEventListener("click", LocalModalButtonForImageDownloadClick)
-    };
+   // StartFuncPrintQrCodes();
 };
 
 let LocalModalButtonForImageDownloadClick = async (event) => {
@@ -172,23 +124,6 @@ let LocalDeleteImageButtonClick = async (event) => {
 
         console.log("myModal : ", myModal);
         myModal.hide();
-    };
-};
-
-let localPrintButtonClass = () => {
-    let jvarLocalButtonClass = document.getElementsByClassName("PrintShowButtonClass");
-
-    for (let i = 0; i < jvarLocalButtonClass.length; i++) {
-        jvarLocalButtonClass[i].addEventListener("click", (inEvent) => {
-            let jVarLocalCurrentTarget = inEvent.currentTarget;
-
-            let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
-
-            let jVarANeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
-
-            StartFuncCommonQrandPrint({ inbutton: jVarANeeded });
-            printJS('ModalBodyorQrCodeOnly', 'html');
-        })
     };
 };
 

@@ -3,6 +3,8 @@ import { StartFunc as TableFootStartFunc } from "../FetchFuncs/HtmlPull/TableFoo
 import { StartFunc as ItemsStartFunc } from "../Items/ShowOnDom.js";
 import { StartFunc as StartFuncAddToModals } from "./ShowModals.js";
 import { StartFunc as StartFuncPrintQrCodes } from "./Pages/PrintQrCodes/PrepareTable.js";
+import { StartFunc as StartFuncToLocalStorage } from "../FetchFuncs/QrCodesData/ToLocalStorage.js";
+import { StartFunc as StartFuncAddListeners } from "./AddListeners.js";
 
 let StartFunc = async ({ inProjectName }) => {
     StartFuncAddToModals();
@@ -14,7 +16,9 @@ let StartFunc = async ({ inProjectName }) => {
     await ShowOnDomTableHeader();
     await ShowOnDomTableFooter({ inProjectName });
     await StartFuncPrintQrCodes();
+    await StartFuncToLocalStorage({ inProjectName });
 
+    StartFuncAddListeners({ inProjectName });
     // LocalShowTabFuncFromurlSearchParams();
 };
 
