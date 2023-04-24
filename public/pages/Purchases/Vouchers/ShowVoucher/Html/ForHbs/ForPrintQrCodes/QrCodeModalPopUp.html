@@ -1,7 +1,7 @@
 {{#each this}}
 <div class="row">
     <div class="col">
-        <div style="height: 10px;"></div>
+        <div style="height: 20px;"></div>
         <div style="width: 75%; float: left; height: 70px;">
             <div style="text-align: left;">
                 <b>MAGUVA</b>
@@ -23,9 +23,9 @@
         <div style="margin-left: 75%; height: 70px;">
             <div style="text-align: right;">
                 <!-- // inQrData: `M-${recipient}/${jVarLocalproductname}/${jVarLocalAliesName}-${jVarLocalpurchasepk}-${jVarLocalinventoryserial}-${localQty}/${jVarLocalSalePrice}`, -->
-                <canvas class="CanvasClass" data-userdescription="{{QrCode}}/{{ProductName}}/{{AliasName}}-{{PurchasePk}}-{{InventorySerial}}/{{SalePrice}}"
-                 width=1 height=1
-                    style="border:1px solid #fff;visibility:hidden">
+                <canvas class="CanvasClass"
+                    data-userdescription="{{QrCode}}/{{ProductName}}/{{AliasName}}-{{PurchasePk}}-{{InventorySerial}}/{{SalePrice}}"
+                    width=1 height=1 style="border:1px solid #fff;visibility:hidden">
                 </canvas>
             </div>
             <div style="text-align: center;">{{QrCode}}</div>
