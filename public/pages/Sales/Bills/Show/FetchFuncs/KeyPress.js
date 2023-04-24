@@ -48,9 +48,11 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
 
     let jVarLocalDiscountData = await jFLocalFetchQrDiscountData({ inProjectName, inRowPK: inJsonPK });
 
-    let jVarLocalMaxPk = jFLocalLatestDiscount({ inDiscountArray: jVarLocalDiscountData.JsonData });
+    if (jVarLocalDiscountData.KTF) {
+        let jVarLocalMaxPk = jFLocalLatestDiscount({ inDiscountArray: jVarLocalDiscountData.JsonData });
 
-    StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[jVarLocalMaxPk] });
+        StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[jVarLocalMaxPk] });
+    };
 };
 
 const jFLocalLatestDiscount = ({ inDiscountArray }) => {
