@@ -50,7 +50,7 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
 
     if (jVarLocalDiscountData.KTF) {
         let jVarLocalMaxPk = jFLocalLatestDiscount({ inDiscountArray: jVarLocalDiscountData.JsonData });
-
+        
         StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[jVarLocalMaxPk] });
     };
 };
@@ -134,6 +134,8 @@ let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
         const data = await response.json();
 
         LocalReturnObject.JsonData = data.JsonData;
+        LocalReturnObject.KTF = true;
+
         Object.freeze(LocalReturnObject.JsonData);
         //  StartFucToFooter({ inJSONData: data.JsonData });
 
