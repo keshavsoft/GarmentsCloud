@@ -43,19 +43,25 @@ const jFLocalPrintGrid = () => {
     jVarLocalInventoryDataAsJson.forEach(element => {
         let jVarLoopInsideItem = `M-${element.pk}/${element.ItemName}`;
         let jVarLoopInsideRate = `${element.UnitRate}`;
+        let jVarLoopInsideGST = `${element.GST}`;
+        let jVarLoopInsideDisPercentage = `${element.DisPercentage}%-${element.DisRate}`;
+        let jVarLoopInsideGrossAmout = `${element.GrossAmout}`;
 
         // k1.innerHTML += `${element.sno.toString().padStart(3, "")}${" ".repeat(3)}${jVarLoopInsideItem.padEnd(25)}${jVarLoopInsideRate.padStart(15)}\n`;
 
         k1.innerHTML += `${element.sno.toString().padStart(3, "")}`;
-        k1.innerHTML += `${" ".repeat(3)}${jVarLoopInsideItem.padEnd(25)}`;
+        k1.innerHTML += `${" ".repeat(3)}${jVarLoopInsideItem.padEnd(24)}`;
         k1.innerHTML += `${jVarLoopInsideRate.padStart(15)}\n`;
+        k1.innerHTML += `${jVarLoopInsideGST.padStart(5)}`;
+        k1.innerHTML += `${jVarLoopInsideDisPercentage.padStart(17)}`;
+        k1.innerHTML += `${jVarLoopInsideGrossAmout.padStart(25)}\n`;
     });
 
+    k1.innerHTML += `   ------------------------------------------\n`
+    k1.innerHTML += `                       Gross Amount    :   ${localTotalAmountId.innerHTML}\n`;
+    k1.innerHTML += `                     Total Discount    :   ${localTotalDiscountId.innerHTML}\n`;
+    k1.innerHTML += `                            Net Amt    :   ${localTotalNettAmountId.innerHTML}\n`;
 
-    k1.innerHTML += `                             Gross Amount:  ${localTotalAmountId.innerHTML}<br>
-                            Total Discount:  ${localTotalDiscountId.innerHTML}<br>
-                                Net Amt:    ${localTotalNettAmountId.innerHTML}
-    `;
 
 };
 const jFLocalPrintFooter = () => {
@@ -63,17 +69,39 @@ const jFLocalPrintFooter = () => {
     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
     let localGstToata = document.getElementById("TotalTaxAmountId");
     let localTotalGSTAmountId = document.getElementById("TotalGSTAmountId");
-    console.log("jVarLocalInventoryDataAsJson", jVarLocalInventoryDataAsJson);
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForGridFooter");
     let k3 = document.getElementById("TemplateForTerms");
 
     k1.innerHTML += k2.innerHTML;
-    k1.innerHTML +=
-        `${jVarLocalInventoryDataAsJson.map(function (item) {
-            return `${item.GST}%                ${item.GstAmount}            ${item.Amount}<br>`
-        })}   --------------------------------------------<br>Total         ${localGstToata.innerHTML}          ${localTotalGSTAmountId.innerHTML}<br>--------------------------------------------<br>`
+    jVarLocalInventoryDataAsJson.forEach(element => {
+        let jVarLoopInsideGST = `${element.GST}%`;
+        let jVarLoopInsideGstAmount = `${element.GstAmount}`;
+        let jVarLoopInsideAmount = `${element.Amount}`;
+
+        // k1.innerHTML += `${element.sno.toString().padStart(3, "")}${" ".repeat(3)}${jVarLoopInsideItem.padEnd(25)}${jVarLoopInsideRate.padStart(15)}\n`;
+
+        k1.innerHTML += `${jVarLoopInsideGST.padStart(3, "")}`;
+        k1.innerHTML += `${" ".repeat(10)}${jVarLoopInsideGstAmount.padEnd(15)}`;
+        // k1.innerHTML += `${jVarLoopInsideGstAmount.padStart(15)}\n`;
+        k1.innerHTML += `${jVarLoopInsideAmount.padStart(13)}\n`;
+
+    });
+    k1.innerHTML += ` --------------------------------------------\n`
+    k1.innerHTML += `Total`;
+    k1.innerHTML += `${localGstToata.innerHTML.padStart(4,"")}`;
+    k1.innerHTML += `${localTotalGSTAmountId.innerHTML.padEnd(13)}\n`;
+    k1.innerHTML += ` --------------------------------------------\n`
+
+
+
+    // k1.innerHTML += `${jVarLoopInsideGST.padStart(5)}`;
+
+    // k1.innerHTML +=
+    //     `${jVarLocalInventoryDataAsJson.map(function (item) {
+    //         return `${item.GST}%                ${item.GstAmount}            ${item.Amount}<br>`
+    //     })}   --------------------------------------------<br>Total         ${localGstToata.innerHTML}          ${localTotalGSTAmountId.innerHTML}<br>--------------------------------------------<br>`
     k1.innerHTML += k3.innerHTML;
 
 
