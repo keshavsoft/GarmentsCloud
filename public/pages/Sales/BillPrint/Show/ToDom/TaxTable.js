@@ -42,6 +42,7 @@ let jFLocalShowTotalAmount = ({ inData }) => {
 };
 
 let ShowOnDomTableBody = async ({ inData }) => {
+    localStorage.setItem("GstData",JSON.stringify(inData))
     let jVarLocalTableBodyId = document.getElementById("GstTableBodyId");
     let jVarLocalTemplate = await TableRowStartFunc();
 
