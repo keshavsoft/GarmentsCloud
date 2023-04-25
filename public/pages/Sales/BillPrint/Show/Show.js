@@ -2,6 +2,8 @@ import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../../CommonFunc
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
+import { StartFunc as StartFuncButtonClickFuncs } from "./AddListenersFuncs/ButtonClickFuncs.js";
+
 
 let jVarCommonKToken = ConfigObject.TokenName;
 let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName;
@@ -13,9 +15,15 @@ let jFStartFunc = async () => {
         inUserKey: jVarLocalStorageKeyName,
         inKTokenKey: jVarCommonKToken
     });
+    StartFuncButtonClickFuncs(
+    );
+
+
+
 
     await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
 };
+
 
 jFStartFunc().then(() => {
 });
