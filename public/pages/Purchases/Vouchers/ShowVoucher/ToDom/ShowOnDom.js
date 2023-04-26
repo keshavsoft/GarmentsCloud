@@ -25,7 +25,6 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
 };
 
 let ShowOnDom = async ({ inData, inShowSuccess }) => {
-    console.log("inData : ", inData);
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");

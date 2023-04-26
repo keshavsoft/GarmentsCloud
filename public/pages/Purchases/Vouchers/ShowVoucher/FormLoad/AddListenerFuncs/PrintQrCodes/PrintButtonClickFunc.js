@@ -100,14 +100,15 @@ const jFLocalPrepareDataArray = () => {
 
     for (let i = 0; i < jVarLocalSelected.length; i++) {
         let jVarLoopInside = jVarLocalSelected[i].dataset;
-
+        //just because this is from dom dataset, so all keys should be small letters only
         jVarArray.push({
             ProductName: jVarLoopInside.productname,
             SalePrice: jVarLoopInside.saleprice,
             AliasName: jVarLocalAliesNameId.innerHTML,
             PurchasePk: jVarLocalPurchasePkId.innerHTML,
             InventorySerial: jVarLoopInside.inventoryserial,
-            QrCode: jVarLoopInside.qrcode
+            QrCode: jVarLoopInside.qrcode,
+            UserDescription: jVarLoopInside.userdescription
         });
     };
 

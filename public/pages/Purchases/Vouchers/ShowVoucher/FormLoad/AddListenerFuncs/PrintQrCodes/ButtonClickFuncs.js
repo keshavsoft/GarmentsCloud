@@ -7,12 +7,11 @@ const StartFunc = () => {
 
 };
 // PrintQrCodesPrintButtonId
-const jFLocalPrintQrCodesShowButtonClickFunc = (params) => {
+const jFLocalPrintQrCodesShowButtonClickFunc = () => {
     let jVarLocalPurchaseQrCodesData = localStorage.getItem("PurchaseQrCodesData");
     let jVarLocalPurchaseQrCodesDataAsJson = JSON.parse(jVarLocalPurchaseQrCodesData);
 
     StartFuncShowQrCode({ inData: jVarLocalPurchaseQrCodesDataAsJson });
-    // console.log("aaaaaaaaaa", jVarLocalPurchaseQrCodesDataAsJson);
 };
 
 export { StartFunc }
