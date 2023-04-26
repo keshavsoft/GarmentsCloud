@@ -1,5 +1,5 @@
 import { StartFunc as StartFuncQrCodeModalPopUp } from "../../FetchFuncs/ForPrintQrCodes/QrCodeModalPopUp.js";
-import { StartFunc as StartFuncCommonFuncs } from "./CommonFuncs.js";
+import { StartFuncNoShowModal as StartFuncNoShowModal } from "./CommonFuncs.js";
 
 const StartFunc = () => {
     let jVarLocalPrintQrCodesPrintButtonId = document.getElementById("PrintQrCodesPrintButtonId");
@@ -10,11 +10,11 @@ const StartFunc = () => {
 const jFLocalPrintQrCodesShowButtonClickFunc = async () => {
     let jVarArray = jFLocalPrepareDataArray();
 
-    await StartFuncCommonFuncs({ inDataArray: jVarArray });
+    await StartFuncNoShowModal({ inDataArray: jVarArray });
     // await jFLocalInsertToModal({ inDataArray: jVarArray });
 
     // jFLocalInsertQrCodes();
-    // jFLocalShowModal();
+    jFLocalShowModal();
 };
 
 const jFLocalShowModal = () => {

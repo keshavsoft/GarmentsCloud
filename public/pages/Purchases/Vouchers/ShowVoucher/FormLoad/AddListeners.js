@@ -6,6 +6,8 @@ import { StartFunc as StartFuncPrintQrCodeTabSearchButton } from "../AddListener
 
 import { StartFunc as StartFuncPrintButtonClickFunc } from "../AddListenersFuncs/PrintQrCodes/PrintButtonClickFunc.js";
 
+import { StartFunc as StartFuncThirdTabFuncs } from "../AddListenersFuncs/ThirdTabFuncs/StartFunc.js";
+
 let StartFunc = ({ inProjectName }) => {
     StartFuncPrintQrCodes();
     StartFuncPrintButtonClickFunc();
@@ -13,6 +15,8 @@ let StartFunc = ({ inProjectName }) => {
     StartFuncPrintQrCodeTabSearchFuncs();
     StartFuncPrintQrCodesCheckAllKeyPressFuncs();
     StartFuncPrintQrCodeTabSearchButton();
+
+    StartFuncThirdTabFuncs();
 };
 
 export { StartFunc };
