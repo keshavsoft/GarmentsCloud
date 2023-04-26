@@ -1,7 +1,6 @@
 import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
-import { StartFunc as StartFuncCommonQrandPrint } from "./ToDom/ShowDataOnQrModal.js";
 import { AddButtonClickFuncs as AddButtonClickFuncsImageUpload } from "./AddListenersFuncs/ImageUpload.js";
 import { StartFunc as StartFuncFromShowDataButtonClickFuncs } from "./AddListenersFuncs/ThirdTabFuncs/ShowDataButtonClickFuncs.js";
 //import { StartFunc as StartFuncPrintQrCodes } from "./Pages/PrintQrCodes/ButtonClickFuncs.js";
@@ -122,7 +121,6 @@ let LocalDeleteImageButtonClick = async (event) => {
 
         var myModal = bootstrap.Modal.getInstance(document.getElementById("ShowImageModal"));
 
-        console.log("myModal : ", myModal);
         myModal.hide();
     };
 };

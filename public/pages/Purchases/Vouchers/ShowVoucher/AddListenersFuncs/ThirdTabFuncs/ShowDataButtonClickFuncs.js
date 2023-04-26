@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncShowQrCode } from "../../QrCodeGeneration/ToDom/ShowQrCode.js";
-import { StartFunc as StartFuncCommonQrandPrint } from "../../ToDom/ShowDataOnQrModal.js";
 import { StartFunc as StartFuncFromShowQrCode } from "../../ToDom/ShowQrCode.js";
+import { StartFunc as StartFuncPrintQrCodes } from "../PrintQrCodes/CommonFuncs.js";
 
 let StartFunc = ({ inProjectName }) => {
     let jVarLocalSowDataID = document.getElementById("SowDataID");
@@ -98,10 +98,38 @@ let localPrintButtonClass = () => {
 
             let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
 
-            let jVarANeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
-            console.log("jVarANeeded  : ", jVarANeeded);
-            StartFuncCommonQrandPrint({ inbutton: jVarANeeded });
-            printJS('ModalBodyorQrCodeOnly', 'html');
+            let jVarNeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
+            jVarNeeded.click();
+            // StartFuncCommonQrandPrint({ inbutton: jVarNeeded });
+            let k1 = printJS('ModalBodyorQrCodeOnly', 'html');
+            var myModal = bootstrap.Modal.getInstance(document.getElementById("ModalForQrCodeOnly"));
+            console.log("myModal : ", k1, myModal);
+            myModal.hide();
+
+            // ModalForQrCodeOnly
+        })
+    };
+
+    jFLocalShowQrCodeModalAClassFunc();
+};
+
+let jFLocalShowQrCodeModalAClassFunc = () => {
+    let jvarLocalButtonClass = document.getElementsByClassName("ShowQrCodeModalAClass");
+
+    for (let i = 0; i < jvarLocalButtonClass.length; i++) {
+        jvarLocalButtonClass[i].addEventListener("click", (inEvent) => {
+            let jVarLocalCurrentTarget = inEvent.currentTarget;
+            let jVarLocalDataset = jVarLocalCurrentTarget.dataset;
+
+            let jVarLocalToModal = {};
+            jVarLocalToModal.QrCode = `M-${jVarLocalDataset.rowpk}`;
+            jVarLocalToModal.ProductName = jVarLocalDataset.productname;
+            jVarLocalToModal.UserDescription = jVarLocalDataset.userdescription;
+            jVarLocalToModal.SalePrice = jVarLocalDataset.saleprice;
+
+            // data-userdescription="{{QrCode}}/{{ProductName}}/{{UserDescription}}/{{SalePrice}}"
+
+            StartFuncPrintQrCodes({ inDataArray: [jVarLocalToModal] });
         })
     };
 };

@@ -1,15 +1,14 @@
-import { StartFunc as StartFuncQrCodeModalPopUp } from "../../../FetchFuncs/ForPrintQrCodes/QrCodeModalPopUp.js";
+import { StartFunc as StartFuncQrCodeModalPopUp } from "../../FetchFuncs/ForPrintQrCodes/QrCodeModalPopUp.js";
 
-const StartFunc = () => {
-    let jVarLocalPrintQrCodesPrintButtonId = document.getElementById("PrintQrCodesPrintButtonId");
-    // PrintQrCodesPrintButtonId
-    jVarLocalPrintQrCodesPrintButtonId.addEventListener("click", jFLocalPrintQrCodesShowButtonClickFunc);
+const StartFunc = async ({ inDataArray: jVarArray }) => {
+    await jFLocalInsertToModal({ inDataArray: jVarArray });
+
+    jFLocalInsertQrCodes();
+    jFLocalShowModal();
 };
 
-const jFLocalPrintQrCodesShowButtonClickFunc = async () => {
-    let jVarArray = jFLocalPrepareDataArray();
-
-    await jFLocalInsertToModal({ inDataArray: jVarArray });
+const StartFuncWithData = async ({ inQrCode, inProductName, inUserDescription, inSalePrice }) => {
+    await jFLocalInsertToModalWithData({ inQrCode, inProductName, inUserDescription, inSalePrice });
 
     jFLocalInsertQrCodes();
     jFLocalShowModal();
@@ -46,28 +45,19 @@ const jFLocalInsertToModal = async ({ inDataArray }) => {
     jVarLocalModalBodyForQrCodeMultiple.innerHTML = jVarFromTemplate;
 };
 
-const jFLocalPrepareDataArray = () => {
-    let jVarLocalPrintQrCodesTableBodyId = document.getElementById("PrintQrCodesTableBodyId");
-    let jVarLocalSelected = jVarLocalPrintQrCodesTableBodyId.querySelectorAll(".form-check-input:checked");
-    let jVarArray = [];
-    let jVarLocalAliesNameId = document.getElementById("AliesNameId");
-    let jVarLocalPurchasePkId = document.getElementById("PurchasePkId");
+const jFLocalInsertToModalWithData = async ({ inQrCode, inProductName, inUserDescription, inSalePrice }) => {
+    // data-userdescription="{{QrCode}}/{{ProductName}}/{{UserDescription}}/{{SalePrice}}"
 
-    for (let i = 0; i < jVarLocalSelected.length; i++) {
-        let jVarLoopInside = jVarLocalSelected[i].dataset;
-        //just because this is from dom dataset, so all keys should be small letters only
-        jVarArray.push({
-            ProductName: jVarLoopInside.productname,
-            SalePrice: jVarLoopInside.saleprice,
-            AliasName: jVarLocalAliesNameId.innerHTML,
-            PurchasePk: jVarLocalPurchasePkId.innerHTML,
-            InventorySerial: jVarLoopInside.inventoryserial,
-            QrCode: jVarLoopInside.qrcode,
-            UserDescription: jVarLoopInside.userdescription
-        });
-    };
+    let jVarArray = inDataArray;
 
-    return jVarArray;
+    let jVarLocalModalBodyForQrCodeMultiple = document.getElementById("ModalBodyForQrCodeMultiple");
+
+    let jVarLocalTemplate = await StartFuncQrCodeModalPopUp();
+    var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
+
+    let jVarFromTemplate = template(jVarArray);
+
+    jVarLocalModalBodyForQrCodeMultiple.innerHTML = jVarFromTemplate;
 };
 
 let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
@@ -102,4 +92,4 @@ let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
     }
 };
 
-export { StartFunc }
+export { StartFunc, StartFuncWithData }
