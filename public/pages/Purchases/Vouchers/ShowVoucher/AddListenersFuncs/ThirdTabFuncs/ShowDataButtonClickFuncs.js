@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncShowQrCode } from "../../QrCodeGeneration/ToDom/ShowQrCode.js";
 import { StartFunc as StartFuncFromShowQrCode } from "../../ToDom/ShowQrCode.js";
-import { StartFunc as StartFuncPrintQrCodes } from "../PrintQrCodes/CommonFuncs.js";
+import { StartFuncNoShowModal as StartFuncNoShowModalPrintQrCodes } from "../PrintQrCodes/CommonFuncs.js";
 
 let StartFunc = ({ inProjectName }) => {
     let jVarLocalSowDataID = document.getElementById("SowDataID");
@@ -93,20 +93,21 @@ let localPrintButtonClass = () => {
     let jvarLocalButtonClass = document.getElementsByClassName("PrintShowButtonClass");
 
     for (let i = 0; i < jvarLocalButtonClass.length; i++) {
-        jvarLocalButtonClass[i].addEventListener("click", (inEvent) => {
+        jvarLocalButtonClass[i].addEventListener("click", async (inEvent) => {
             let jVarLocalCurrentTarget = inEvent.currentTarget;
-
             let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
 
             let jVarNeeded = jVarClosestTr.querySelector(".ShowQrCodeModalAClass");
-            jVarNeeded.click();
-            // StartFuncCommonQrandPrint({ inbutton: jVarNeeded });
-            let k1 = printJS('ModalBodyorQrCodeOnly', 'html');
-            var myModal = bootstrap.Modal.getInstance(document.getElementById("ModalForQrCodeOnly"));
-            console.log("myModal : ", k1, myModal);
-            myModal.hide();
+            let jVarLocalDataset = jVarNeeded.dataset;
 
-            // ModalForQrCodeOnly
+            let jVarLocalToModal = {};
+            jVarLocalToModal.QrCode = `M-${jVarLocalDataset.rowpk}`;
+            jVarLocalToModal.ProductName = jVarLocalDataset.productname;
+            jVarLocalToModal.UserDescription = jVarLocalDataset.userdescription;
+            jVarLocalToModal.SalePrice = jVarLocalDataset.saleprice;
+
+            await StartFuncNoShowModalPrintQrCodes({ inDataArray: [jVarLocalToModal] });
+            printJS('ModalBodyForQrCodeMultiple', 'html');
         })
     };
 
@@ -129,9 +130,20 @@ let jFLocalShowQrCodeModalAClassFunc = () => {
 
             // data-userdescription="{{QrCode}}/{{ProductName}}/{{UserDescription}}/{{SalePrice}}"
 
-            StartFuncPrintQrCodes({ inDataArray: [jVarLocalToModal] });
+            // StartFuncPrintQrCodes({ inDataArray: [jVarLocalToModal] });
+
+            StartFuncNoShowModalPrintQrCodes({ inDataArray: [jVarLocalToModal] });
+            jFLocalShowModal();
         })
     };
+};
+
+const jFLocalShowModal = () => {
+    let jVarLocalId = "ModalForQrCodeMultiple";
+
+    var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
+
+    myModal.show();
 };
 
 export { StartFunc };

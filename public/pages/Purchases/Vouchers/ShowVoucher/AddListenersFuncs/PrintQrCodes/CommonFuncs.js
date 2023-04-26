@@ -1,25 +1,8 @@
 import { StartFunc as StartFuncQrCodeModalPopUp } from "../../FetchFuncs/ForPrintQrCodes/QrCodeModalPopUp.js";
 
-const StartFunc = async ({ inDataArray: jVarArray }) => {
-    await jFLocalInsertToModal({ inDataArray: jVarArray });
-
+const StartFuncNoShowModal = async ({ inDataArray }) => {
+    await jFLocalInsertToModal({ inDataArray });
     jFLocalInsertQrCodes();
-    jFLocalShowModal();
-};
-
-const StartFuncWithData = async ({ inQrCode, inProductName, inUserDescription, inSalePrice }) => {
-    await jFLocalInsertToModalWithData({ inQrCode, inProductName, inUserDescription, inSalePrice });
-
-    jFLocalInsertQrCodes();
-    jFLocalShowModal();
-};
-
-const jFLocalShowModal = () => {
-    let jVarLocalId = "ModalForQrCodeMultiple";
-
-    var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
-
-    myModal.show();
 };
 
 const jFLocalInsertQrCodes = () => {
@@ -33,21 +16,6 @@ const jFLocalInsertQrCodes = () => {
 };
 
 const jFLocalInsertToModal = async ({ inDataArray }) => {
-    let jVarArray = inDataArray;
-
-    let jVarLocalModalBodyForQrCodeMultiple = document.getElementById("ModalBodyForQrCodeMultiple");
-
-    let jVarLocalTemplate = await StartFuncQrCodeModalPopUp();
-    var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
-
-    let jVarFromTemplate = template(jVarArray);
-
-    jVarLocalModalBodyForQrCodeMultiple.innerHTML = jVarFromTemplate;
-};
-
-const jFLocalInsertToModalWithData = async ({ inQrCode, inProductName, inUserDescription, inSalePrice }) => {
-    // data-userdescription="{{QrCode}}/{{ProductName}}/{{UserDescription}}/{{SalePrice}}"
-
     let jVarArray = inDataArray;
 
     let jVarLocalModalBodyForQrCodeMultiple = document.getElementById("ModalBodyForQrCodeMultiple");
@@ -92,4 +60,4 @@ let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
     }
 };
 
-export { StartFunc, StartFuncWithData }
+export { StartFuncNoShowModal }
