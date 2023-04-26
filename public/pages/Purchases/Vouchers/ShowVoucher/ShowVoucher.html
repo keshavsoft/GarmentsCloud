@@ -591,6 +591,10 @@
                                                     type="button" title="Send">Show QrCodes</button>
                                             </div>
                                             <div class="col">
+                                                <input class="form-control" type="text"
+                                                        id="PrintQrCodeTabSearch" placeholder="Search the QrCodes">
+                                            </div>
+                                            <div class="col">
                                                 <div class="form-check my-auto ms-auto">
                                                     <input class="form-check-input" type="checkbox"
                                                         id="PrintQrCodesCheckAll">
@@ -988,14 +992,12 @@
             }
         };
 
-
         let jFShowQrCodeButtonClickFunc = () => {
             let jVarLocalDivToShowQrCodeId = document.getElementById("DivToShowQrCodeId");
             GenerateQrCodeOnModal({ inQrData: "16", inCanvasId: jVarLocalDivToShowQrCodeId });
         };
 
         Handlebars.registerHelper('ForQrCode', function (item) {
-            console.log("ssssssss : ", item);
             return item;
         });
 
