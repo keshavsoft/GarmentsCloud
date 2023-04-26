@@ -3,7 +3,7 @@ let StartFunc = () => {
 
     jVarLocalPrintQrCodesCheckAll.addEventListener("click", jFLocalCheckClick)
 };
-
+// PrintQrCodeTabSearchButton
 const jFLocalCheckClick = (event) => {
     let jVarLocalEvent = event;
 
