@@ -23,6 +23,8 @@ let StartFunc = () => {
 
             let localCal = ((jVarLocalMrpValue - jVarLocalRate.value) / jVarLocalRate.value) * 100;
             jVarLocalValueAdditionId.value = parseInt(localCal);
+            jvarLocalAmountId.value = jVarLocalMRPId.value * jVarLocalQtyId1.value;
+
         }
     });
 };
