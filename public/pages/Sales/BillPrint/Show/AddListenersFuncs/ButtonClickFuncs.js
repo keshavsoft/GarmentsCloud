@@ -90,8 +90,8 @@ const jFLocalPrintFooter = () => {
     });
     k1.innerHTML += ` --------------------------------------------\n`
     k1.innerHTML += `Total`;
-    k1.innerHTML += `${localGstToata.innerHTML.padStart(4,"")}`;
-    k1.innerHTML += `${localTotalGSTAmountId.innerHTML.padEnd(13)}\n`;
+    k1.innerHTML += `${localGstToata.innerHTML.padStart(15)}`;
+    k1.innerHTML += `${localTotalGSTAmountId.innerHTML.padStart(24)}\n`;
     k1.innerHTML += ` --------------------------------------------\n`
 
 
