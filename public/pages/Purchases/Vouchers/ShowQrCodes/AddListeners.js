@@ -1,7 +1,9 @@
 import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
-import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
+// import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { StartFunc as StartFuncDeleteFuncs } from "./ButtonFuncsForDelete/DeleteFuncs.js";
 import { StartFunc as StartFuncQrCodeGeneration } from "./Pages/QrCodeGeneration/ButtonClicks.js";
+
+import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/ProductsTab/KeyPressFuncs.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalDeleteButtonClassAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
