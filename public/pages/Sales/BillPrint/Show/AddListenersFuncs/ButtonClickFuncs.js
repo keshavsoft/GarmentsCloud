@@ -29,16 +29,8 @@ const jFLocalPrintGrid = () => {
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForGridHeader");
-    let k3 = document.getElementById("TemplateForGrossTotal");
 
     k1.innerHTML += k2.innerHTML;
-
-    // k1.innerHTML +=
-    //     `${jVarLocalInventoryDataAsJson.map(function (item) {
-    //         return `
-    //     ${item.sno}      M-${item.pk}/${item.ItemName}            ${item.UnitRate}<br>
-    //     ${item.GST}%           ${item.DisPercentage}%                   ${item.GrossAmout}<br>`
-    //     })}   --------------------------------------------<br>`
 
     jVarLocalInventoryDataAsJson.forEach(element => {
         let jVarLoopInsideItem = `M-${element.pk}/${element.ItemName}`;
@@ -46,8 +38,6 @@ const jFLocalPrintGrid = () => {
         let jVarLoopInsideGST = `${element.GST}`;
         let jVarLoopInsideDisPercentage = `${element.DisPercentage}%-${element.DisRate}`;
         let jVarLoopInsideGrossAmout = `${element.GrossAmout}`;
-
-        // k1.innerHTML += `${element.sno.toString().padStart(3, "")}${" ".repeat(3)}${jVarLoopInsideItem.padEnd(25)}${jVarLoopInsideRate.padStart(15)}\n`;
 
         k1.innerHTML += `${element.sno.toString().padStart(3, "")}`;
         k1.innerHTML += `${" ".repeat(3)}${jVarLoopInsideItem.padEnd(24)}`;
