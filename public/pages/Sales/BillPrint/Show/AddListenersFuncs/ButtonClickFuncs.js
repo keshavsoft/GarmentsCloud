@@ -1,3 +1,5 @@
+import { jfInsertToPreDiv as jfInsertToPreDivItemsTableRow } from "./BillPrint/ItemsTableRow.js";
+
 let StartFunc = () => {
     let LocalPrintId = document.getElementById("PrintId");
     LocalPrintId.addEventListener("click", jFLocalClickFunc)
@@ -19,41 +21,42 @@ const jFLocalPrintHeader = () => {
 
 
 };
-const jFLocalPrintGrid = () => {
-    let jVarLocalInventoryData = localStorage.getItem("InventoryData");
-    let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
-    let localTotalAmountId = document.getElementById("TotalAmountId")
-    let localTotalDiscountId = document.getElementById("TotalDiscountId")
-    let localTotalNettAmountId = document.getElementById("TotalNettAmountId")
-    // console.log("jVarLocalInventoryDataAsJson : ", jVarLocalInventoryDataAsJson);
+// const jFLocalPrintGrid = () => {
+//     let jVarLocalInventoryData = localStorage.getItem("InventoryData");
+//     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
+//     let localTotalAmountId = document.getElementById("TotalAmountId")
+//     let localTotalDiscountId = document.getElementById("TotalDiscountId")
+//     let localTotalNettAmountId = document.getElementById("TotalNettAmountId")
+//     // console.log("jVarLocalInventoryDataAsJson : ", jVarLocalInventoryDataAsJson);
 
-    let k1 = document.getElementById("PrintDiv");
-    let k2 = document.getElementById("TemplateForGridHeader");
+//     let k1 = document.getElementById("PrintDiv");
+//     let k2 = document.getElementById("TemplateForGridHeader");
 
-    k1.innerHTML += k2.innerHTML;
+//     k1.innerHTML += k2.innerHTML;
+//     console.log("gggggggggggggg");
 
-    jVarLocalInventoryDataAsJson.forEach(element => {
-        let jVarLoopInsideItem = `M-${element.pk}/${element.ItemName}`;
-        let jVarLoopInsideRate = `${element.UnitRate}`;
-        let jVarLoopInsideGST = `${element.GST}`;
-        let jVarLoopInsideDisPercentage = `${element.DisPercentage}%-${element.DisRate}`;
-        let jVarLoopInsideGrossAmout = `${element.GrossAmout}`;
+//     jVarLocalInventoryDataAsJson.forEach(element => {
+//         let jVarLoopInsideItem = `M-${element.pk}/${element.ItemName}`;
+//         let jVarLoopInsideRate = `${element.UnitRate}`;
+//         let jVarLoopInsideGST = `${element.GST}`;
+//         let jVarLoopInsideDisPercentage = `${element.DisPercentage}%-${element.DisRate}`;
+//         let jVarLoopInsideGrossAmout = `${element.GrossAmout}`;
 
-        k1.innerHTML += `${element.sno.toString().padStart(3, "")}`;
-        k1.innerHTML += `${" ".repeat(3)}${jVarLoopInsideItem.padEnd(24)}`;
-        k1.innerHTML += `${jVarLoopInsideRate.padStart(15)}\n`;
-        k1.innerHTML += `${jVarLoopInsideGST.padStart(5)}`;
-        k1.innerHTML += `${jVarLoopInsideDisPercentage.padStart(17)}`;
-        k1.innerHTML += `${jVarLoopInsideGrossAmout.padStart(25)}\n`;
-    });
+//         k1.innerHTML += `${element.sno.toString().padStart(2, " ")}`;
+//         k1.innerHTML += `${" ".repeat(4)}${jVarLoopInsideItem.padEnd(24)}`;
+//         k1.innerHTML += `${jVarLoopInsideRate.padStart(15)}\n`;
+//         k1.innerHTML += `${jVarLoopInsideGST.padStart(5)}`;
+//         k1.innerHTML += `${jVarLoopInsideDisPercentage.padStart(17)}`;
+//         k1.innerHTML += `${jVarLoopInsideGrossAmout.padStart(25)}\n`;
+//     });
 
-    k1.innerHTML += `   ------------------------------------------\n`
-    k1.innerHTML += `                       Gross Amount    :   ${localTotalAmountId.innerHTML}\n`;
-    k1.innerHTML += `                     Total Discount    :   ${localTotalDiscountId.innerHTML}\n`;
-    k1.innerHTML += `                            Net Amt    :   ${localTotalNettAmountId.innerHTML}\n`;
+//     k1.innerHTML += `   ------------------------------------------\n`
+//     k1.innerHTML += `                     Gross Amount    :   ${localTotalAmountId.innerHTML}\n`;
+//     k1.innerHTML += `                   Total Discount    :    ${localTotalDiscountId.innerHTML}\n`;
+//     k1.innerHTML += `                          Net Amt    :   ${localTotalNettAmountId.innerHTML}\n`;
 
 
-};
+// };
 const jFLocalPrintFooter = () => {
     let jVarLocalInventoryData = localStorage.getItem("GstData");
     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
@@ -72,17 +75,17 @@ const jFLocalPrintFooter = () => {
 
         // k1.innerHTML += `${element.sno.toString().padStart(3, "")}${" ".repeat(3)}${jVarLoopInsideItem.padEnd(25)}${jVarLoopInsideRate.padStart(15)}\n`;
 
-        k1.innerHTML += `${jVarLoopInsideGST.padStart(3, "")}`;
-        k1.innerHTML += `${" ".repeat(10)}${jVarLoopInsideGstAmount.padEnd(15)}`;
+        k1.innerHTML += `${jVarLoopInsideGST.padStart(6, " ")}`;
+        k1.innerHTML += `${" ".repeat(10)}${jVarLoopInsideGstAmount.padEnd(18)}`;
         // k1.innerHTML += `${jVarLoopInsideGstAmount.padStart(15)}\n`;
-        k1.innerHTML += `${jVarLoopInsideAmount.padStart(13)}\n`;
+        k1.innerHTML += `${jVarLoopInsideAmount.padStart(10)}\n`;
 
     });
-    k1.innerHTML += ` --------------------------------------------\n`
+    k1.innerHTML += `----------------------------------------------\n`
     k1.innerHTML += `Total`;
     k1.innerHTML += `${localGstToata.innerHTML.padStart(15)}`;
     k1.innerHTML += `${localTotalGSTAmountId.innerHTML.padStart(24)}\n`;
-    k1.innerHTML += ` --------------------------------------------\n`
+    k1.innerHTML += `----------------------------------------------\n`
 
 
 
@@ -99,7 +102,8 @@ const jFLocalPrintFooter = () => {
 };
 let jFLocalClickFunc = () => {
     jFLocalPrintHeader();
-    jFLocalPrintGrid();
+    jfInsertToPreDivItemsTableRow();
+    // jFLocalPrintGrid();
     jFLocalPrintFooter();
     printJS("PrintDiv", "html");
 
