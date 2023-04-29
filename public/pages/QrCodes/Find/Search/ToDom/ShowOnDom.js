@@ -57,7 +57,7 @@ let ShowOnDom = ({ inData }) => {
     if (jVarLocalSalePrice !== null) {
         jVarLocalSalePrice.innerHTML = inData.SalePrice;
     };
-
+    console.log("data", inData);
     jVarLocalPurchasePkIdFunc({ inData });
 };
 
