@@ -1,3 +1,4 @@
+{{log "sssssssssssss " this}}
 <tr data-qrcode="{{pk}}">
     <td class="text-center"> {{KSNo}} </td>
     <td class="text-center">{{InventorySerial}}</td>
@@ -8,12 +9,7 @@
     <td>{{SalePrice}}</td>
 
     <td class="text-lg">
-        <a class="ShowQrCodeModalAClass" href="javascript:;" data-productname="{{ProductName}}"
-            data-saleprice="{{SalePrice}}" data-Userdescription="{{UserDescription}}" data-purchasepk="{{PurchasePk}}"
-            data-inventoryserial="{{InventorySerial}}" data-billnumber="{{BillNumber}}" data-rowpk="{{pk}}"
-            data-ksno="{{KSNo}}" data-bs-toggle="modal" data-bs-target="#ModalForQrCodeOnly">
-            <i class="fas fa-qrcode"></i>
-        </a>
+        <span class="badge badge-success badge-sm">in Stock</span>
     </td>
 
     <td class="text-lg">

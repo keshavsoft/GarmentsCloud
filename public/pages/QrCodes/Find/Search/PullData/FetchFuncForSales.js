@@ -3,13 +3,15 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
         let inFetchPostData = {
-            FileNameOnly: "Bills",
-            FolderName: "Sales",
-            ItemName: "BillsQrCode",
+            inFileNameOnly: "Bills",
+            inFolderName: "Sales",
+            inItemName: "BillsQrCode",
+            inScreenName: "Create",
             JsonPk: inRowPK
         };
 
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
+        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
+        //http://localhost:4120/JSONApi/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK
 
         let jVarLocalFetchHeaders = {
             method: "post",
