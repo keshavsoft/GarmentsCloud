@@ -14,8 +14,6 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 
     if (jVarLocalData.KTF) {
         ShowOnDom({ inData: jVarLocalData.JsonData });
-
-        return await jVarLocalData.JsonData.PurchasePk;
     };
 };
 
@@ -59,14 +57,23 @@ let ShowOnDom = ({ inData }) => {
     };
 
     jVarLocalPurchasePkIdFunc({ inData });
+    jVarLocalInventorySerialIdFunc({ inData })
 };
-
 
 let jVarLocalPurchasePkIdFunc = ({ inData }) => {
     let jVarLocalPurchasePkId = document.getElementById("PurchasePkId");
 
     if (jVarLocalPurchasePkId !== null) {
         jVarLocalPurchasePkId.innerHTML = inData.PurchasePk;
+    };
+};
+
+let jVarLocalInventorySerialIdFunc = ({ inData }) => {
+    let jVarLocalHtmlId = "InventorySerialId";
+    let jVarLocalPurchasePkId = document.getElementById(jVarLocalHtmlId);
+
+    if (jVarLocalPurchasePkId !== null) {
+        jVarLocalPurchasePkId.innerHTML = inData.InventorySerial;
     };
 };
 

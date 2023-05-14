@@ -206,10 +206,10 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link " href="/pages/QrCodes/DisCounts/ShowAll/ShowAll.html">
-                                  <span class="sidenav-mini-icon"> D </span>
-                                  <span class="sidenav-normal">DisCount</span>
+                                    <span class="sidenav-mini-icon"> D </span>
+                                    <span class="sidenav-normal">DisCount</span>
                                 </a>
-                              </li>
+                            </li>
                             <li class="nav-item ">
                                 <a class="nav-link active" href="/pages/QrCodes/Find/Search/Search.html">
                                     <span class="sidenav-mini-icon"> O </span>
@@ -500,6 +500,10 @@
 
                                     <label class="mt-4">PurchasePk</label>
                                     <h5 id="PurchasePkId">PurchasePk</h5>
+
+                                    <label class="mt-4">InventorySerial</label>
+                                    <h5 id="InventorySerialId">InventorySerial</h5>
+
                                     <!-- InventorySerial -->
                                     <br>
                                     <h6 class="mb-0 mt-3">Price</h6>
@@ -547,30 +551,19 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="profile-tabs-icons" role="tabpanel"
                                     aria-labelledby="home-tab" tabindex="0">
+                                    <table class="table align-items-center mb-0">
+                                        <thead id="SameQrCodesTableHeadId">
+                                        </thead>
+                                        <tbody id="SameQrCodesTableBodyId">
 
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="tab-pane fade" id="dashboard-tabs-icons" role="tabpanel"
                                     aria-labelledby="profile-tab" tabindex="0">
                                     <div class="table table-responsive">
                                         <table class="table align-items-center mb-0">
                                             <thead id="TableHeadId">
-                                                <tr>
-                                                    <th
-                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                        Product</th>
-                                                    <th
-                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                        Price</th>
-                                                    <th
-                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                        Review</th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                        Availability</th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                        Id</th>
-                                                </tr>
                                             </thead>
                                             <tbody id="TableBodyId">
 

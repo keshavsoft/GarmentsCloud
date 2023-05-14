@@ -3,7 +3,7 @@ import { ReturnRowPK } from "../urlSearchParams.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalRowPk = ReturnRowPK();
-
+    
     let jVarLocalData = await FromNode({
         inFolderName,
         inFileName,
@@ -11,8 +11,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
         inRowPK: jVarLocalRowPk.RowPK,
         inProjectName
     });
-
-        if (jVarLocalData.KTF) {
+    if (jVarLocalData.KTF) {
         ShowOnDom();
     };
 };

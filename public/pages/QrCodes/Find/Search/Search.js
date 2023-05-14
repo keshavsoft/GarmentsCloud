@@ -9,14 +9,15 @@ let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName;
 let jVarCommonKeys = KeysObject.CommonKeys;
 let jVarCommonProjectName = ConfigObject.ProjectName;
 
-let jFStartFunc = async () => {
+let jFStartFunc = () => {
     CheckUserFuncsjFStartFunc({
         inUserKey: jVarLocalStorageKeyName,
         inKTokenKey: jVarCommonKToken
     });
 
-    await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+    ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+
     AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
 };
 
-jFStartFunc().then();
+jFStartFunc();
