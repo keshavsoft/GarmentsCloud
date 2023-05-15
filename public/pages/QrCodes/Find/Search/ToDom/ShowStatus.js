@@ -1,18 +1,18 @@
-import { FromNode } from "../PullData/FetchFuncForSales.js";
+import { FromNode } from "../PullData//SalesFindQrCode.js";
 import { ReturnRowPK } from "../urlSearchParams.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalRowPk = ReturnRowPK();
-    
+
     let jVarLocalData = await FromNode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: jVarLocalRowPk.RowPK,
+        inRowPK: parseInt(jVarLocalRowPk.RowPK),
         inProjectName
     });
+    console.log("jVarLocalData------ : ", jVarLocalRowPk, jVarLocalData);
     if (jVarLocalData.KTF) {
-        ShowOnDom();
+        if (jVarLocalData.JsonData.length > 0) {
+            ShowOnDom();
+        };
     };
 };
 

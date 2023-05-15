@@ -1,11 +1,14 @@
 import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPullQrCode/TableRow.js";
 import { StartFunc as TableHeadStartFunc } from "../FetchFuncs/HtmlPullQrCode/TableHead.js";
 import { StartFunc as StartFuncShowOtherQrCodes } from "./PurchaseTabs/SameQrCodesTab/ShowOtherQrCodes.js";
+import { StartFunc as StartFuncPurchaseQrCodesTab } from "./PurchaseTabs/PurchaseQrCodesTab/ShowOtherQrCodes.js";
 
 let StartFunc = async ({ inData }) => {
-    await ShowOnDomTableHeader();
-    await ShowOnDomTableBody({ inData });
+    // await ShowOnDomTableHeader();
+    // await ShowOnDomTableBody({ inData });
+
     await StartFuncShowOtherQrCodes({ inData });
+    await StartFuncPurchaseQrCodesTab({ inData });
 };
 
 let ShowOnDomTableBody = async ({ inData }) => {

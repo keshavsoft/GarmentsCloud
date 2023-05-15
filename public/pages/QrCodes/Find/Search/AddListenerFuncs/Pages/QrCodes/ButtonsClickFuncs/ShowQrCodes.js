@@ -42,7 +42,10 @@ let jFLocalClubSaleData = ({ inQrCodeData, inSaleData }) => {
         element.isSold = false;
 
         if (jVarLoopInsideFilter === undefined === false) {
+            console.log("jVarLoopInsideFilter : ", jVarLoopInsideFilter);
             element.isSold = true;
+            element.SoldDisRate = jVarLoopInsideFilter.DisRate;
+            element.SoldGrossAmout = jVarLoopInsideFilter.GrossAmout;
         };
 
         return element;

@@ -2,23 +2,15 @@ import { StartFunc as TableRowStartFunc } from "../../../FetchFuncs/HtmlPullQrCo
 import { StartFunc as TableHeadStartFunc } from "../../../FetchFuncs/HtmlPullQrCode/SameQrcodes/TableHead.js";
 
 let StartFunc = async ({ inData }) => {
-    let jVarLocalHtmlId = "InventorySerialId";
-    let jVarLocalInventorySerialId = document.getElementById(jVarLocalHtmlId);
-    let jVarLocalInventorySerial = jVarLocalInventorySerialId.innerHTML;
-
-    let jVarLocalFilteredData = inData.filter(element => {
-        return element.InventorySerial === jVarLocalInventorySerial;
-    });
-
     await ShowOnDomTableHeader();
-    await ShowOnDomTableBody({ inData: jVarLocalFilteredData });
-    ShowOnDomTableFoot({ inData: jVarLocalFilteredData });
+    await ShowOnDomTableBody({ inData });
+ //   ShowOnDomTableFoot({ inData: jVarLocalFilteredData });
 };
 
 // SameQrCodesTableFootCostPriceId
 
 let ShowOnDomTableBody = async ({ inData }) => {
-    let jVarLocalHtmlId = "SameQrCodesTableBodyId";
+    let jVarLocalHtmlId = "TableBodyId";
 
     let jVarLocalTableBodyId = document.getElementById(jVarLocalHtmlId);
     let jVarLocalTemplate = await TableRowStartFunc();
@@ -80,7 +72,7 @@ let ShowOnDomTableFootSaleValue = ({ inData }) => {
 };
 
 let ShowOnDomTableHeader = async () => {
-    let jVarLocalHtmlId = "SameQrCodesTableHeadId";
+    let jVarLocalHtmlId = "TableHeadId";
     let jVarLocalTableHeadId = document.getElementById(jVarLocalHtmlId);
 
     let jVarLocalHeadHtml = await TableHeadStartFunc();

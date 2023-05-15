@@ -1,3 +1,4 @@
+{{log "vvvvvvvvvvvv" this}}
 <tr data-qrcode="{{pk}}">
     <td class="text-center"> {{KSNo}} </td>
     <td class="text-center">{{InventorySerial}}</td>
@@ -7,11 +8,16 @@
     <td>{{PercentageValueAddition}}%</td>
     <td>{{SalePrice}}</td>
 
+    {{#if isSold}}
     <td class="text-lg">
-        {{#if isSold}}
         <span class="badge badge-danger">SOLD</span>
-        {{else}}
-<span class="badge badge-success">in Stock</span>
-{{/if}}
     </td>
+    <td class="text-lg">
+        {{SoldGrossAmout}}
+    </td>
+    {{else}}
+    <td class="text-lg">
+        <span class="badge badge-success">in Stock</span>
+    </td>
+    {{/if}}
 </tr>
