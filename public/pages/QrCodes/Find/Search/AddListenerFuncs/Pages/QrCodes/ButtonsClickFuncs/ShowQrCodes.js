@@ -23,7 +23,7 @@ let jVarLocalButtonClickFunc = async ({ inProjectName }) => {
         inProjectName,
         inValueToCheck: jVarLocalPurchasePk.innerHTML
     });
-    console.log("jVarSaleData : ", jVarSaleData);
+
     if (jVarFromStartFuncFromShowQrCode.KTF) {
         let jVarLocalClubbedData = jFLocalClubSaleData({
             inQrCodeData: jVarFromStartFuncFromShowQrCode.JsonData,
@@ -37,7 +37,14 @@ let jVarLocalButtonClickFunc = async ({ inProjectName }) => {
 
 let jFLocalClubSaleData = ({ inQrCodeData, inSaleData }) => {
     let jVarLocalReturnData = inQrCodeData.map(element => {
-        element.isSold = true;
+        let jVarLoopInsideFilter = inSaleData.find(LoopSales => LoopSales.pk === element.pk);
+
+        element.isSold = false;
+
+        if (jVarLoopInsideFilter === undefined === false) {
+            element.isSold = true;
+        };
+
         return element;
     });
 
