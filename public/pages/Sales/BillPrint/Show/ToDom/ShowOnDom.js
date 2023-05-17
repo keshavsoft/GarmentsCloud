@@ -20,8 +20,6 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         let localindataJson = jVarLocalData.JsonData
         ShowOnDom({ inData: localindataJson, inShowSuccess });
 
-        //await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
-
         await StartFuncInventoryGrid({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
     };
 };

@@ -39,7 +39,6 @@ let LocalInsertGstPercentage = ({ inInvData }) => {
         return element;
     });
 
-    console.log("inInvData : ", inInvData, jVarLocalMastersData);
     return jVarLocalNewArray;
 };
 

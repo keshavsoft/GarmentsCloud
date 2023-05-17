@@ -1,6 +1,7 @@
 const jfInsertToPreDiv = () => {
     let jVarLocalInventoryData = localStorage.getItem("InventoryData");
     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
+
     let localTotalAmountId = document.getElementById("TotalAmountId")
     let localTotalDiscountId = document.getElementById("TotalDiscountId")
     let localTotalNettAmountId = document.getElementById("TotalNettAmountId")
@@ -9,7 +10,6 @@ const jfInsertToPreDiv = () => {
     let k2 = document.getElementById("TemplateForGridHeader");
 
     k1.innerHTML += k2.innerHTML;
-    console.log("gggggggggggggg");
 
     jVarLocalInventoryDataAsJson.forEach(element => {
         let jVarLoopInsideItem = `M-${element.pk}/${element.ItemName}`;
@@ -30,8 +30,6 @@ const jfInsertToPreDiv = () => {
     k1.innerHTML += `                     Gross Amount    :   ${localTotalAmountId.innerHTML}\n`;
     k1.innerHTML += `                   Total Discount    :    ${localTotalDiscountId.innerHTML}\n`;
     k1.innerHTML += `                          Net Amt    :   ${localTotalNettAmountId.innerHTML}\n`;
-
-
 };
 
 export { jfInsertToPreDiv };
