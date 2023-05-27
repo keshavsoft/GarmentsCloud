@@ -12,7 +12,7 @@ let PreparePostData = () => {
     let jVarLocalRowPK = ReturnRowPK().RowPK;
 
     let jVarLocalReturnData = {};
-    jVarLocalReturnData.ItemName = jVarLocalItemNameId.value;
+    jVarLocalReturnData.ProductName = jVarLocalItemNameId.value;
 
     if (!(jVarLocalRateId === null)) {
         jVarLocalReturnData.UnitRate = parseInt(jVarLocalRateId.value);
