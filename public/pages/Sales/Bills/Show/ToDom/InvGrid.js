@@ -11,29 +11,12 @@ let ShowOnDomTableBody = async ({ inDataAsArray }) => {
     if (jVarLocalTemplate.KTF) {
         jVarLocalTableBodyId.innerHTML = "";
         var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
-        console.log("inDataAsArray ", inDataAsArray);
 
         inDataAsArray.forEach(element => {
             let jVarLocalToShowHtml = template(element);
 
             jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
         });
-
-        // Object.entries(inData).forEach(
-        //     ([key, value]) => {
-        //         value.pk = key;
-        //         value.FK = inData.pk;
-        //         value.SupplierName = inData.SupplierName;
-        //         value.BillNumber = inData.BillNumber;
-        //         value.Date = inData.Date;
-
-        //         let jVarLocalToShowHtml = template(value);
-
-        //         jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
-        //     }
-        // );
-
-
     };
 };
 
