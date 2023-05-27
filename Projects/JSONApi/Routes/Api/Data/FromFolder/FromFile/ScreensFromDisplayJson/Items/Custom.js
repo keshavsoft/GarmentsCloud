@@ -3,13 +3,14 @@ var router = express();
 let Repos = require('../../../../../../../Repository/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk')
 
 router.get('/PostFromPk/:inRowPk', (req, res) => {
-    console.log("-aaaaaaaaaaaaaa", req.params.inRowPk);
     // res.end("ssssssssssssssss");
     let LocalRowPk = req.params.inRowPk;
+    let LocalDataPk = req.KeshavSoft.DataPk;
 
     Repos.GetFunc({
         inClientName: "Maguva",
-        inPurchasePK: LocalRowPk
+        inPurchasePK: LocalRowPk,
+        inDataPk: LocalDataPk
     }).then(PromiseData => {
         res.json(PromiseData);
     });

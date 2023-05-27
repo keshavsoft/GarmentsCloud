@@ -47,12 +47,12 @@ let InsertFunc = async (req, res, next) => {
 };
 
 let InsertWithTimeStamp = async (req, res, next) => {
+    console.log("jatin");
     let LocalDataPk = req.KeshavSoft.DataPk;
     let LocalFolderName = req.body.FolderName;
     let LocalFileName = req.body.FileNameOnly;
     let LocalItemName = req.body.ItemName;
     let LocalScreenName = req.body.ScreenName;
-    let LocalJsonPK = req.body.JsonPk;
     let LocalDataToInsert = req.body.inPostData;
 
 
@@ -62,7 +62,6 @@ let InsertWithTimeStamp = async (req, res, next) => {
         inFileNameOnly: LocalFileName,
         inItemName: LocalItemName,
         inScreenName: LocalScreenName,
-        inJsonPk: LocalJsonPK,
         inDataToInsert: LocalDataToInsert
     });
     // console.log("PromiseData : ", PromiseData);

@@ -17,7 +17,6 @@ router.post("/", CommonMiddleWares.FromParams, (req, res) => {
         inPostData: LocalBody,
         inRowPK: LocalRowPK
     }).then(promiseData => {
-        console.log("promiseData",promiseData);
         res.end(JSON.stringify(promiseData))
     });
 
