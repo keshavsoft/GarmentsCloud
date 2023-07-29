@@ -11,3 +11,6 @@ for advanced developers :
 
 1.  code is in resources/Laundry folder
 
+2.  copy jsonuser from projects
+
+3.  copy JSONAdminApi
