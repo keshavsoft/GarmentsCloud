@@ -16,12 +16,13 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
 
     if (jVarLocalDataToShow.KTF) {
         let localdata = jVarLocalDataToShow.JsonData
+        console.log("localdata:",localdata);
 
         await FetchFuncsForMasters({ inProjectName });
 
-        let jVarLocalNewArray = LocalInsertGstPercentage({ inInvData: localdata });
+        // let jVarLocalNewArray = LocalInsertGstPercentage({ inInvData: localdata });
         
-        window.localStorage.setItem("InventoryData", JSON.stringify(jVarLocalNewArray));
+        window.localStorage.setItem("InventoryData", JSON.stringify(localdata));
 
         await InvGridStartFunc();
         await StartFuncTaxTable();
@@ -34,6 +35,7 @@ let LocalInsertGstPercentage = ({ inInvData }) => {
     let jVarLocalNewArray = inInvData.map(element => {
         //ItemName
         let jVarLoopInsideMastersFind = JSON.parse(jVarLocalMastersData).find(e => e.ItemName === element.ItemName);
+        console.log("jVarLoopInsideMastersFind:",jVarLoopInsideMastersFind);
 
         element.GST = jVarLoopInsideMastersFind.GST;
         return element;

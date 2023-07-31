@@ -1,6 +1,7 @@
 const jfInsertToPreDiv = () => {
     let jVarLocalInventoryData = localStorage.getItem("InventoryData");
     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
+    console.log("jVarLocalInventoryDataAsJson:",jVarLocalInventoryDataAsJson);
 
     let localTotalAmountId = document.getElementById("TotalAmountId")
     let localTotalDiscountId = document.getElementById("TotalDiscountId")
