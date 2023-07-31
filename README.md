@@ -14,3 +14,5 @@ for advanced developers :
 2.  copy jsonuser from projects
 
 3.  copy JSONAdminApi
+
+4.  copy DataSupply
