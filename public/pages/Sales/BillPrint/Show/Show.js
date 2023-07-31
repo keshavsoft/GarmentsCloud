@@ -15,9 +15,10 @@ let jFStartFunc = async () => {
         inUserKey: jVarLocalStorageKeyName,
         inKTokenKey: jVarCommonKToken
     });
-    
-    StartFuncButtonClickFuncs();
+
     await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+    StartFuncButtonClickFuncs();
+
 };
 
 
